@@ -46,8 +46,8 @@ p '_____________________________________________________________________________
 
 p "змінити місцями мінімальний і максимальний елементи масиву;"
 p array
-minInd, maxInd = array.index(array.min), array.index(array.max)
-array[minInd], array[maxInd] = array.max, array.min
+min_ind, max_ind = array.index(array.min), array.index(array.max)
+array[min_ind], array[max_ind] = array.max, array.min
 p "result 12 : "
 p array
 p '_________________________________________________________________________________________'
