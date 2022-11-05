@@ -3,4 +3,3 @@ class Integer
     self == 42
   end
 end
-
