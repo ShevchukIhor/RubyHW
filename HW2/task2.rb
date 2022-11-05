@@ -8,11 +8,11 @@ class Animal
 
   def initialize(name)
     @name = name
-    @mood = 50
+    @mood = 30
     @life = 3
-    @hungry_level = 50
+    @hungry_level = 30
     @sleep = false
-    @poop = 50
+    @poop = 10
   end
 
   def help
@@ -33,7 +33,7 @@ class Animal
   def feed
     p "Ви кормите #{@name}(а)."
     @mood += 5
-    @hungry_level += 5
+    @hungry_level += 25
     lifeTime
   end
 
@@ -60,12 +60,11 @@ class Animal
     @mood += 5
     @hungry_level -= 1
     lifeTime
-
+    p "і через деякий час повертаєтесь"
   end
-
   def poop
-    @poop -= 3
-    p "Прийшов час опорожнити кишечник і #{@name} потрібно відвести в відповідне місце"
+    @poop -= 40
+    p "Ви відвели #{@name} деб він зміг опорожнитися"
     p "Потрібно прибрати за #{@name}(м)."
     lifeTime
   end
@@ -76,7 +75,7 @@ class Animal
   end
 
   def clearPetSpot
-    p "прибираєте улюблене місце сну вашого #{@name}(а)"
+    p "прибираєте улюблене місце вашого #{@name}(а)"
     lifeTime
   end
 
@@ -99,116 +98,71 @@ class Animal
   end
 
   def wearPetBeforeWalk
-    @mood += 3
+    @mood += 1
     lifeTime
     p "Вдягаєте свого #{@name}(а) для прогулянки"
   end
 
   def status
-    p "Ви нічого не робите, просто спостерігаєе за своєю тваринкою"
+    p "Ви нічого не робите, просто спостерігаєте за своєю тваринкою"
     lifeTime
+    p @poop, @mood, @hungry_level
   end
 
   private
-  def hungry?
-    @hungry_level <= 5
+  def hungry_level?
+    if @hungry_level < 10
     p "потрібно негайно покормити тваринку інакше щось трапиться"
+    end
   end
 
   def poop?
-    @poop >= 10
+    if @poop >= 50
     p "#{@name} Потрібно відвести на горшок інакше він зробить щось погане!!!"
+    end
   end
 
   def play?
-    @mood <= 5
-    p "Потрібно погратися з Вашою тваринкою!!!"
     if @hungry_level < 10
       p "Спочатку потрібно покормити #{@name}"
-      #p "#{@name} після прогулянки зголоднів."
     elsif @mood < 8
       p "#{@name} не задоволений . Пограйтесь ще!"
     end
-
   end
 
   def lifeTime
-    if @hungry_level >= 1
+    @hungry_level -= 5
+    @mood -= 2
+    @poop += 2
+    if @hungry_level < 1
       @hungry_level -= 1
     elsif @hungry_level == 0
       p "#{@name} дуже зголодав! Доведений до крайності він з'їдає ВАС!!!"
       exit
     end
-    if @mood >= 1
+    if @mood < 1
       @mood -= 1
     elsif @mood == 0
       p "#{@name} від нудьги тікає від вас"
       exit
     end
-    if @poop >= 5
-      @mood -= 4
+    if @poop >= 55
+      @mood -= 10
       p "#{@name} Потрібно відвести на горшок інакше він зробить щось погане!!!"
     end
-    if @mood <= 3
+    if @mood < 3
       @mood = 0
       p "Отакої! #{@name} зробив щось погане..."
       p "Потрібно приділити увагу улюбленцю, покормити чи погуляти, щоб підняти настрій"
     end
-
-    if hungry?
-      if @sleep
-        @sleep = false
-        p "Несподівано прокидається!"
-      end
-      p "У шлунку #{@name}(а) гурчить..."
-
-      if @hungry_level == 50
-        p "#{@name} не голодний!"
-      else
-        @mood += 3
-        @hungry_level += 3
-        lifeTime
-      end
-    end
-
-    if poop?
-      if @sleep
-        @sleep = false
-        p "Він несподівано прокидається!"
-      end
-      if poop >= 10
-        p "#{@name}  стрибає бо хоче на горшок..."
-      end
-    end
-
   end
-
-
-
-
 end
 class Cat < Animal
-  @mood = 45
-  @life = 3
-  @hungry_level = 45
-  @sleep = false
-  @poop = 35
 end
 class Dog < Animal
-  @mood = 50
-  @life = 3
-  @hungry_level = 50
-  @sleep = false
-  @poop = 50
 end
 class Bird < Animal
-  @mood = 35
-  @life = 3
-  @hungry_level = 40
-  @sleep = false
-  @poop = 40
 end
-
 
 puts "Для початку гри напишіть слово start"
 input = gets.chomp
@@ -229,9 +183,9 @@ if input == "start"
   p "Напишіть команду help для виводу всіх доступних команд"
 end
 
+counter = 0
 loop do
 user_input = gets.to_s.downcase.chomp
-counter = 0
   if user_input == "help"
     pet.help
   elsif user_input == "feed"
