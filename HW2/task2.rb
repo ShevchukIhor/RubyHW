@@ -1,11 +1,5 @@
-
 class Animal
-  attr_accessor :mood
-  attr_accessor :life
-  attr_accessor :hungry_level
-  attr_accessor :sleep
-  attr_accessor :poop
-
+  attr_accessor :mood, :life, :hungry_level, :sleep, :poop
   def initialize(name)
     @name = name
     @mood = 30
@@ -13,7 +7,7 @@ class Animal
     @hungry_level = 30
     @sleep = false
     @poop = 10
-  end
+    end
 
   def help
     p	"feed -- нагодувати тваринку"
@@ -37,7 +31,7 @@ class Animal
     lifeTime
   end
 
-  def sleep
+  def aSleep
     p "Ви вкладаєте #{@name}(а) спати."
     @sleep = true
     3.times do
@@ -62,7 +56,7 @@ class Animal
     lifeTime
     p "і через деякий час повертаєтесь"
   end
-  def poop
+  def needPoop
     @poop -= 40
     p "Ви відвели #{@name} деб він зміг опорожнитися"
     p "Потрібно прибрати за #{@name}(м)."
