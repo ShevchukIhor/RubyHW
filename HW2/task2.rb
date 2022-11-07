@@ -1,5 +1,6 @@
 class Animal
   attr_accessor :mood, :life, :hungry_level, :sleep, :poop
+
   def initialize(name)
     @name = name
     @mood = 30
@@ -31,17 +32,21 @@ class Animal
     lifeTime
   end
 
-  def aSleep
+  def asleep
     p "Ви вкладаєте #{@name}(а) спати."
     @sleep = true
+
     3.times do
+
       if @sleep
         lifeTime
       end
+
       if @sleep
         p "#{@name} гучно сопе ..."
       end
     end
+
     if @sleep
       @sleep = false
       p "#{@name} повільно прокидається."
@@ -56,7 +61,8 @@ class Animal
     lifeTime
     p "і через деякий час повертаєтесь"
   end
-  def needPoop
+
+  def poop
     @poop -= 40
     p "Ви відвели #{@name} деб він зміг опорожнитися"
     p "Потрібно прибрати за #{@name}(м)."
@@ -100,10 +106,10 @@ class Animal
   def status
     p "Ви нічого не робите, просто спостерігаєте за своєю тваринкою"
     lifeTime
-    p @poop, @mood, @hungry_level
   end
 
   private
+
   def hungry_level?
     if @hungry_level < 10
     p "потрібно негайно покормити тваринку інакше щось трапиться"
@@ -128,33 +134,51 @@ class Animal
     @hungry_level -= 5
     @mood -= 2
     @poop += 2
+
     if @hungry_level < 1
       @hungry_level -= 1
     elsif @hungry_level == 0
       p "#{@name} дуже зголодав! Доведений до крайності він з'їдає ВАС!!!"
       exit
     end
+
     if @mood < 1
       @mood -= 1
     elsif @mood == 0
       p "#{@name} від нудьги тікає від вас"
       exit
     end
+
     if @poop >= 55
       @mood -= 10
       p "#{@name} Потрібно відвести на горшок інакше він зробить щось погане!!!"
     end
+
     if @mood < 3
       @mood = 0
       p "Отакої! #{@name} зробив щось погане..."
       p "Потрібно приділити увагу улюбленцю, покормити чи погуляти, щоб підняти настрій"
     end
+
   end
 end
+
 class Cat < Animal
+  @mood = 25
+  @life = 3
+  @hungry_level = 25
+  @sleep = false
+  @poop = 10
 end
+
 class Dog < Animal
+  @mood
+  @life
+  @hungry_level
+  @sleep
+  @poop
 end
+
 class Bird < Animal
 end
 
@@ -165,6 +189,7 @@ if input == "start"
   user_input_animal_type = gets.chomp.to_i
   p "Давайте дамо і'мя вашій тваринці"
   pet_name = gets.chomp
+
   if user_input_animal_type == 1
     pet = Cat.new(pet_name)
   elsif user_input_animal_type == 2
@@ -180,6 +205,7 @@ end
 counter = 0
 loop do
 user_input = gets.to_s.downcase.chomp
+
   if user_input == "help"
     pet.help
   elsif user_input == "feed"
@@ -205,11 +231,14 @@ user_input = gets.to_s.downcase.chomp
   elsif user_input == "status"
     pet.status
   else
+
     p "Введіть вірну команду або для довідки введіть help"
     counter += 1
+
     if counter > 3
       break
     end
+
   end
 end
 

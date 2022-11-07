@@ -3,6 +3,6 @@ p 'Дан целочисленный массив.'
 p array
 p 'Вывести индексы элементов,' 
 p 'которые меньше своего левого соседа, и количество таких чисел.'
-p 'result :' + (1...array.length).select { |e| array[e] < array[e-1] }.to_s 
-p 'result :' + (1...array.length).select { |e| array[e] < array[e-1] }.size.to_s 
+p "result : #{ (1...array.length).select { |e| array[e] < array[e-1] } }"
+p "result : #{ (1...array.length).select { |e| array[e] < array[e-1] }.size }"
 p '____________________________________________________________'
