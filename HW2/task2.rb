@@ -8,28 +8,29 @@ class Animal
     @hungry_level = 30
     @sleep = false
     @poop = 10
-    end
+  end
 
   def help
-    p	"feed -- нагодувати тваринку"
-    p "sleep -- вкласти спати"
-    p "play -- погратись"
-    p "poop -- відвести тваринку на горшок"
-    p "clean -- прибрати після того як тваринка сходила на горшок"
-    p "clearPetSpot -- прибрати місце відпочинку"
-    p "cleatPlateAfterFeed -- помити посуд після годування"
-    p "washedPet -- покупати тварину"
-    p "caressPet -- погладити тваринку"
-    p "wearPetBeforeWalk -- вдягти для вигулу"
-    p "status -- нічого не робитиб, спостерігати"
-    p "введіть обрану команду"
+    p 'start -- початкова команда для запуску програми'
+    p	'feed -- нагодувати тваринку'
+    p 'sleep -- вкласти спати'
+    p 'play -- погратись'
+    p 'poop -- відвести тваринку на горшок'
+    p 'clean -- прибрати після того як тваринка сходила на горшок'
+    p 'clear_pet_spot -- прибрати місце відпочинку'
+    p 'clear_plate_after_feed -- помити посуд після годування'
+    p 'washed_pet -- покупати тварину'
+    p 'caress_pet -- погладити тваринку'
+    p 'wear_pet_before_walk -- вдягти для вигулу'
+    p 'status -- нічого не робитиб, спостерігати'
+    p 'введіть обрану команду'
   end
 
   def feed
     p "Ви кормите #{@name}(а)."
     @mood += 5
     @hungry_level += 25
-    lifeTime
+    life_time
   end
 
   def asleep
@@ -39,18 +40,20 @@ class Animal
     3.times do
 
       if @sleep
-        lifeTime
+        life_time
       end
 
       if @sleep
         p "#{@name} гучно сопе ..."
       end
+
     end
 
     if @sleep
       @sleep = false
       p "#{@name} повільно прокидається."
     end
+
   end
 
   def play
@@ -58,79 +61,86 @@ class Animal
     @poop += 5
     @mood += 5
     @hungry_level -= 1
-    lifeTime
-    p "і через деякий час повертаєтесь"
+    life_time
+    p 'і через деякий час повертаєтесь'
   end
 
   def poop
     @poop -= 40
     p "Ви відвели #{@name} деб він зміг опорожнитися"
     p "Потрібно прибрати за #{@name}(м)."
-    lifeTime
+    life_time
   end
 
   def clean
     p "Ви прибираєте купу після того як #{@name} опорожнив свій кишечник"
-    lifeTime
+    life_time
   end
 
-  def clearPetSpot
+  def clear_pet_spot
     p "прибираєте улюблене місце вашого #{@name}(а)"
-    lifeTime
+    life_time
   end
 
-  def cleatPlateAfterFeed
+  def clear_plate_after_feed
     p "Необхідно помити посуд після годування #{@name}(а)"
-    lifeTime
+    life_time
   end
 
-  def washedPet
+  def washed_pet
     @mood += 5
-    lifeTime
-    p "Ви вирішили помити вашу тваринку"
+    life_time
+    p 'Ви вирішили помити вашу тваринку'
   end
 
-  def caressPet
+  def caress_pet
     @mood += 5
-    lifeTime
+    life_time
     p "Набувши стану спокою після важкого дня, до вас підходить #{@name}"
-    p " щоб дати заспокоїтись вам і отримати ласку до себе"
+    p ' щоб дати заспокоїтись вам і отримати ласку до себе'
   end
 
-  def wearPetBeforeWalk
+  def wear_pet_before_walk
     @mood += 1
-    lifeTime
+    life_time
     p "Вдягаєте свого #{@name}(а) для прогулянки"
   end
 
   def status
-    p "Ви нічого не робите, просто спостерігаєте за своєю тваринкою"
-    lifeTime
+    p 'Ви нічого не робите, просто спостерігаєте за своєю тваринкою'
+    life_time
   end
 
   private
 
   def hungry_level?
+
     if @hungry_level < 10
-    p "потрібно негайно покормити тваринку інакше щось трапиться"
+    p 'потрібно негайно покормити тваринку інакше щось трапиться'
     end
+
   end
 
   def poop?
+
     if @poop >= 50
     p "#{@name} Потрібно відвести на горшок інакше він зробить щось погане!!!"
     end
+
   end
 
   def play?
+
     if @hungry_level < 10
       p "Спочатку потрібно покормити #{@name}"
     elsif @mood < 8
       p "#{@name} не задоволений . Пограйтесь ще!"
+
     end
+
   end
 
-  def lifeTime
+  def life_time
     @hungry_level -= 5
     @mood -= 2
     @poop += 2
@@ -157,88 +167,93 @@ class Animal
     if @mood < 3
       @mood = 0
       p "Отакої! #{@name} зробив щось погане..."
-      p "Потрібно приділити увагу улюбленцю, покормити чи погуляти, щоб підняти настрій"
+      p 'Потрібно приділити увагу улюбленцю, покормити чи погуляти, щоб підняти настрій'
     end
 
   end
 end
 
 class Cat < Animal
-  @mood = 25
-  @life = 3
-  @hungry_level = 25
-  @sleep = false
-  @poop = 10
+  @mood, @life, @hungry_level, @poop = 25, 3, 25, 10
 end
 
 class Dog < Animal
-  @mood
-  @life
-  @hungry_level
-  @sleep
-  @poop
+  #default attributes
 end
 
 class Bird < Animal
+  @mood, @life, @hungry_level, @poop = 30, 3, 30, 10
 end
 
-puts "Для початку гри напишіть слово start"
-input = gets.chomp
-if input == "start"
-  p "Оберіть тваринку 1 Кіт, 2 Собака, 3 Пташка"
-  user_input_animal_type = gets.chomp.to_i
-  p "Давайте дамо і'мя вашій тваринці"
-  pet_name = gets.chomp
+p 'Для початку гри напишіть слово start'
 
-  if user_input_animal_type == 1
-    pet = Cat.new(pet_name)
-  elsif user_input_animal_type == 2
-    pet = Dog.new(pet_name)
+loop do
+  input = gets.chomp.strip
+
+  if input == 'start'
+    break
   else
-    pet = Bird.new(pet_name)
+    p 'Ви ввели не вірну команду, вірна команда start'
   end
 
-  p 'Вашу тваринку створено, давайте подивимось, що можна з ним робити'
-  p "Напишіть команду help для виводу всіх доступних команд"
 end
+
+  p 'Давайте дамо твариці ім\'я'
+  pet_name = gets.chomp.strip
+  p 'Оберіть тваринку 1 Кіт, 2 Собака, 3 Пташка'
+
+  case gets.chomp.to_i
+  when 1
+    pet = Cat.new(pet_name)
+  when 2
+    pet = Dog.new(pet_name)
+  when 3
+    pet = Bird.new(pet_name)
+  else
+    p 'Такої тваринки не має'
+  end
+
+p 'Вашу тваринку створено, давайте подивимось, що можна з ним робити'
+  p 'Напишіть команду help для виводу всіх доступних команд'
 
 counter = 0
 loop do
-user_input = gets.to_s.downcase.chomp
 
-  if user_input == "help"
-    pet.help
-  elsif user_input == "feed"
-    pet.feed
-  elsif user_input == "sleep"
-    pet.sleep
-  elsif user_input == "play"
-    pet.play
-  elsif user_input == "poop"
-    pet.poop
-  elsif user_input == "clean"
-    pet.clean
-  elsif user_input == "clearPetSpot"
-    pet.clearPetSpot
-  elsif user_input == "clearPlateAfterFeed"
-    pet.clearPlateAfterFeed
-  elsif user_input == "washedPet"
-    pet.washedPet
-  elsif user_input == "caressPet"
-    pet.caressPet
-  elsif user_input == "wearPetBeforeWalk"
-    pet.wearPetBeforeWalk
-  elsif user_input == "status"
-    pet.status
+  case gets.to_s.downcase.chomp.strip
+  when 'help'
+      pet.help
+  when 'feed'
+      pet.feed
+  when 'sleep'
+      pet.sleep
+  when 'play'
+      pet.play
+  when 'poop'
+      pet.poop
+  when 'clean'
+      pet.clean
+  when 'clear_pet_spot'
+      pet.clear_pet_spot
+  when 'clear_plate_after_feed'
+      pet.clear_plate_after_feed
+  when 'washed_pet'
+      pet.washed_pet
+  when 'caress_pet'
+      pet.caress_pet
+  when 'wear_pet_before_walk'
+      pet.wear_pet_before_walk
+  when 'status'
+      pet.status
   else
-
-    p "Введіть вірну команду або для довідки введіть help"
     counter += 1
-
-    if counter > 3
-      break
-    end
-
+      p 'Введіть вірну команду або для довідки введіть help'
   end
+
+  if counter > 3
+    break
+  end
+
 end
+
+
 
