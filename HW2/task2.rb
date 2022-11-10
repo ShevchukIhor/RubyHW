@@ -148,6 +148,10 @@ class Animal
   def status
     p 'Ви нічого не робите, просто спостерігаєте за своєю тваринкою'
     life_time
+    p "Настрій #{@mood}"
+    p "Рівень голоду #{@hungry_level}"
+    p "Наповненість кишечнику #{@poop}"
+    p "Життів #{@life}"
   end
 
   private
@@ -187,14 +191,6 @@ class Animal
       p 'У вас закінчилися життяю Ваша тваринка остаточно померла!'
       exit
     end
-
-    #test status
-    p "#{@name}"
-    p "mood #{@mood}"
-    p "life #{@life}"
-    p "hungry #{@hungry_level}"
-    p "sleep #{@sleep}"
-    p "poop #{@poop}"
 
   end
 end
