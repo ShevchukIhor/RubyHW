@@ -8,19 +8,15 @@ module ToHtml
     @to_body
   end
 
-  def read_rb_file(file_name, bypass_html: true)
+  def read_file(file_name)
 
-    if File.exist?("#{file_name}")
-    @to_body = File.read("#{file_name}")
-    @to_body = bypass_html ? Sanitize.fragment(@to_body) : @to_body
-    else
-      p 'File not found'
-    end
+    @to_body = file_name
 
   end
 
-  def insert_to_html(name = "index")
-    File.open("#{name}.html", "w") {|file| file.write(document)}
+  def insert_to_html(name = "index", bypass_html: true)
+    @to_body = File.open("#{name}.html", "w") {|file| file.write(document)}
+    @to_body = bypass_html ? Sanitize.fragment(@to_body) : @to_body
   end
 
   private
