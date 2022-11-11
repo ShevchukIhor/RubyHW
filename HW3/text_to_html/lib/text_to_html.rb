@@ -15,7 +15,7 @@ module ToHtml
   end
 
   def insert_to_html(name = "index", bypass_html: true)
-    @to_body = File.open("#{name}.html", "w") {|file| file.write(document)}
+    File.open("#{name}.html", "w") {|file| file.write(document)}
     @to_body = bypass_html ? Sanitize.fragment(@to_body) : @to_body
   end
 
