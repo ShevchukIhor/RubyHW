@@ -25,7 +25,7 @@ module ToHtml
 
   private
 
-  def document(bypass_html: true)
+  def document
     "<!DOCTYPE html>
 <html lang=\"en\">
   <head>
