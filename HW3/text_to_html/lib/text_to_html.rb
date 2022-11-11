@@ -35,7 +35,7 @@ module ToHtml
     <title></title>
   </head>
   <body>
-    <div>#{@to_body = bypass_html ? Sanitize.fragment(@to_body) : @to_body}</div>
+    <div>#{@to_body}</div>
   </body>
 </html>"
   end
