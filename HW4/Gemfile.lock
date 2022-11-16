@@ -38,6 +38,7 @@ DEPENDENCIES
   rack (~> 3.0)
   rackup (~> 0.2)
   rubocop
+  webrick
 
 RUBY VERSION
    ruby 3.1.2p20
