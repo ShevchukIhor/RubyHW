@@ -1,15 +1,5 @@
-class Pet
-  # render home page
-  def call(env)
-    Rack::Response.new( render_html("index.html.erb") )
-  end
-  # end of render home page
+require 'rack'
+require '../HW4/lib/time_to_pet'
 
-  # create html from template
-  def render_html(template)
-    path = File.expand_path("../veiws/#{template}", __FILE__)
-    ERB.new(File.read(path)).result(binding)
-  end
-  # end of create html file
-end
-
+use Rack::Reloader, 0
+run Rack::Cascade.new([Rack::File.new('public'), TimeToPet])
