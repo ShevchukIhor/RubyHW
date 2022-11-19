@@ -1,3 +1,4 @@
 .idea/
 .byebug_history
 /HW5/Articles/config/database.yml
+!/HW5/Rails API/
