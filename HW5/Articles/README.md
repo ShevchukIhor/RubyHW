@@ -1,12 +1,13 @@
 # README
 ### INSTALL DEPENDENCIES
-__bundle install__
-
+$ bundle install
+___
 ### CREATE DATABASE
-__$ rails db:create__
-
+$ rails db:create
+___
 ### RUN MIGRATION
-__$ rails db:migrate__
-
+$ rails db:migrate
+___
 ### RUS SERVER
-__$ rails s__
+$ rails s
+___
