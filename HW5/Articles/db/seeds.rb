@@ -5,6 +5,9 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
-articles = Article.create([ {title: "afafafs0", body: "some text test"},
-                                    {title: "hello", body: "world"},
-                                    {title:"the rails", body: "test"} ] )
+5.times do
+  Article.create({
+                   title: Faker::Book.title,
+                   body: Faker::Lorem.sentence
+                 })
+end
