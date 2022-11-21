@@ -12,14 +12,12 @@ class TimeToPet
   end
 
   def response
-    case path
+    case @path
     when '/'
       response_rack('index.html.erb')
       @name = request.params['name']
       @pet = Pet.new(@name)
-      rack_redirect if @name.nil? || @name.size.zero?
-      response_rack.redirect('about.html.erb')
-
+      #@name.nil? || @name.size.zero? ? rack_redirect : rack_redirect('about.html.erb')
       #render home page
       #get name for pet from form name request
       # if pet name have ho name or have null field name redirect
