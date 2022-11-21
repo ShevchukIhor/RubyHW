@@ -3,6 +3,6 @@ k = 35
 p "Дан целочисленный массив и число К : #{k}"
 p array
 p 'Вывести количество элементов, меньших К.'
-p "result : #{ array.select { |i| i < k } }"
-p "result : #{ array.select { |i| i < k }.size }"
+p "result : #{array.select { |element| element < k }}"
+p "result : #{array.select { |element| element < k }.size}"
 p '_____________________________________________________________'

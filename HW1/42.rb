@@ -1,6 +1,6 @@
-array = Array [100, 12, 10, 120, -1, -2, 0, 45, 120, 55, 68, 120, 70, 96, 2, 8]
+array = [100, 12, 10, 120, -1, -2, 0, 45, 120, 55, 68, 120, 70, 96, 2, 8]
 p 'Дан целочисленный массив:'
 p array
 p 'Необходимо вывести вначале его элементы с нечетными индексами, а затем - четными.'
-p 'result: ' + (0...array.size).partition{|e| e[0].zero?}.reverse.flatten.map{|e| array[e]}.to_s
+p "result: #{(0...array.size).partition { |element| element[0].zero? }.reverse.flatten.map { |element| array[element] }}"
 p '_____________________________________________________________'

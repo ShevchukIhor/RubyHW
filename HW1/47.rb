@@ -1,7 +1,7 @@
-array = Array [100, 12, 10, 120, 22, 0, -1, -100, 68, -12, -2, 0, 45, 120, 55, 68, 120, 12, 70, 96, -2, 8]
+array = [100, 12, 10, 120, 22, 0, -1, -100, 68, -12, -2, 0, 45, 120, 55, 68, 120, 12, 70, 96, -2, 8]
 p 'Дан целочисленный массив:'
 p array
 p 'Определить количество участков, на которых его элементы монотонно возрастают.'
-p 'result: ' + (1..array.size-2).select{ |i| (array[i-1] <= array[i]) && (array[i] <= array[i+1]) && (array[i+1] <= array[i+2])}.to_s
-p (1..array.size-2).select{ |i| (array[i-1] <= array[i]) && (array[i] <= array[i+1]) && (array[i+1] <= array[i+2])}.size
+p "result: #{(1..array.size - 2).select { |i| (array[i - 1] <= array[i]) && (array[i] <= array[i + 1]) && (array[i + 1] <= array[i + 2]) } }"
+p (1..array.size - 2).select { |i| (array[i - 1] <= array[i]) && (array[i] <= array[i + 1]) && (array[i + 1] <= array[i + 2]) }.size
 p '_____________________________________________________________'
