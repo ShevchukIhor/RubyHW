@@ -1,5 +1,3 @@
-require '../HW4/lib/time_to_pet'
-
 class Pet
 
   attr_accessor :name
@@ -50,7 +48,8 @@ class Pet
     @hungry -= 2
 
     if @mood < 5 && @hungry < 25
-
+      @mood -= 1
+      @hungry -= 1
     end
 
     if @mood.negative? || @hungry.negative?
