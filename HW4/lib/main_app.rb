@@ -1,7 +1,7 @@
 require 'erb'
 require_relative '../pet'
 
-class TimeToPet
+class MainApp
   attr_accessor :pet
   attr_reader :request, :path
 

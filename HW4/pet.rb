@@ -1,3 +1,4 @@
+require_relative './lib/main_app'
 class Pet
 
   attr_accessor :name
