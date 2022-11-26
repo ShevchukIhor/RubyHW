@@ -11,7 +11,6 @@ class TimeToPet
     response
   end
 
-  @return [Rack::Response, Pet]
   def response
     case path
     when '/'

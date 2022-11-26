@@ -1,9 +1,8 @@
-Gem
 source 'https://rubygems.org'
 
 ruby '3.1.2'
 gem 'byebug'
 gem 'rack', '~> 3.0'
-gem 'rubocop'
 gem 'rackup', '~> 0.2'
+gem 'rubocop'
 gem 'webrick'
