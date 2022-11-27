@@ -5,7 +5,6 @@ class Api::V1::CommentsController < ApplicationController
 
   def index
     @comment = Comment.all
-
     if @comment
       render json: @comment, status: :ok
     else
@@ -25,7 +24,6 @@ class Api::V1::CommentsController < ApplicationController
 
   def show
     set_comment
-
     if @comment
       render json: @comment, state: :ok
     else
