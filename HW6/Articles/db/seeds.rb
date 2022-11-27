@@ -5,9 +5,10 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
-5.times do
-  Article.create({
-                   title: Faker::Book.title,
-                   body: Faker::Lorem.sentence
-                 })
-end
+5.times { Article.create({ title: Faker::Book.title, body: Faker::Lorem.sentence }) }
+5.times { Author.create({ name: Faker::Name.name }) }
+Comment.create({ body: Faker::Books::CultureSeries.book, status: 1, author_id: 1, article_id: 1 })
+Comment.create({ body: Faker::Books::CultureSeries.book, status: 0, author_id: 2, article_id: 2 })
+Comment.create({ body: Faker::Books::CultureSeries.book, status: 1, author_id: 3, article_id: 3 })
+Comment.create({ body: Faker::Books::CultureSeries.book, status: 0, author_id: 2, article_id: 3 })
+Comment.create({ body: Faker::Books::CultureSeries.book, status: 1, author_id: 2, article_id: 4 })

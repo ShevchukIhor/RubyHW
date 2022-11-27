@@ -1,24 +1,13 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Things you may need to use :
 
-Things you may want to cover:
+* __bundle install__
+* use database.yml.example to creat db if needed
+* __rails db:create__ if need new db
 
-* Ruby version
+* __rails db:migrate__
 
-* System dependencies
+* __rails db:seed__ to insert some data to table
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* __rails s__ to start rails server
