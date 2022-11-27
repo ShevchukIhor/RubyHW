@@ -1,5 +1,7 @@
 class Api::V1::ArticlesController < ApplicationController
-
+  def set_article
+    @articles = Article.find(params[:id])
+  end
   def index
     @articles = Article.all
 
@@ -11,6 +13,7 @@ class Api::V1::ArticlesController < ApplicationController
   end
 
   def create
+    set_article
     @articles = Article.new(articles_params)
 
     if @articles.save
@@ -21,7 +24,7 @@ class Api::V1::ArticlesController < ApplicationController
   end
 
   def show
-
+    set_article
     if @articles
       render json: { data: @articles }, state: :ok
     else
@@ -30,7 +33,7 @@ class Api::V1::ArticlesController < ApplicationController
   end
 
   def destroy
-
+    set_article
     if @articles.destroy!
       render json: { message: 'Articles was deleted successfully' }, status: :ok
     else
@@ -39,8 +42,8 @@ class Api::V1::ArticlesController < ApplicationController
   end
 
   def update
-
-    if @articles.update!(articles_params)
+    set_article
+    if @articles.update(articles_params)
       render json: { message: 'Articles was updated successfully', data: @articles }, status: :ok
     else
       render json: { message: 'Articles cannot be updated' }, status: :unprocessable_entity

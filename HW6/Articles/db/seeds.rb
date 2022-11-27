@@ -10,8 +10,4 @@
                    title: Faker::Book.title,
                    body: Faker::Lorem.sentence
                  })
-  Author.create({
-                  name: Faker::Book.author,
-                  comment: Faker::Book.publisher
-                })
 end
