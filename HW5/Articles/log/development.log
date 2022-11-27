@@ -1,0 +1,700 @@
+  [1m[35m (164.6ms)[0m  [1m[35mCREATE DATABASE "Articles_development" ENCODING = 'unicode'[0m
+  [1m[35m (58.0ms)[0m  [1m[35mCREATE DATABASE "Articles_test" ENCODING = 'unicode'[0m
+  [1m[35m (19.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (11.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4345083879463091520)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateArticles (20221118215332)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (10.8ms)[0m  [1m[35mCREATE TABLE "articles" ("id" bigserial primary key, "title" character varying, "body" text, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221118215332"]]
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.8ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-11-18 22:14:06.415723"], ["updated_at", "2022-11-18 22:14:06.415723"]]
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(4345083879463091520)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2022-11-19 17:37:20 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/power/.rvm/gems/ruby-3.1.2/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/power/.rvm/gems/ruby-3.1.2/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb (Duration: 4.6ms | Allocations: 635)
+Completed 200 OK in 49ms (Views: 18.8ms | ActiveRecord: 0.0ms | Allocations: 4943)
+
+
+Started GET "/api/v1/articles" for 127.0.0.1 at 2022-11-19 17:37:44 +0200
+Processing by Api::V1::ArticlesController#index as HTML
+  [1m[36mArticle Load (2.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:6:in `index'
+Completed 200 OK in 9ms (Views: 3.3ms | ActiveRecord: 2.3ms | Allocations: 2007)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2022-11-19 17:37:45 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mArticle Create (1.6ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "afafafs0"], ["body", "some text test"], ["created_at", "2022-11-19 15:38:56.515192"], ["updated_at", "2022-11-19 15:38:56.515192"]]
+  [1m[36mTRANSACTION (3.2ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/api/v1/articles" for 127.0.0.1 at 2022-11-19 17:39:06 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::ArticlesController#index as HTML
+  [1m[36mArticle Load (0.8ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:6:in `index'
+Completed 200 OK in 38ms (Views: 15.9ms | ActiveRecord: 11.4ms | Allocations: 8570)
+
+
+Started GET "/api/v1/random.js.map" for 127.0.0.1 at 2022-11-19 17:39:22 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/random.js.map"):
+  
+Started GET "/api/v1/articles" for 127.0.0.1 at 2022-11-19 17:40:31 +0200
+Processing by Api::V1::ArticlesController#index as HTML
+  [1m[36mArticle Load (0.8ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:6:in `index'
+Completed 200 OK in 9ms (Views: 7.4ms | ActiveRecord: 0.8ms | Allocations: 1004)
+
+
+Started GET "/api/v1/random.js.map" for 127.0.0.1 at 2022-11-19 17:40:32 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/random.js.map"):
+  
+Started GET "/api/v1/articles" for 127.0.0.1 at 2022-11-19 17:43:41 +0200
+Processing by Api::V1::ArticlesController#index as HTML
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:6:in `index'
+Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.4ms | Allocations: 837)
+
+
+Started GET "/api/v1/random.js.map" for 127.0.0.1 at 2022-11-19 17:43:42 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/random.js.map"):
+  
+Started GET "/api/v1/articles" for 127.0.0.1 at 2022-11-19 18:01:57 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (2.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::ArticlesController#index as */*
+  [1m[36mArticle Load (1.7ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:6:in `index'
+Completed 200 OK in 61ms (Views: 25.4ms | ActiveRecord: 16.2ms | Allocations: 8571)
+
+
+Started POST "/api/v1/articles" for 127.0.0.1 at 2022-11-19 18:03:02 +0200
+Processing by Api::V1::ArticlesController#create as */*
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.0ms | Allocations: 234)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: articles):
+  
+app/controllers/api/v1/articles_controller.rb:26:in `articles_params'
+app/controllers/api/v1/articles_controller.rb:14:in `create'
+Started POST "/api/v1/articles" for 127.0.0.1 at 2022-11-19 18:04:22 +0200
+Processing by Api::V1::ArticlesController#create as */*
+Completed 400 Bad Request in 0ms (ActiveRecord: 0.0ms | Allocations: 129)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: articles):
+  
+app/controllers/api/v1/articles_controller.rb:26:in `articles_params'
+app/controllers/api/v1/articles_controller.rb:14:in `create'
+Started GET "/api/v1/articles" for 127.0.0.1 at 2022-11-19 18:04:30 +0200
+Processing by Api::V1::ArticlesController#index as */*
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:6:in `index'
+Completed 200 OK in 4ms (Views: 3.1ms | ActiveRecord: 0.4ms | Allocations: 902)
+
+
+Started POST "/api/v1/articles?1=aweaw" for 127.0.0.1 at 2022-11-19 18:06:03 +0200
+Processing by Api::V1::ArticlesController#create as */*
+  Parameters: {"1"=>"aweaw"}
+Completed 400 Bad Request in 0ms (ActiveRecord: 0.0ms | Allocations: 132)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: articles):
+  
+app/controllers/api/v1/articles_controller.rb:26:in `articles_params'
+app/controllers/api/v1/articles_controller.rb:14:in `create'
+Started GET "/api/v1/articles" for 127.0.0.1 at 2022-11-19 18:13:37 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::ArticlesController#index as */*
+  [1m[36mArticle Load (0.8ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:6:in `index'
+Completed 200 OK in 33ms (Views: 16.0ms | ActiveRecord: 5.9ms | Allocations: 8759)
+
+
+Started POST "/api/v1/articles" for 127.0.0.1 at 2022-11-19 18:15:09 +0200
+Processing by Api::V1::ArticlesController#create as */*
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.0ms | Allocations: 234)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: articles):
+  
+app/controllers/api/v1/articles_controller.rb:59:in `articles_params'
+app/controllers/api/v1/articles_controller.rb:14:in `create'
+Started GET "/api/v1/articles" for 127.0.0.1 at 2022-11-19 18:19:21 +0200
+Processing by Api::V1::ArticlesController#index as */*
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:6:in `index'
+Completed 200 OK in 4ms (Views: 3.3ms | ActiveRecord: 0.4ms | Allocations: 917)
+
+
+Started GET "/api/v1/articles/1" for 127.0.0.1 at 2022-11-19 18:19:31 +0200
+Processing by Api::V1::ArticlesController#show as */*
+  Parameters: {"id"=>"1"}
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms | Allocations: 1305)
+
+
+  
+NoMethodError (undefined method `find' for Articles:Module
+
+    articles = Articles.find(params[:id])
+                       ^^^^^):
+  
+app/controllers/api/v1/articles_controller.rb:25:in `show'
+Started GET "/api/v1/articles" for 127.0.0.1 at 2022-11-19 18:20:16 +0200
+Processing by Api::V1::ArticlesController#index as */*
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:6:in `index'
+Completed 200 OK in 3ms (Views: 2.8ms | ActiveRecord: 0.3ms | Allocations: 839)
+
+
+Started POST "/api/v1/articles" for 127.0.0.1 at 2022-11-19 18:23:06 +0200
+Error occurred while parsing request parameters.
+Contents:
+
+{
+    "title": "hello"
+    "body": "world"
+}
+Processing by Api::V1::ArticlesController#create as */*
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.0ms | Allocations: 122)
+
+
+  
+ActionDispatch::Http::Parameters::ParseError (Error occurred while parsing request parameters):
+  
+app/controllers/api/v1/articles_controller.rb:59:in `articles_params'
+app/controllers/api/v1/articles_controller.rb:14:in `create'
+Started GET "/api/v1/articles" for 127.0.0.1 at 2022-11-19 18:27:35 +0200
+Processing by Api::V1::ArticlesController#index as HTML
+  [1m[36mArticle Load (0.9ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:6:in `index'
+Completed 200 OK in 25ms (Views: 24.4ms | ActiveRecord: 10.6ms | Allocations: 3803)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2022-11-19 18:27:36 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/api/v1/articles" for 127.0.0.1 at 2022-11-19 18:30:48 +0200
+Error occurred while parsing request parameters.
+Contents:
+
+{
+    "title": "hello"
+    "body": "world"
+}
+Processing by Api::V1::ArticlesController#index as */*
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:6:in `index'
+Completed 200 OK in 5ms (Views: 3.8ms | ActiveRecord: 0.4ms | Allocations: 1015)
+
+
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mArticle Create (3.5ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "afafafs0"], ["body", "some text test"], ["created_at", "2022-11-19 16:34:37.292515"], ["updated_at", "2022-11-19 16:34:37.292515"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mArticle Create (0.3ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "hello"], ["body", "world"], ["created_at", "2022-11-19 16:34:37.302456"], ["updated_at", "2022-11-19 16:34:37.302456"]]
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mArticle Create (0.3ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "the rails"], ["body", "test"], ["created_at", "2022-11-19 16:34:37.308944"], ["updated_at", "2022-11-19 16:34:37.308944"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/api/v1/articles" for 127.0.0.1 at 2022-11-19 18:34:48 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Error occurred while parsing request parameters.
+Contents:
+
+{
+    "title": "hello"
+    "body": "world"
+}
+Processing by Api::V1::ArticlesController#index as */*
+  [1m[36mArticle Load (3.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:6:in `index'
+Completed 200 OK in 42ms (Views: 18.5ms | ActiveRecord: 8.8ms | Allocations: 8369)
+
+
+Started GET "/api/v1/articles" for 127.0.0.1 at 2022-11-19 18:35:08 +0200
+Processing by Api::V1::ArticlesController#index as HTML
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:6:in `index'
+Completed 200 OK in 7ms (Views: 5.7ms | ActiveRecord: 0.5ms | Allocations: 1213)
+
+
+Started GET "/api/v1/random.js.map" for 127.0.0.1 at 2022-11-19 18:35:16 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/random.js.map"):
+  
+Started GET "/" for 127.0.0.1 at 2022-11-19 22:55:59 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/power/.rvm/gems/ruby-3.1.2/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/power/.rvm/gems/ruby-3.1.2/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb (Duration: 5.6ms | Allocations: 527)
+Completed 200 OK in 29ms (Views: 12.5ms | ActiveRecord: 0.0ms | Allocations: 3606)
+
+
+Started GET "/api/v1/articles" for 127.0.0.1 at 2022-11-19 22:56:09 +0200
+Processing by Api::V1::ArticlesController#index as HTML
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:6:in `index'
+Completed 200 OK in 92ms (Views: 81.6ms | ActiveRecord: 7.4ms | Allocations: 6929)
+
+
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mArticle Create (0.7ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Let Us Now Praise Famous Men"], ["body", "Facere ratione ut cumque."], ["created_at", "2022-11-19 20:56:50.497987"], ["updated_at", "2022-11-19 20:56:50.497987"]]
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mArticle Create (0.4ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "The Millstone"], ["body", "Ratione dolor occaecati voluptatem."], ["created_at", "2022-11-19 20:56:50.506031"], ["updated_at", "2022-11-19 20:56:50.506031"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mArticle Create (0.4ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Consider Phlebas"], ["body", "Hic tempora est aliquid."], ["created_at", "2022-11-19 20:56:50.511565"], ["updated_at", "2022-11-19 20:56:50.511565"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mArticle Create (0.3ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "A Darkling Plain"], ["body", "Quo et voluptas ratione."], ["created_at", "2022-11-19 20:56:50.516872"], ["updated_at", "2022-11-19 20:56:50.516872"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mArticle Create (0.5ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Blue Remembered Earth"], ["body", "Ratione omnis suscipit ut."], ["created_at", "2022-11-19 20:56:50.522221"], ["updated_at", "2022-11-19 20:56:50.522221"]]
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/api/v1/articles" for 127.0.0.1 at 2022-11-19 22:57:00 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::ArticlesController#index as HTML
+  [1m[36mArticle Load (0.7ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:6:in `index'
+Completed 200 OK in 46ms (Views: 22.3ms | ActiveRecord: 10.3ms | Allocations: 9453)
+
+
+  [1m[35m (187.6ms)[0m  [1m[35mCREATE DATABASE "Articles" ENCODING = 'unicode'[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE DATABASE "Articles" ENCODING = 'unicode'[0m
+  [1m[35m (28.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (10.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2434653489903689670)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateArticles (20221118215332)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (11.1ms)[0m  [1m[35mCREATE TABLE "articles" ("id" bigserial primary key, "title" character varying, "body" text, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221118215332"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-11-19 21:04:39.912976"], ["updated_at", "2022-11-19 21:04:39.912976"]]
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(2434653489903689670)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mArticle Create (0.9ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Recalled to Life"], ["body", "Omnis nam rerum vero."], ["created_at", "2022-11-19 21:04:50.949191"], ["updated_at", "2022-11-19 21:04:50.949191"]]
+  [1m[36mTRANSACTION (5.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mArticle Create (0.4ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Time To Murder And Create"], ["body", "Qui dignissimos neque fuga."], ["created_at", "2022-11-19 21:04:50.960947"], ["updated_at", "2022-11-19 21:04:50.960947"]]
+  [1m[36mTRANSACTION (8.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mArticle Create (0.5ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "The World, the Flesh and the Devil"], ["body", "Est dicta vero est."], ["created_at", "2022-11-19 21:04:50.974157"], ["updated_at", "2022-11-19 21:04:50.974157"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mArticle Create (0.4ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Fear and Trembling"], ["body", "Illo libero quisquam velit."], ["created_at", "2022-11-19 21:04:50.981251"], ["updated_at", "2022-11-19 21:04:50.981251"]]
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mArticle Create (0.7ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Vile Bodies"], ["body", "Maxime qui reprehenderit et."], ["created_at", "2022-11-19 21:04:50.989136"], ["updated_at", "2022-11-19 21:04:50.989136"]]
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/api/v1/articles" for 127.0.0.1 at 2022-11-19 23:05:03 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::ArticlesController#index as HTML
+  [1m[36mArticle Load (0.6ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:6:in `index'
+Completed 200 OK in 28ms (Views: 13.5ms | ActiveRecord: 4.5ms | Allocations: 9093)
+
+
+Started GET "/api/v1/articles" for 127.0.0.1 at 2022-11-19 23:07:39 +0200
+Error occurred while parsing request parameters.
+Contents:
+
+{
+    "title": "hello"
+    "body": "world"
+}
+Processing by Api::V1::ArticlesController#index as */*
+  [1m[36mArticle Load (0.6ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:6:in `index'
+Completed 200 OK in 7ms (Views: 6.5ms | ActiveRecord: 0.6ms | Allocations: 1321)
+
+
+Started GET "/api/v1/articles/1" for 127.0.0.1 at 2022-11-19 23:07:54 +0200
+Error occurred while parsing request parameters.
+Contents:
+
+{
+    "title": "hello"
+    "body": "world"
+}
+Processing by Api::V1::ArticlesController#show as */*
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.0ms | Allocations: 149)
+
+
+  
+ActionDispatch::Http::Parameters::ParseError (Error occurred while parsing request parameters):
+  
+app/controllers/api/v1/articles_controller.rb:24:in `show'
+Started GET "/api/v1/articles" for 127.0.0.1 at 2022-11-19 23:15:28 +0200
+Processing by Api::V1::ArticlesController#index as HTML
+  [1m[36mArticle Load (0.9ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY created_at DESC[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:6:in `index'
+Completed 200 OK in 25ms (Views: 7.2ms | ActiveRecord: 7.6ms | Allocations: 6603)
+
+
+Started GET "/api/v1/articles/1" for 127.0.0.1 at 2022-11-19 23:15:34 +0200
+Error occurred while parsing request parameters.
+Contents:
+
+{
+    "title": "hello"
+    "body": "world"
+}
+Processing by Api::V1::ArticlesController#show as */*
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.0ms | Allocations: 146)
+
+
+  
+ActionDispatch::Http::Parameters::ParseError (Error occurred while parsing request parameters):
+  
+app/controllers/api/v1/articles_controller.rb:24:in `show'
+Started GET "/api/v1/articles" for 127.0.0.1 at 2022-11-19 23:15:43 +0200
+Error occurred while parsing request parameters.
+Contents:
+
+{
+    "title": "hello"
+    "body": "world"
+}
+Processing by Api::V1::ArticlesController#index as */*
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY created_at DESC[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:6:in `index'
+Completed 200 OK in 4ms (Views: 2.6ms | ActiveRecord: 0.4ms | Allocations: 1240)
+
+
+Started GET "/api/v1/articles/1" for 127.0.0.1 at 2022-11-19 23:15:57 +0200
+Error occurred while parsing request parameters.
+Contents:
+
+{
+    "title": "hello"
+    "body": "world"
+}
+Processing by Api::V1::ArticlesController#show as */*
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.0ms | Allocations: 113)
+
+
+  
+ActionDispatch::Http::Parameters::ParseError (Error occurred while parsing request parameters):
+  
+app/controllers/api/v1/articles_controller.rb:24:in `show'
+Started GET "/api/v1/articles/1" for 127.0.0.1 at 2022-11-19 23:18:08 +0200
+Error occurred while parsing request parameters.
+Contents:
+
+{
+    "title": "hello"
+    "body": "world"
+}
+Processing by Api::V1::ArticlesController#show as */*
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.0ms | Allocations: 197)
+
+
+  
+ActionDispatch::Http::Parameters::ParseError (Error occurred while parsing request parameters):
+  
+app/controllers/api/v1/articles_controller.rb:24:in `show'
+Started POST "/api/v1/articles" for 127.0.0.1 at 2022-11-19 23:22:20 +0200
+Processing by Api::V1::ArticlesController#create as */*
+  Parameters: {"title"=>"test article", "body"=>"same test body article", "article"=>{"title"=>"test article", "body"=>"same test body article"}}
+[31mUnpermitted parameter: :article. Context: { controller: Api::V1::ArticlesController, action: create, request: #<ActionDispatch::Request:0x00007f87f1b13278>, params: {"title"=>"test article", "body"=>"same test body article", "controller"=>"api/v1/articles", "action"=>"create", "article"=>{"title"=>"test article", "body"=>"same test body article"}} }[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:16:in `create'
+  [1m[36mArticle Create (0.7ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "test article"], ["body", "same test body article"], ["created_at", "2022-11-19 21:22:20.339196"], ["updated_at", "2022-11-19 21:22:20.339196"]]
+  ↳ app/controllers/api/v1/articles_controller.rb:16:in `create'
+  [1m[36mTRANSACTION (36.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:16:in `create'
+Completed 201 Created in 52ms (Views: 0.7ms | ActiveRecord: 44.5ms | Allocations: 4064)
+
+
+Started GET "/api/v1/articles/1" for 127.0.0.1 at 2022-11-19 23:22:30 +0200
+Error occurred while parsing request parameters.
+Contents:
+
+{
+    "title": "hello"
+    "body": "world"
+}
+Processing by Api::V1::ArticlesController#show as */*
+Completed 400 Bad Request in 0ms (ActiveRecord: 0.0ms | Allocations: 113)
+
+
+  
+ActionDispatch::Http::Parameters::ParseError (Error occurred while parsing request parameters):
+  
+app/controllers/api/v1/articles_controller.rb:24:in `show'
+Started GET "/api/v1/articles" for 127.0.0.1 at 2022-11-19 23:22:37 +0200
+Error occurred while parsing request parameters.
+Contents:
+
+{
+    "title": "hello"
+    "body": "world"
+}
+Processing by Api::V1::ArticlesController#index as */*
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY created_at DESC[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:6:in `index'
+Completed 200 OK in 5ms (Views: 4.1ms | ActiveRecord: 0.4ms | Allocations: 1487)
+
+
+Started GET "/api/v1/articles/1" for 127.0.0.1 at 2022-11-19 23:24:10 +0200
+Error occurred while parsing request parameters.
+Contents:
+
+{
+    "title": "hello"
+    "body": "world"
+}
+Processing by Api::V1::ArticlesController#show as */*
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.0ms | Allocations: 197)
+
+
+  
+ActionDispatch::Http::Parameters::ParseError (Error occurred while parsing request parameters):
+  
+app/controllers/api/v1/articles_controller.rb:24:in `show'
+Started GET "/api/v1/articles/1" for 127.0.0.1 at 2022-11-19 23:44:24 +0200
+Error occurred while parsing request parameters.
+Contents:
+
+{
+    "title": "hello"
+    "body": "world"
+}
+Processing by Api::V1::ArticlesController#show as */*
+Completed 400 Bad Request in 1ms (Allocations: 190)
+
+
+  
+ActionDispatch::Http::Parameters::ParseError (Error occurred while parsing request parameters):
+  
+app/controllers/api/v1/articles_controller.rb:25:in `show'
+Started GET "/api/v1/articles" for 127.0.0.1 at 2022-11-19 23:44:36 +0200
+Error occurred while parsing request parameters.
+Contents:
+
+{
+    "title": "hello"
+    "body": "world"
+}
+Processing by Api::V1::ArticlesController#index as */*
+  [1m[36mArticle Load (1.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY created_at DESC[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:6:in `index'
+Completed 200 OK in 85ms (Views: 7.4ms | ActiveRecord: 66.4ms | Allocations: 6320)
+
+
+Started GET "/api/v1/articles/1" for 127.0.0.1 at 2022-11-19 23:50:01 +0200
+Error occurred while parsing request parameters.
+Contents:
+
+{
+    "title": "hello"
+    "body": "world"
+}
+Processing by Api::V1::ArticlesController#show as */*
+Completed 400 Bad Request in 0ms (ActiveRecord: 0.0ms | Allocations: 113)
+
+
+  
+ActionDispatch::Http::Parameters::ParseError (Error occurred while parsing request parameters):
+  
+app/controllers/api/v1/articles_controller.rb:25:in `show'
+Started GET "/api/v1/article" for 127.0.0.1 at 2022-11-19 23:50:13 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/article"):
+  
+Error occurred while parsing request parameters.
+Contents:
+
+{
+    "title": "hello"
+    "body": "world"
+}
+Started GET "/api/v1/articles" for 127.0.0.1 at 2022-11-19 23:50:22 +0200
+Error occurred while parsing request parameters.
+Contents:
+
+{
+    "title": "hello"
+    "body": "world"
+}
+Processing by Api::V1::ArticlesController#index as */*
+  [1m[36mArticle Load (0.7ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY created_at DESC[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:6:in `index'
+Completed 200 OK in 19ms (Views: 3.0ms | ActiveRecord: 8.3ms | Allocations: 4136)
+
+
+Started GET "/api/v1/articles/1" for 127.0.0.1 at 2022-11-19 23:50:41 +0200
+Error occurred while parsing request parameters.
+Contents:
+
+{
+    "title": "hello"
+    "body": "world"
+}
+Processing by Api::V1::ArticlesController#show as */*
+Completed 400 Bad Request in 0ms (ActiveRecord: 0.0ms | Allocations: 113)
+
+
+  
+ActionDispatch::Http::Parameters::ParseError (Error occurred while parsing request parameters):
+  
+app/controllers/api/v1/articles_controller.rb:25:in `show'
+Started GET "/api/v1/articles/3" for 127.0.0.1 at 2022-11-19 23:50:46 +0200
+Error occurred while parsing request parameters.
+Contents:
+
+{
+    "title": "hello"
+    "body": "world"
+}
+Processing by Api::V1::ArticlesController#show as */*
+Completed 400 Bad Request in 0ms (ActiveRecord: 0.0ms | Allocations: 113)
+
+
+  
+ActionDispatch::Http::Parameters::ParseError (Error occurred while parsing request parameters):
+  
+app/controllers/api/v1/articles_controller.rb:25:in `show'
+Started GET "/api/v1/articles/3" for 127.0.0.1 at 2022-11-19 23:53:51 +0200
+Error occurred while parsing request parameters.
+Contents:
+
+{
+    "title": "hello"
+    "body": "world"
+}
+Processing by Api::V1::ArticlesController#show as */*
+Completed 400 Bad Request in 0ms (ActiveRecord: 0.0ms | Allocations: 113)
+
+
+  
+ActionDispatch::Http::Parameters::ParseError (Error occurred while parsing request parameters):
+  
+app/controllers/api/v1/articles_controller.rb:25:in `show'
+Started GET "/api/v1/articles/3" for 127.0.0.1 at 2022-11-19 23:54:44 +0200
+Processing by Api::V1::ArticlesController#show as */*
+  Parameters: {"title"=>"hello", "body"=>"world", "id"=>"3", "article"=>{"title"=>"hello", "body"=>"world"}}
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:25:in `show'
+Completed 200 OK in 12ms (Views: 0.6ms | ActiveRecord: 0.7ms | Allocations: 2352)
+
+
+Started GET "/api/v1/articles/4" for 127.0.0.1 at 2022-11-19 23:54:59 +0200
+Processing by Api::V1::ArticlesController#show as */*
+  Parameters: {"title"=>"hello", "body"=>"world", "id"=>"4", "article"=>{"title"=>"hello", "body"=>"world"}}
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:25:in `show'
+Completed 200 OK in 3ms (Views: 0.4ms | ActiveRecord: 0.3ms | Allocations: 667)
+
+
+Started GET "/api/v1/articles/6" for 127.0.0.1 at 2022-11-19 23:55:04 +0200
+Processing by Api::V1::ArticlesController#show as */*
+  Parameters: {"title"=>"hello", "body"=>"world", "id"=>"6", "article"=>{"title"=>"hello", "body"=>"world"}}
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:25:in `show'
+Completed 200 OK in 3ms (Views: 0.5ms | ActiveRecord: 0.3ms | Allocations: 653)
+
+
+Started DELETE "/api/v1/articles/6" for 127.0.0.1 at 2022-11-19 23:55:18 +0200
+Processing by Api::V1::ArticlesController#destroy as */*
+  Parameters: {"id"=>"6"}
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:36:in `destroy'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:38:in `destroy'
+  [1m[36mArticle Destroy (0.8ms)[0m  [1m[31mDELETE FROM "articles" WHERE "articles"."id" = $1[0m  [["id", 6]]
+  ↳ app/controllers/api/v1/articles_controller.rb:38:in `destroy'
+  [1m[36mTRANSACTION (7.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:38:in `destroy'
+Completed 200 OK in 18ms (Views: 0.3ms | ActiveRecord: 8.7ms | Allocations: 2138)
+
+
+Started GET "/api/v1/articles/6" for 127.0.0.1 at 2022-11-19 23:55:27 +0200
+Processing by Api::V1::ArticlesController#show as */*
+  Parameters: {"title"=>"hello", "body"=>"world", "id"=>"6", "article"=>{"title"=>"hello", "body"=>"world"}}
+  [1m[36mArticle Load (0.6ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:25:in `show'
+Completed 404 Not Found in 3ms (ActiveRecord: 0.6ms | Allocations: 574)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Article with 'id'=6):
+  
+app/controllers/api/v1/articles_controller.rb:25:in `show'
+Started GET "/api/v1/articles" for 127.0.0.1 at 2022-11-19 23:55:32 +0200
+Processing by Api::V1::ArticlesController#index as */*
+  Parameters: {"title"=>"hello", "body"=>"world", "article"=>{"title"=>"hello", "body"=>"world"}}
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY created_at DESC[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:6:in `index'
+Completed 200 OK in 7ms (Views: 3.8ms | ActiveRecord: 0.5ms | Allocations: 1231)
+
+
+Started GET "/api/v1/articles" for 127.0.0.1 at 2022-11-19 23:56:16 +0200
+Processing by Api::V1::ArticlesController#index as HTML
+  [1m[36mArticle Load (0.6ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY created_at DESC[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:6:in `index'
+Completed 200 OK in 5ms (Views: 2.9ms | ActiveRecord: 0.6ms | Allocations: 1209)
+
+
+Started GET "/" for 127.0.0.1 at 2022-11-22 22:21:46 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (2.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/power/.rvm/gems/ruby-3.1.2/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/power/.rvm/gems/ruby-3.1.2/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb (Duration: 2.6ms | Allocations: 527)
+Completed 200 OK in 22ms (Views: 8.9ms | ActiveRecord: 0.0ms | Allocations: 3606)
+
+
+Started GET "/api/v1/articles" for 127.0.0.1 at 2022-11-22 22:21:57 +0200
+Processing by Api::V1::ArticlesController#index as HTML
+  [1m[36mArticle Load (2.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY created_at DESC[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:6:in `index'
+Completed 200 OK in 35ms (Views: 16.3ms | ActiveRecord: 11.7ms | Allocations: 7074)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2022-11-22 22:21:58 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/api/v1/articles/1" for 127.0.0.1 at 2022-11-22 22:22:06 +0200
+Processing by Api::V1::ArticlesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:25:in `show'
+Completed 200 OK in 11ms (Views: 0.7ms | ActiveRecord: 0.8ms | Allocations: 1634)
+
+
+Started GET "/api/v1/articles/3" for 127.0.0.1 at 2022-11-22 22:22:13 +0200
+Processing by Api::V1::ArticlesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:25:in `show'
+Completed 200 OK in 4ms (Views: 0.6ms | ActiveRecord: 0.3ms | Allocations: 678)
+
+
