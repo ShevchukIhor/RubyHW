@@ -1,9 +1,8 @@
 class Api::V1::ArticlesController < ApplicationController
-  def set_article
-    @articles = Article.find_by id: params[:id]
-  end
+  before_action :set_article
   def index
     @articles = Article.all
+    @comment = Comment.all
     if @articles
       render json: @articles, status: :ok
     else
@@ -12,7 +11,6 @@ class Api::V1::ArticlesController < ApplicationController
   end
 
   def create
-    set_article
     @articles = Article.new(articles_params)
     if @articles.save
       render json: @articles, status: :created
@@ -22,7 +20,7 @@ class Api::V1::ArticlesController < ApplicationController
   end
 
   def show
-    set_article
+    @comment = Comment.find_by id: params[:id]
     if @articles
       render json: @articles, state: :ok
     else
@@ -31,7 +29,6 @@ class Api::V1::ArticlesController < ApplicationController
   end
 
   def destroy
-    set_article
     if @articles.destroy
       render json: @articles, status: :ok
     else
@@ -40,7 +37,6 @@ class Api::V1::ArticlesController < ApplicationController
   end
 
   def update
-    set_article
     if @articles.update(articles_params)
       render json: @articles, status: :ok
     else
@@ -52,5 +48,9 @@ class Api::V1::ArticlesController < ApplicationController
 
   def articles_params
     params.require (:articles).permit(:title, :body)
+  end
+
+  def set_article
+    @articles = Article.find params[:id]
   end
 end

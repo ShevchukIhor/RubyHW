@@ -1022,3 +1022,478 @@ Processing by Api::V1::CommentsController#show as HTML
 Completed 200 OK in 6ms (Views: 0.8ms | ActiveRecord: 0.7ms | Allocations: 872)
 
 
+Started GET "/api/v1/articles/1/comments/1" for 127.0.0.1 at 2022-11-28 12:56:57 +0200
+Processing by Api::V1::CommentsController#show as HTML
+  Parameters: {"article_id"=>"1", "id"=>"1"}
+  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:4:in `set_comment'
+Completed 200 OK in 45ms (Views: 0.5ms | ActiveRecord: 13.2ms | Allocations: 7695)
+
+
+Started GET "/api/v1/articles/1" for 127.0.0.1 at 2022-11-28 12:57:05 +0200
+Processing by Api::V1::ArticlesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mArticle Load (0.7ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:4:in `set_article'
+Completed 200 OK in 21ms (Views: 0.8ms | ActiveRecord: 7.2ms | Allocations: 3927)
+
+
+Started GET "/api/v1/articles/2" for 127.0.0.1 at 2022-11-28 12:57:07 +0200
+Processing by Api::V1::ArticlesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:4:in `set_article'
+Completed 200 OK in 4ms (Views: 0.6ms | ActiveRecord: 0.4ms | Allocations: 641)
+
+
+Started GET "/api/v1/articles/2" for 127.0.0.1 at 2022-11-28 13:16:00 +0200
+Processing by Api::V1::ArticlesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mArticle Load (1.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:4:in `set_article'
+Completed 500 Internal Server Error in 58ms (ActiveRecord: 23.6ms | Allocations: 9021)
+
+
+  
+NameError (undefined local variable or method `post' for #<Api::V1::ArticlesController:0x00000000040cb8>
+
+    @comment = post.comment
+               ^^^^):
+  
+app/controllers/api/v1/articles_controller.rb:25:in `show'
+Started GET "/api/v1/articles/2" for 127.0.0.1 at 2022-11-28 13:17:22 +0200
+Processing by Api::V1::ArticlesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:4:in `set_article'
+  [1m[36mComment Load (0.7ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:25:in `show'
+Completed 200 OK in 64ms (Views: 0.6ms | ActiveRecord: 37.0ms | Allocations: 8541)
+
+
+Started GET "/api/v1/articles/show" for 127.0.0.1 at 2022-11-28 13:17:35 +0200
+Processing by Api::V1::ArticlesController#show as HTML
+  Parameters: {"id"=>"show"}
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:4:in `set_article'
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:25:in `show'
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.8ms | Allocations: 1980)
+
+
+  
+NoMethodError (undefined method `errors' for nil:NilClass
+
+      render json: @articles.errors, status: :bad_request
+                            ^^^^^^^):
+  
+app/controllers/api/v1/articles_controller.rb:29:in `show'
+Started GET "/api/v1/articles/" for 127.0.0.1 at 2022-11-28 13:17:42 +0200
+Processing by Api::V1::ArticlesController#index as HTML
+  [1m[36mArticle Load (0.8ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:9:in `index'
+Completed 200 OK in 6ms (Views: 5.0ms | ActiveRecord: 0.8ms | Allocations: 1264)
+
+
+Started GET "/api/v1/articles/" for 127.0.0.1 at 2022-11-28 13:21:06 +0200
+Processing by Api::V1::ArticlesController#index as HTML
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:9:in `index'
+Completed 200 OK in 17ms (Views: 6.0ms | ActiveRecord: 4.5ms | Allocations: 4585)
+
+
+Started GET "/api/v1/articles/1" for 127.0.0.1 at 2022-11-28 13:21:15 +0200
+Processing by Api::V1::ArticlesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:4:in `set_article'
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 0.5ms | Allocations: 5137)
+
+
+  
+NoMethodError (undefined method `comments' for #<Article id: 1, title: "The Way of All Flesh", body: "Impedit ipsa iste adipisci.", created_at: "2022-11-27 21:38:38.157962000 +0000", updated_at: "2022-11-27 21:38:38.157962000 +0000">
+Did you mean?  comment
+               comment=):
+  
+app/controllers/api/v1/articles_controller.rb:26:in `show'
+Started GET "/api/v1/articles/1" for 127.0.0.1 at 2022-11-28 13:23:21 +0200
+Processing by Api::V1::ArticlesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mArticle Load (0.8ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:4:in `set_article'
+Completed 500 Internal Server Error in 32ms (ActiveRecord: 9.7ms | Allocations: 8220)
+
+
+  
+NoMethodError (undefined method `set_comment' for #<Article id: 1, title: "The Way of All Flesh", body: "Impedit ipsa iste adipisci.", created_at: "2022-11-27 21:38:38.157962000 +0000", updated_at: "2022-11-27 21:38:38.157962000 +0000">):
+  
+app/controllers/api/v1/articles_controller.rb:26:in `show'
+Started GET "/api/v1/articles/1" for 127.0.0.1 at 2022-11-28 13:24:03 +0200
+Processing by Api::V1::ArticlesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:4:in `set_article'
+Completed 500 Internal Server Error in 28ms (ActiveRecord: 5.6ms | Allocations: 8314)
+
+
+  
+NoMethodError (undefined method `Comment' for #<Article id: 1, title: "The Way of All Flesh", body: "Impedit ipsa iste adipisci.", created_at: "2022-11-27 21:38:38.157962000 +0000", updated_at: "2022-11-27 21:38:38.157962000 +0000">
+Did you mean?  comment
+               comment=):
+  
+app/controllers/api/v1/articles_controller.rb:26:in `show'
+Started GET "/api/v1/articles/1" for 127.0.0.1 at 2022-11-28 13:30:05 +0200
+Processing by Api::V1::ArticlesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:4:in `set_article'
+  [1m[36mComment Load (1.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:25:in `show'
+Completed 200 OK in 50ms (Views: 0.5ms | ActiveRecord: 16.3ms | Allocations: 11295)
+
+
+Started GET "/api/v1/articles/1/comments" for 127.0.0.1 at 2022-11-28 13:30:15 +0200
+Processing by Api::V1::CommentsController#index as HTML
+  Parameters: {"article_id"=>"1"}
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+  ↳ app/controllers/api/v1/comments_controller.rb:9:in `index'
+Completed 200 OK in 6ms (Views: 4.4ms | ActiveRecord: 0.3ms | Allocations: 1489)
+
+
+Started GET "/api/v1/articles/1/comments/1" for 127.0.0.1 at 2022-11-28 13:30:35 +0200
+Processing by Api::V1::CommentsController#show as HTML
+  Parameters: {"article_id"=>"1", "id"=>"1"}
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:4:in `set_comment'
+Completed 200 OK in 4ms (Views: 0.6ms | ActiveRecord: 0.5ms | Allocations: 694)
+
+
+Started GET "/api/v1/articles/comments/" for 127.0.0.1 at 2022-11-28 13:30:51 +0200
+Processing by Api::V1::ArticlesController#show as HTML
+  Parameters: {"id"=>"comments"}
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:4:in `set_article'
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:25:in `show'
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 1.0ms | Allocations: 1962)
+
+
+  
+NoMethodError (undefined method `errors' for nil:NilClass
+
+      render json: @articles.errors, status: :bad_request
+                            ^^^^^^^):
+  
+app/controllers/api/v1/articles_controller.rb:29:in `show'
+Started GET "/api/v1/articles/comments/" for 127.0.0.1 at 2022-11-28 13:31:36 +0200
+Processing by Api::V1::ArticlesController#show as HTML
+  Parameters: {"id"=>"comments"}
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:4:in `set_article'
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 1.4ms | Allocations: 3743)
+
+
+  
+NoMethodError (undefined method `errors' for nil:NilClass
+
+      render json: @articles.errors, status: :bad_request
+                            ^^^^^^^):
+  
+app/controllers/api/v1/articles_controller.rb:28:in `show'
+Started GET "/api/v1/articles/comments/" for 127.0.0.1 at 2022-11-28 13:32:03 +0200
+Processing by Api::V1::ArticlesController#show as HTML
+  Parameters: {"id"=>"comments"}
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:4:in `set_article'
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.5ms | Allocations: 1437)
+
+
+  
+NoMethodError (undefined method `errors' for nil:NilClass
+
+      render json: @articles.errors, status: :bad_request
+                            ^^^^^^^):
+  
+app/controllers/api/v1/articles_controller.rb:28:in `show'
+Started GET "/api/v1/articles/show/" for 127.0.0.1 at 2022-11-28 13:32:12 +0200
+Processing by Api::V1::ArticlesController#show as HTML
+  Parameters: {"id"=>"show"}
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:4:in `set_article'
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.3ms | Allocations: 1437)
+
+
+  
+NoMethodError (undefined method `errors' for nil:NilClass
+
+      render json: @articles.errors, status: :bad_request
+                            ^^^^^^^):
+  
+app/controllers/api/v1/articles_controller.rb:28:in `show'
+Started GET "/api/v1/articles/show" for 127.0.0.1 at 2022-11-28 13:32:30 +0200
+Processing by Api::V1::ArticlesController#show as HTML
+  Parameters: {"id"=>"show"}
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:4:in `set_article'
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.4ms | Allocations: 1437)
+
+
+  
+NoMethodError (undefined method `errors' for nil:NilClass
+
+      render json: @articles.errors, status: :bad_request
+                            ^^^^^^^):
+  
+app/controllers/api/v1/articles_controller.rb:28:in `show'
+Started GET "/api/v1/articles/" for 127.0.0.1 at 2022-11-28 13:32:31 +0200
+Processing by Api::V1::ArticlesController#index as HTML
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:9:in `index'
+Completed 200 OK in 19ms (Views: 11.5ms | ActiveRecord: 7.0ms | Allocations: 2562)
+
+
+Started GET "/api/v1/comments/" for 127.0.0.1 at 2022-11-28 13:32:43 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/comments"):
+  
+Started GET "/api/v1/comments" for 127.0.0.1 at 2022-11-28 13:32:49 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/comments"):
+  
+Started GET "/api/v1/articles/" for 127.0.0.1 at 2022-11-28 13:33:02 +0200
+Processing by Api::V1::ArticlesController#index as HTML
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:9:in `index'
+Completed 200 OK in 7ms (Views: 6.2ms | ActiveRecord: 0.5ms | Allocations: 1231)
+
+
+Started GET "/api/v1/articles/1" for 127.0.0.1 at 2022-11-28 13:33:19 +0200
+Processing by Api::V1::ArticlesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mArticle Load (0.6ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:4:in `set_article'
+Completed 200 OK in 4ms (Views: 0.6ms | ActiveRecord: 0.6ms | Allocations: 645)
+
+
+Started GET "/api/v1/articles/1/1" for 127.0.0.1 at 2022-11-28 13:34:14 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/articles/1/1"):
+  
+Started GET "/api/v1/articles/1/comments/1" for 127.0.0.1 at 2022-11-28 13:34:27 +0200
+Processing by Api::V1::CommentsController#show as HTML
+  Parameters: {"article_id"=>"1", "id"=>"1"}
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:4:in `set_comment'
+Completed 200 OK in 19ms (Views: 0.7ms | ActiveRecord: 3.6ms | Allocations: 4722)
+
+
+Started GET "/api/v1/articles" for 127.0.0.1 at 2022-11-28 13:44:50 +0200
+Processing by Api::V1::ArticlesController#index as HTML
+  [1m[36mArticle Load (0.7ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:9:in `index'
+Completed 200 OK in 27ms (Views: 21.8ms | ActiveRecord: 8.3ms | Allocations: 7396)
+
+
+Started GET "/api/v1/articles/comments" for 127.0.0.1 at 2022-11-28 13:44:58 +0200
+Processing by Api::V1::ArticlesController#show as HTML
+  Parameters: {"id"=>"comments"}
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:4:in `set_article'
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.8ms | Allocations: 1724)
+
+
+  
+NoMethodError (undefined method `errors' for nil:NilClass
+
+      render json: @articles.errors, status: :bad_request
+                            ^^^^^^^):
+  
+app/controllers/api/v1/articles_controller.rb:28:in `show'
+Started GET "/api/v1/articles/1" for 127.0.0.1 at 2022-11-28 13:45:09 +0200
+Processing by Api::V1::ArticlesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mArticle Load (0.6ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:4:in `set_article'
+Completed 200 OK in 4ms (Views: 0.7ms | ActiveRecord: 0.6ms | Allocations: 649)
+
+
+Started GET "/api/v1/articles/1/comments" for 127.0.0.1 at 2022-11-28 13:45:13 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/articles/1/comments"):
+  
+Started GET "/api/v1/articles/" for 127.0.0.1 at 2022-11-28 13:47:13 +0200
+  
+SyntaxError (/home/power/RubyHW/HW6/Articles/config/routes.rb:13: syntax error, unexpected `end', expecting end-of-input):
+  
+config/routes.rb:13: syntax error, unexpected `end', expecting end-of-input
+config/routes.rb:13: syntax error, unexpected `end', expecting end-of-input
+Started GET "/api/v1/comments" for 127.0.0.1 at 2022-11-28 13:47:20 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/comments"):
+  
+Started GET "/api/v1/articles/comments" for 127.0.0.1 at 2022-11-28 13:47:35 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/articles/comments"):
+  
+Started GET "/api/v1/articles/comments" for 127.0.0.1 at 2022-11-28 13:48:21 +0200
+Processing by Api::V1::ArticlesController#show as HTML
+  Parameters: {"id"=>"comments"}
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:4:in `set_article'
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 5.0ms | Allocations: 3800)
+
+
+  
+NoMethodError (undefined method `errors' for nil:NilClass
+
+      render json: @articles.errors, status: :bad_request
+                            ^^^^^^^):
+  
+app/controllers/api/v1/articles_controller.rb:28:in `show'
+Started GET "/api/v1/comments" for 127.0.0.1 at 2022-11-28 13:48:29 +0200
+Processing by Api::V1::CommentsController#index as HTML
+  [1m[36mComment Load (1.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+  ↳ app/controllers/api/v1/comments_controller.rb:9:in `index'
+Completed 200 OK in 31ms (Views: 12.7ms | ActiveRecord: 9.0ms | Allocations: 5160)
+
+
+Started GET "/api/v1/comments/1" for 127.0.0.1 at 2022-11-28 13:48:37 +0200
+Processing by Api::V1::CommentsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:4:in `set_comment'
+Completed 200 OK in 6ms (Views: 0.8ms | ActiveRecord: 0.3ms | Allocations: 882)
+
+
+Started GET "/api/v1/articles/1/comments" for 127.0.0.1 at 2022-11-28 13:48:52 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/articles/1/comments"):
+  
+Started GET "/api/v1/articles/1/comments/1" for 127.0.0.1 at 2022-11-28 13:49:00 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/articles/1/comments/1"):
+  
+Started GET "/api/v1/articles/1/1" for 127.0.0.1 at 2022-11-28 13:49:06 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/articles/1/1"):
+  
+Started GET "/api/v1/articles/1" for 127.0.0.1 at 2022-11-28 13:49:10 +0200
+Processing by Api::V1::ArticlesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mArticle Load (1.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:4:in `set_article'
+Completed 200 OK in 16ms (Views: 0.8ms | ActiveRecord: 4.8ms | Allocations: 1773)
+
+
+Started GET "/api/v1/articles/" for 127.0.0.1 at 2022-11-28 13:54:06 +0200
+Processing by Api::V1::ArticlesController#index as HTML
+  [1m[36mArticle Load (1.7ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:9:in `index'
+Completed 200 OK in 20ms (Views: 7.6ms | ActiveRecord: 5.8ms | Allocations: 4606)
+
+
+Started GET "/api/v1/articles/" for 127.0.0.1 at 2022-11-28 13:55:37 +0200
+Processing by Api::V1::ArticlesController#index as HTML
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:10:in `index'
+Completed 200 OK in 27ms (Views: 9.3ms | ActiveRecord: 7.1ms | Allocations: 6154)
+
+
+Started GET "/api/v1/articles/" for 127.0.0.1 at 2022-11-28 13:55:41 +0200
+Processing by Api::V1::ArticlesController#index as HTML
+  [1m[36mArticle Load (0.6ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:10:in `index'
+Completed 200 OK in 6ms (Views: 4.7ms | ActiveRecord: 0.6ms | Allocations: 1258)
+
+
+Started GET "/api/v1/articles/1" for 127.0.0.1 at 2022-11-28 13:55:59 +0200
+Processing by Api::V1::ArticlesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mArticle Load (0.6ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:4:in `set_article'
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:26:in `show'
+Completed 200 OK in 19ms (Views: 0.5ms | ActiveRecord: 4.9ms | Allocations: 3332)
+
+
+Started GET "/api/v1/articles/1" for 127.0.0.1 at 2022-11-28 13:58:43 +0200
+Processing by Api::V1::ArticlesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:4:in `set_article'
+  [1m[36mComment Load (0.9ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:26:in `show'
+Completed 200 OK in 10ms (Views: 0.9ms | ActiveRecord: 1.4ms | Allocations: 1113)
+
+
+Started GET "/api/v1/articles/1" for 127.0.0.1 at 2022-11-28 15:19:00 +0200
+Processing by Api::V1::ArticlesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mArticle Load (2.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:4:in `set_article'
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:26:in `show'
+Completed 200 OK in 63ms (Views: 0.5ms | ActiveRecord: 23.6ms | Allocations: 10982)
+
+
+Started GET "/api/v1/articles/1/comments" for 127.0.0.1 at 2022-11-28 15:19:12 +0200
+Processing by Api::V1::CommentsController#index as HTML
+  Parameters: {"article_id"=>"1"}
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+  ↳ app/controllers/api/v1/comments_controller.rb:9:in `index'
+Completed 200 OK in 8ms (Views: 6.4ms | ActiveRecord: 0.5ms | Allocations: 1489)
+
+
+Started GET "/api/v1/articles/1/comments/1" for 127.0.0.1 at 2022-11-28 15:20:03 +0200
+Processing by Api::V1::CommentsController#show as HTML
+  Parameters: {"article_id"=>"1", "id"=>"1"}
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:4:in `set_comment'
+Completed 200 OK in 3ms (Views: 0.4ms | ActiveRecord: 0.4ms | Allocations: 694)
+
+
+Started GET "/api/v1/articles/1/comments/2" for 127.0.0.1 at 2022-11-28 15:20:12 +0200
+Processing by Api::V1::CommentsController#show as HTML
+  Parameters: {"article_id"=>"1", "id"=>"2"}
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:4:in `set_comment'
+Completed 200 OK in 4ms (Views: 0.4ms | ActiveRecord: 0.4ms | Allocations: 653)
+
+
+Started GET "/api/v1/articles/1/comments/2" for 127.0.0.1 at 2022-11-28 15:21:53 +0200
+Processing by Api::V1::CommentsController#show as HTML
+  Parameters: {"article_id"=>"1", "id"=>"2"}
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:4:in `set_comment'
+Completed 200 OK in 24ms (Views: 0.8ms | ActiveRecord: 7.3ms | Allocations: 4988)
+
+
+Started GET "/api/v1/articles/1" for 127.0.0.1 at 2022-11-28 15:22:01 +0200
+Processing by Api::V1::ArticlesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:4:in `set_article'
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:26:in `show'
+Completed 200 OK in 24ms (Views: 0.6ms | ActiveRecord: 5.6ms | Allocations: 4354)
+
+
+Started GET "/api/v1/articles/1/comments" for 127.0.0.1 at 2022-11-28 15:22:07 +0200
+Processing by Api::V1::CommentsController#index as HTML
+  Parameters: {"article_id"=>"1"}
+  [1m[36mComment Load (0.7ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+  ↳ app/controllers/api/v1/comments_controller.rb:9:in `index'
+Completed 200 OK in 6ms (Views: 5.0ms | ActiveRecord: 0.7ms | Allocations: 1214)
+
+
+Started GET "/api/v1/articles/1" for 127.0.0.1 at 2022-11-28 15:27:30 +0200
+Processing by Api::V1::ArticlesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:4:in `set_article'
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:26:in `show'
+Completed 200 OK in 36ms (Views: 0.8ms | ActiveRecord: 8.6ms | Allocations: 8439)
+
+
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
