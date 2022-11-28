@@ -1,11 +1,11 @@
 class Api::V1::ArticlesController < ApplicationController
   def set_article
-    @articles = Article.find(params[:id])
+    @articles = Article.find_by id: params[:id]
   end
   def index
     @articles = Article.all
     if @articles
-      render json:  @articles, status: :ok
+      render json: @articles, status: :ok
     else
       render json: @articles.errors, status: :bad_request
     end
@@ -32,7 +32,7 @@ class Api::V1::ArticlesController < ApplicationController
 
   def destroy
     set_article
-    if @articles.destroy!
+    if @articles.destroy
       render json: @articles, status: :ok
     else
       render json: @articles.errors, status: :bad_request
@@ -51,6 +51,6 @@ class Api::V1::ArticlesController < ApplicationController
   private
 
   def articles_params
-    params.permit(:title, :body)
+    params.require (:articles).permit(:title, :body)
   end
 end

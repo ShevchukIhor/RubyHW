@@ -1,8 +1,4 @@
 class Api::V1::CommentsController < ApplicationController
-  def set_comment
-    @comment = Comment.find(params[:id])
-  end
-
   def index
     @comment = Comment.all
     if @comment
@@ -12,9 +8,12 @@ class Api::V1::CommentsController < ApplicationController
     end
   end
 
+  def new
+    @comment = Comment.new
+  end
+
   def create
-    set_comment
-    @comment = Article.new(comment_params)
+    @comment = Comment.new(comment_params)
     if @comment.save
       render json: @comment, status: :created
     else
@@ -23,7 +22,7 @@ class Api::V1::CommentsController < ApplicationController
   end
 
   def show
-    set_comment
+    @comment = Comment.find_by id: params[:id]
     if @comment
       render json: @comment, state: :ok
     else
@@ -32,7 +31,7 @@ class Api::V1::CommentsController < ApplicationController
   end
 
   def destroy
-    set_comment
+    @comment = Comment.find_by id: params[:id]
     if @comment.destroy
       render json: @comment, status: :ok
     else
@@ -40,8 +39,12 @@ class Api::V1::CommentsController < ApplicationController
     end
   end
 
+  def edit
+      @comment = Comment.find_by id: params[:id]
+  end
+
   def update
-    set_comment
+    @comment = Comment.find_by id: params[:id]
     if @comment.update(comment_params)
       render json: @comment, status: :ok
     else
@@ -52,7 +55,7 @@ class Api::V1::CommentsController < ApplicationController
   private
 
   def comment_params
-    params.permit(:body, :status)
+    params.require (:comment).permit(:body, :status)
   end
 end
 
