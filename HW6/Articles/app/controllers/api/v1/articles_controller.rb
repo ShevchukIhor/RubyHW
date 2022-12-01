@@ -2,7 +2,6 @@ class Api::V1::ArticlesController < ApplicationController
   before_action :set_article
   def index
     @articles = Article.all
-    @comment = Comment.all
     if @articles
       render json: @articles, status: :ok
     else
@@ -20,9 +19,10 @@ class Api::V1::ArticlesController < ApplicationController
   end
 
   def show
-    @comment = Comment.find_by id: params[:id]
+    @comment = Comment.find id: params[:id].published
     if @articles
       render json: @articles, state: :ok
+      render json: @comment
     else
       render json: @articles.errors, status: :bad_request
     end
