@@ -2,8 +2,7 @@ class Api::V1::CommentsController < ApplicationController
   before_action :set_comment, only: %i[show edit update destroy]
 
   def index
-    #@comment = Comment.all
-    @comment = Comment.find params[:article_id]
+    @comment = Comment.all
     if @comment
       render json: @comment, status: :ok
     else

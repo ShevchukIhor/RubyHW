@@ -4834,3 +4834,98 @@ Completed 404 Not Found in 16ms (ActiveRecord: 4.0ms | Allocations: 2105)
 ActiveRecord::RecordNotFound (Couldn't find Comment without an ID):
   
 app/controllers/api/v1/comments_controller.rb:6:in `index'
+Started GET "/" for 127.0.0.1 at 2022-12-03 20:28:37 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/power/.rvm/gems/ruby-3.1.2/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/power/.rvm/gems/ruby-3.1.2/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb (Duration: 10.8ms | Allocations: 528)
+Completed 200 OK in 60ms (Views: 27.6ms | ActiveRecord: 0.0ms | Allocations: 3606)
+
+
+Started GET "/api/v1/articles" for 127.0.0.1 at 2022-12-03 20:28:46 +0200
+Processing by Api::V1::ArticlesController#index as HTML
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:8:in `index'
+Completed 200 OK in 76ms (Views: 22.3ms | ActiveRecord: 6.3ms | Allocations: 8346)
+
+
+Started GET "/api/v1/articles/1" for 127.0.0.1 at 2022-12-03 20:28:50 +0200
+Processing by Api::V1::ArticlesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:58:in `set_article'
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1[0m  [["article_id", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:26:in `show'
+Completed 200 OK in 51ms (Views: 22.6ms | ActiveRecord: 5.1ms | Allocations: 9735)
+
+
+Started GET "/api/v1/articles/2" for 127.0.0.1 at 2022-12-03 20:29:02 +0200
+Processing by Api::V1::ArticlesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:58:in `set_article'
+  [1m[36mComment Load (0.7ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1[0m  [["article_id", 2]]
+  ↳ app/controllers/api/v1/articles_controller.rb:26:in `show'
+Completed 200 OK in 16ms (Views: 6.2ms | ActiveRecord: 1.2ms | Allocations: 1758)
+
+
+Started GET "/api/v1/articles/3" for 127.0.0.1 at 2022-12-03 20:29:09 +0200
+Processing by Api::V1::ArticlesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mArticle Load (0.8ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:58:in `set_article'
+  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1[0m  [["article_id", 3]]
+  ↳ app/controllers/api/v1/articles_controller.rb:26:in `show'
+Completed 200 OK in 10ms (Views: 5.5ms | ActiveRecord: 1.4ms | Allocations: 1786)
+
+
+Started GET "/api/v1/articles/comments" for 127.0.0.1 at 2022-12-03 20:29:20 +0200
+Processing by Api::V1::ArticlesController#show as HTML
+  Parameters: {"id"=>"comments"}
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:58:in `set_article'
+Completed 404 Not Found in 3ms (ActiveRecord: 0.4ms | Allocations: 583)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Article with 'id'=comments):
+  
+app/controllers/api/v1/articles_controller.rb:58:in `set_article'
+Started GET "/api/v1/articles/3" for 127.0.0.1 at 2022-12-03 20:29:29 +0200
+Processing by Api::V1::ArticlesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:58:in `set_article'
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1[0m  [["article_id", 3]]
+  ↳ app/controllers/api/v1/articles_controller.rb:26:in `show'
+Completed 200 OK in 13ms (Views: 5.0ms | ActiveRecord: 1.0ms | Allocations: 1997)
+
+
+Started GET "/api/v1/articles/3/comments" for 127.0.0.1 at 2022-12-03 20:29:31 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/articles/3/comments"):
+  
+Started GET "/api/v1/articles/3/comments/1" for 127.0.0.1 at 2022-12-03 20:29:54 +0200
+Processing by Api::V1::CommentsController#show as HTML
+  Parameters: {"article_id"=>"3", "id"=>"1"}
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:61:in `set_comment'
+Completed 200 OK in 4ms (Views: 0.6ms | ActiveRecord: 0.3ms | Allocations: 1121)
+
+
+Started GET "/api/v1/articles/3/comments/1" for 127.0.0.1 at 2022-12-03 20:30:23 +0200
+Processing by Api::V1::CommentsController#show as HTML
+  Parameters: {"article_id"=>"3", "id"=>"1"}
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:60:in `set_comment'
+Completed 200 OK in 26ms (Views: 0.7ms | ActiveRecord: 6.3ms | Allocations: 4847)
+
+
+Started GET "/api/v1/articles/3/comments/3" for 127.0.0.1 at 2022-12-03 20:30:38 +0200
+Processing by Api::V1::CommentsController#show as HTML
+  Parameters: {"article_id"=>"3", "id"=>"3"}
+  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:60:in `set_comment'
+Completed 200 OK in 6ms (Views: 0.9ms | ActiveRecord: 0.6ms | Allocations: 668)
+
+
