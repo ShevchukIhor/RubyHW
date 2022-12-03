@@ -1,5 +1,5 @@
 class Api::V1::AuthorsController < ApplicationController
-  before_action :set_author
+  before_action :set_author, only: %i[show edit update destroy]
 
   def index
     @author = Author.all

@@ -1,46 +1,50 @@
 class Api::V1::ArticlesController < ApplicationController
-  before_action :set_article
+  before_action :set_article, only: %i[show edit update destroy]
+
   def index
-    @articles = Article.all
-    if @articles
-      render json: @articles, status: :ok
+    @article = Article.all
+    #@comment = Comment.find params[:article_id]
+    if @article
+      render json: @article, status: :ok
     else
-      render json: @articles.errors, status: :bad_request
+      render json: @article.errors, status: :bad_request
     end
   end
 
   def create
-    @articles = Article.new(articles_params)
-    if @articles.save
-      render json: @articles, status: :created
+    @article = Article.new(article_params)
+    if @article.save
+      render json: @article, status: :created
     else
-      render json: @articles.errors, status: :unprocessable_entity
+      render json: @article.errors, status: :unprocessable_entity
     end
   end
 
+  #articles/id/
   def show
-    @comment = Comment.find id: params[:id].published
-    if @articles
-      render json: @articles, state: :ok
-      render json: @comment
+    if @article
+      render json: { articles: @article, comments: @article.comment }
     else
-      render json: @articles.errors, status: :bad_request
+      render json: @article.errors, status: :bad_request
     end
   end
 
   def destroy
-    if @articles.destroy
-      render json: @articles, status: :ok
+    if @article.destroy
+      render json: @article, status: :ok
     else
-      render json: @articles.errors, status: :bad_request
+      render json: @article.errors, status: :bad_request
     end
   end
 
+  def edit
+  end
+
   def update
-    if @articles.update(articles_params)
-      render json: @articles, status: :ok
+    if @article.update(article_params)
+      render json: @article, status: :ok
     else
-      render json: @articles.errors, status: :unprocessable_entity
+      render json: @article.errors, status: :unprocessable_entity
     end
   end
 
@@ -51,6 +55,6 @@ class Api::V1::ArticlesController < ApplicationController
   end
 
   def set_article
-    @articles = Article.find params[:id]
+    @article = Article.find params[:id]
   end
 end
