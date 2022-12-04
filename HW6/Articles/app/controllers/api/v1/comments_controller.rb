@@ -1,8 +1,8 @@
 class Api::V1::CommentsController < ApplicationController
-  before_action :set_comment, only: %i[show edit update destroy]
+  before_action :set_comment, only: %i[show create edit update destroy]
 
   def index
-    @comment = Comment.all
+    @comment = Article.find(params[:article_id]).comments
     if @comment
       render json: @comment, status: :ok
     else
@@ -48,6 +48,16 @@ class Api::V1::CommentsController < ApplicationController
     else
       render json: @comment.errors, status: :unprocessable_entity
     end
+  end
+
+  def published
+    @comment = Article.find(params[:article_id]).comments.published
+    render json: @comments
+  end
+
+  def unpublished
+    @comment = Article.find(params[:article_id]).comments.unpublished
+    render json: @comment
   end
 
   private

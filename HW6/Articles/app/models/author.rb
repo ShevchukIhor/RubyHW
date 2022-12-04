@@ -1,6 +1,6 @@
 class Author < ApplicationRecord
-  has_many :article, dependent: :destroy
-  has_many :comment, dependent: :destroy
+  has_many :articles, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
   validates :name, presence: true
 end
