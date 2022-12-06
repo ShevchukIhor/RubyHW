@@ -27,5 +27,5 @@
 /config/database.yml
 master.key
 database.yml
-!/HW7/Articles/config/database.yml
-!/HW7/Articles/config/master.key
+/HW7/Articles/config/database.yml
+/HW7/Articles/config/master.key
