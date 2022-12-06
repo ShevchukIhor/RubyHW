@@ -1,5 +1,5 @@
 class Api::V1::ArticlesController < ApplicationController
-  before_action :set_article, only: %i[show create edit update destroy]
+  before_action :set_article, only: %i[show create edit update destroy published unpublished]
   before_action :fetch_comments, only: %i[show]
   before_action :fetch_tags, only: %i[new edit]
 
@@ -60,6 +60,20 @@ class Api::V1::ArticlesController < ApplicationController
     end
   end
 
+  def published
+    @article = Article.published
+    render json: @article
+  end
+
+  def unpublished
+    @article = Article.unpublished
+    render json: @article
+  end
+
+  def ten_last_comment
+    comments.published.last 10
+  end
+
   private
 
   def articles_params
@@ -71,7 +85,7 @@ class Api::V1::ArticlesController < ApplicationController
   end
 
   def fetch_comments
-    @comment = Article.find(params[:id]).comments.published
+    @comment = Article.find params[:id].comments.published
   end
 
   def fetch_tags
