@@ -1,7 +1,8 @@
 class Api::V1::ArticlesController < ApplicationController
-  before_action :set_article, only: %i[show create edit update destroy published unpublished]
+  before_action :set_article, only: %i[index show create edit update destroy]
   before_action :fetch_comments, only: %i[show]
   before_action :fetch_tags, only: %i[new edit]
+  before_action :status, only: %i[published unpublished]
 
   # GET method to get all article from database
   def index
@@ -60,6 +61,7 @@ class Api::V1::ArticlesController < ApplicationController
     end
   end
 
+
   def published
     @article = Article.published
     render json: @article
@@ -70,14 +72,11 @@ class Api::V1::ArticlesController < ApplicationController
     render json: @article
   end
 
-  def ten_last_comment
-    @comment = Article.find(params[:id]).comments.published.last(10)
-  end
 
   private
 
   def articles_params
-    params.require (:article).permit(:title, :body, tag_ids: [])
+    params.require (:article).permit(:title, :body, :status, tag_ids: [])
   end
 
   def set_article
@@ -88,7 +87,15 @@ class Api::V1::ArticlesController < ApplicationController
     @comment = Article.find(params[:id]).comments.published
   end
 
+  def status
+    @articles = Article.all
+  end
+
   def fetch_tags
     @tags = Tag.all
+  end
+
+  def ten_last_comments
+    @comment = Article.find(params[:id]).comments.published.last(10)
   end
 end

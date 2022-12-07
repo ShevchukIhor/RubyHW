@@ -11377,3 +11377,730 @@ Processing by Api::V1::CommentsController#index as HTML
 Completed 200 OK in 9ms (Views: 4.6ms | ActiveRecord: 0.9ms | Allocations: 2038)
 
 
+Started GET "/api/v1/articles" for 127.0.0.1 at 2022-12-07 12:57:09 +0200
+Processing by Api::V1::ArticlesController#index as HTML
+  [1m[36mArticle Load (0.9ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:10:in `index'
+  [1m[36mAuthor Load (2.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14)[0m  [["id", 18], ["id", 2], ["id", 3], ["id", 8], ["id", 19], ["id", 7], ["id", 6], ["id", 14], ["id", 9], ["id", 10], ["id", 11], ["id", 4], ["id", 5], ["id", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:10:in `index'
+  [1m[36mArticleTag Load (1.1ms)[0m  [1m[34mSELECT "article_tags".* FROM "article_tags" WHERE "article_tags"."article_id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20)[0m  [["article_id", 20], ["article_id", 19], ["article_id", 18], ["article_id", 17], ["article_id", 16], ["article_id", 15], ["article_id", 14], ["article_id", 13], ["article_id", 12], ["article_id", 11], ["article_id", 10], ["article_id", 9], ["article_id", 8], ["article_id", 7], ["article_id", 6], ["article_id", 5], ["article_id", 4], ["article_id", 3], ["article_id", 2], ["article_id", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:10:in `index'
+Completed 200 OK in 40ms (Views: 14.5ms | ActiveRecord: 14.3ms | Allocations: 10086)
+
+
+Started GET "/api/v1/articles" for 127.0.0.1 at 2022-12-07 12:59:45 +0200
+Processing by Api::V1::ArticlesController#index as HTML
+  [1m[36mArticle Load (0.6ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:10:in `index'
+  [1m[36mAuthor Load (0.7ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14)[0m  [["id", 18], ["id", 2], ["id", 3], ["id", 8], ["id", 19], ["id", 7], ["id", 6], ["id", 14], ["id", 9], ["id", 10], ["id", 11], ["id", 4], ["id", 5], ["id", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:10:in `index'
+  [1m[36mArticleTag Load (0.8ms)[0m  [1m[34mSELECT "article_tags".* FROM "article_tags" WHERE "article_tags"."article_id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20)[0m  [["article_id", 20], ["article_id", 19], ["article_id", 18], ["article_id", 17], ["article_id", 16], ["article_id", 15], ["article_id", 14], ["article_id", 13], ["article_id", 12], ["article_id", 11], ["article_id", 10], ["article_id", 9], ["article_id", 8], ["article_id", 7], ["article_id", 6], ["article_id", 5], ["article_id", 4], ["article_id", 3], ["article_id", 2], ["article_id", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:10:in `index'
+Completed 200 OK in 83ms (Views: 52.0ms | ActiveRecord: 19.5ms | Allocations: 17439)
+
+
+Started GET "/api/v1/articles/1" for 127.0.0.1 at 2022-12-07 13:03:08 +0200
+Processing by Api::V1::ArticlesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:84:in `set_article'
+  [1m[36mCACHE Article Load (0.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:88:in `fetch_comments'
+  [1m[36mComment Load (0.7ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1 AND "comments"."status" = $2[0m  [["article_id", 1], ["status", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:35:in `show'
+Completed 200 OK in 38ms (Views: 7.5ms | ActiveRecord: 8.6ms | Allocations: 10341)
+
+
+Started GET "/api/v1/articles" for 127.0.0.1 at 2022-12-07 13:03:38 +0200
+Processing by Api::V1::ArticlesController#index as HTML
+  [1m[36mArticle Load (0.6ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:10:in `index'
+  [1m[36mAuthor Load (0.6ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14)[0m  [["id", 18], ["id", 2], ["id", 3], ["id", 8], ["id", 19], ["id", 7], ["id", 6], ["id", 14], ["id", 9], ["id", 10], ["id", 11], ["id", 4], ["id", 5], ["id", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:10:in `index'
+  [1m[36mArticleTag Load (0.6ms)[0m  [1m[34mSELECT "article_tags".* FROM "article_tags" WHERE "article_tags"."article_id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20)[0m  [["article_id", 20], ["article_id", 19], ["article_id", 18], ["article_id", 17], ["article_id", 16], ["article_id", 15], ["article_id", 14], ["article_id", 13], ["article_id", 12], ["article_id", 11], ["article_id", 10], ["article_id", 9], ["article_id", 8], ["article_id", 7], ["article_id", 6], ["article_id", 5], ["article_id", 4], ["article_id", 3], ["article_id", 2], ["article_id", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:10:in `index'
+Completed 200 OK in 55ms (Views: 45.6ms | ActiveRecord: 7.3ms | Allocations: 13594)
+
+
+Started GET "/api/v1/articles/1" for 127.0.0.1 at 2022-12-07 13:03:46 +0200
+Processing by Api::V1::ArticlesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:84:in `set_article'
+  [1m[36mCACHE Article Load (0.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:88:in `fetch_comments'
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1 AND "comments"."status" = $2[0m  [["article_id", 1], ["status", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:35:in `show'
+Completed 200 OK in 20ms (Views: 5.0ms | ActiveRecord: 1.0ms | Allocations: 2159)
+
+
+Started GET "/api/v1/articles" for 127.0.0.1 at 2022-12-07 13:04:49 +0200
+Processing by Api::V1::ArticlesController#index as HTML
+  [1m[36mArticle Load (0.9ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:10:in `index'
+  [1m[36mAuthor Load (0.7ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14)[0m  [["id", 18], ["id", 2], ["id", 3], ["id", 8], ["id", 19], ["id", 7], ["id", 6], ["id", 14], ["id", 9], ["id", 10], ["id", 11], ["id", 4], ["id", 5], ["id", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:10:in `index'
+  [1m[36mArticleTag Load (0.6ms)[0m  [1m[34mSELECT "article_tags".* FROM "article_tags" WHERE "article_tags"."article_id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20)[0m  [["article_id", 20], ["article_id", 19], ["article_id", 18], ["article_id", 17], ["article_id", 16], ["article_id", 15], ["article_id", 14], ["article_id", 13], ["article_id", 12], ["article_id", 11], ["article_id", 10], ["article_id", 9], ["article_id", 8], ["article_id", 7], ["article_id", 6], ["article_id", 5], ["article_id", 4], ["article_id", 3], ["article_id", 2], ["article_id", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:10:in `index'
+Completed 200 OK in 28ms (Views: 24.7ms | ActiveRecord: 2.2ms | Allocations: 7043)
+
+
+Started GET "/api/v1/articles" for 127.0.0.1 at 2022-12-07 13:07:08 +0200
+Processing by Api::V1::ArticlesController#index as HTML
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:10:in `index'
+  [1m[36mAuthor Load (0.7ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14)[0m  [["id", 18], ["id", 2], ["id", 3], ["id", 8], ["id", 19], ["id", 7], ["id", 6], ["id", 14], ["id", 9], ["id", 10], ["id", 11], ["id", 4], ["id", 5], ["id", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:10:in `index'
+  [1m[36mArticleTag Load (0.6ms)[0m  [1m[34mSELECT "article_tags".* FROM "article_tags" WHERE "article_tags"."article_id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20)[0m  [["article_id", 20], ["article_id", 19], ["article_id", 18], ["article_id", 17], ["article_id", 16], ["article_id", 15], ["article_id", 14], ["article_id", 13], ["article_id", 12], ["article_id", 11], ["article_id", 10], ["article_id", 9], ["article_id", 8], ["article_id", 7], ["article_id", 6], ["article_id", 5], ["article_id", 4], ["article_id", 3], ["article_id", 2], ["article_id", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:10:in `index'
+Completed 200 OK in 60ms (Views: 30.5ms | ActiveRecord: 12.0ms | Allocations: 17260)
+
+
+Started GET "/api/v1/articles" for 127.0.0.1 at 2022-12-07 13:07:36 +0200
+Processing by Api::V1::ArticlesController#index as HTML
+  [1m[36mArticle Load (0.8ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:10:in `index'
+  [1m[36mAuthor Load (0.6ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14)[0m  [["id", 18], ["id", 2], ["id", 3], ["id", 8], ["id", 19], ["id", 7], ["id", 6], ["id", 14], ["id", 9], ["id", 10], ["id", 11], ["id", 4], ["id", 5], ["id", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:10:in `index'
+  [1m[36mArticleTag Load (0.6ms)[0m  [1m[34mSELECT "article_tags".* FROM "article_tags" WHERE "article_tags"."article_id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20)[0m  [["article_id", 20], ["article_id", 19], ["article_id", 18], ["article_id", 17], ["article_id", 16], ["article_id", 15], ["article_id", 14], ["article_id", 13], ["article_id", 12], ["article_id", 11], ["article_id", 10], ["article_id", 9], ["article_id", 8], ["article_id", 7], ["article_id", 6], ["article_id", 5], ["article_id", 4], ["article_id", 3], ["article_id", 2], ["article_id", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:10:in `index'
+Completed 200 OK in 78ms (Views: 49.5ms | ActiveRecord: 14.9ms | Allocations: 17214)
+
+
+Started GET "/api/v1/articles" for 127.0.0.1 at 2022-12-07 13:07:41 +0200
+Processing by Api::V1::ArticlesController#index as HTML
+  [1m[36mArticle Load (0.6ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:10:in `index'
+  [1m[36mAuthor Load (0.7ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14)[0m  [["id", 18], ["id", 2], ["id", 3], ["id", 8], ["id", 19], ["id", 7], ["id", 6], ["id", 14], ["id", 9], ["id", 10], ["id", 11], ["id", 4], ["id", 5], ["id", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:10:in `index'
+  [1m[36mArticleTag Load (5.1ms)[0m  [1m[34mSELECT "article_tags".* FROM "article_tags" WHERE "article_tags"."article_id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20)[0m  [["article_id", 20], ["article_id", 19], ["article_id", 18], ["article_id", 17], ["article_id", 16], ["article_id", 15], ["article_id", 14], ["article_id", 13], ["article_id", 12], ["article_id", 11], ["article_id", 10], ["article_id", 9], ["article_id", 8], ["article_id", 7], ["article_id", 6], ["article_id", 5], ["article_id", 4], ["article_id", 3], ["article_id", 2], ["article_id", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:10:in `index'
+Completed 200 OK in 26ms (Views: 18.8ms | ActiveRecord: 6.4ms | Allocations: 7156)
+
+
+Started GET "/api/v1/articles" for 127.0.0.1 at 2022-12-07 13:07:44 +0200
+Processing by Api::V1::ArticlesController#index as HTML
+  [1m[36mArticle Load (0.7ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:10:in `index'
+  [1m[36mAuthor Load (0.7ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14)[0m  [["id", 18], ["id", 2], ["id", 3], ["id", 8], ["id", 19], ["id", 7], ["id", 6], ["id", 14], ["id", 9], ["id", 10], ["id", 11], ["id", 4], ["id", 5], ["id", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:10:in `index'
+  [1m[36mArticleTag Load (0.7ms)[0m  [1m[34mSELECT "article_tags".* FROM "article_tags" WHERE "article_tags"."article_id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20)[0m  [["article_id", 20], ["article_id", 19], ["article_id", 18], ["article_id", 17], ["article_id", 16], ["article_id", 15], ["article_id", 14], ["article_id", 13], ["article_id", 12], ["article_id", 11], ["article_id", 10], ["article_id", 9], ["article_id", 8], ["article_id", 7], ["article_id", 6], ["article_id", 5], ["article_id", 4], ["article_id", 3], ["article_id", 2], ["article_id", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:10:in `index'
+Completed 200 OK in 32ms (Views: 28.6ms | ActiveRecord: 2.1ms | Allocations: 7011)
+
+
+Started GET "/api/v1/articles" for 127.0.0.1 at 2022-12-07 13:07:47 +0200
+Processing by Api::V1::ArticlesController#index as HTML
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:10:in `index'
+  [1m[36mAuthor Load (0.5ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14)[0m  [["id", 18], ["id", 2], ["id", 3], ["id", 8], ["id", 19], ["id", 7], ["id", 6], ["id", 14], ["id", 9], ["id", 10], ["id", 11], ["id", 4], ["id", 5], ["id", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:10:in `index'
+  [1m[36mArticleTag Load (0.5ms)[0m  [1m[34mSELECT "article_tags".* FROM "article_tags" WHERE "article_tags"."article_id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20)[0m  [["article_id", 20], ["article_id", 19], ["article_id", 18], ["article_id", 17], ["article_id", 16], ["article_id", 15], ["article_id", 14], ["article_id", 13], ["article_id", 12], ["article_id", 11], ["article_id", 10], ["article_id", 9], ["article_id", 8], ["article_id", 7], ["article_id", 6], ["article_id", 5], ["article_id", 4], ["article_id", 3], ["article_id", 2], ["article_id", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:10:in `index'
+Completed 200 OK in 16ms (Views: 13.5ms | ActiveRecord: 1.4ms | Allocations: 7011)
+
+
+Started GET "/api/v1/articles" for 127.0.0.1 at 2022-12-07 13:09:41 +0200
+Processing by Api::V1::ArticlesController#index as HTML
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:10:in `index'
+Completed 200 OK in 33ms (Views: 17.6ms | ActiveRecord: 6.2ms | Allocations: 7447)
+
+
+Started GET "/api/v1/articles" for 127.0.0.1 at 2022-12-07 13:10:35 +0200
+Processing by Api::V1::ArticlesController#index as HTML
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:10:in `index'
+  [1m[36mAuthor Load (0.6ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14)[0m  [["id", 18], ["id", 2], ["id", 3], ["id", 8], ["id", 19], ["id", 7], ["id", 6], ["id", 14], ["id", 9], ["id", 10], ["id", 11], ["id", 4], ["id", 5], ["id", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:10:in `index'
+  [1m[36mArticleTag Load (0.6ms)[0m  [1m[34mSELECT "article_tags".* FROM "article_tags" WHERE "article_tags"."article_id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20)[0m  [["article_id", 20], ["article_id", 19], ["article_id", 18], ["article_id", 17], ["article_id", 16], ["article_id", 15], ["article_id", 14], ["article_id", 13], ["article_id", 12], ["article_id", 11], ["article_id", 10], ["article_id", 9], ["article_id", 8], ["article_id", 7], ["article_id", 6], ["article_id", 5], ["article_id", 4], ["article_id", 3], ["article_id", 2], ["article_id", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:10:in `index'
+Completed 500 Internal Server Error in 53ms (ActiveRecord: 13.0ms | Allocations: 12615)
+
+
+  
+ActiveRecord::AssociationNotFoundError (Association named 'tag' was not found on Article; perhaps you misspelled it?
+Did you mean?  tags):
+  
+app/controllers/api/v1/articles_controller.rb:10:in `index'
+Started GET "/api/v1/articles" for 127.0.0.1 at 2022-12-07 13:12:13 +0200
+Processing by Api::V1::ArticlesController#index as HTML
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:10:in `index'
+  [1m[36mAuthor Load (0.5ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14)[0m  [["id", 18], ["id", 2], ["id", 3], ["id", 8], ["id", 19], ["id", 7], ["id", 6], ["id", 14], ["id", 9], ["id", 10], ["id", 11], ["id", 4], ["id", 5], ["id", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:10:in `index'
+  [1m[36mArticleTag Load (0.4ms)[0m  [1m[34mSELECT "article_tags".* FROM "article_tags" WHERE "article_tags"."article_id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20)[0m  [["article_id", 20], ["article_id", 19], ["article_id", 18], ["article_id", 17], ["article_id", 16], ["article_id", 15], ["article_id", 14], ["article_id", 13], ["article_id", 12], ["article_id", 11], ["article_id", 10], ["article_id", 9], ["article_id", 8], ["article_id", 7], ["article_id", 6], ["article_id", 5], ["article_id", 4], ["article_id", 3], ["article_id", 2], ["article_id", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:10:in `index'
+Completed 200 OK in 57ms (Views: 39.4ms | ActiveRecord: 9.6ms | Allocations: 17331)
+
+
+Started GET "/gen204?invalidResponse=q=https%3A%2F%2Ftranslate.googleapis.com%2Ftranslate_a%2Fsingle%3Fclient%3Dgtx%26s,ql=139,r=,rl=0" for 127.0.0.1 at 2022-12-07 13:12:24 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/gen204"):
+  
+Started GET "/gen204?invalidResponse=q=https%3A%2F%2Ftranslate.googleapis.com%2Ftranslate_a%2Fsingle%3Fclient%3Dgtx%26s,ql=139,r=,rl=0" for 127.0.0.1 at 2022-12-07 13:12:24 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/gen204"):
+  
+Started GET "/api/v1/articles" for 127.0.0.1 at 2022-12-07 13:13:57 +0200
+Processing by Api::V1::ArticlesController#index as HTML
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:10:in `index'
+  [1m[36mAuthor Load (0.6ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14)[0m  [["id", 18], ["id", 2], ["id", 3], ["id", 8], ["id", 19], ["id", 7], ["id", 6], ["id", 14], ["id", 9], ["id", 10], ["id", 11], ["id", 4], ["id", 5], ["id", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:10:in `index'
+  [1m[36mArticleTag Load (0.6ms)[0m  [1m[34mSELECT "article_tags".* FROM "article_tags" WHERE "article_tags"."article_id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20)[0m  [["article_id", 20], ["article_id", 19], ["article_id", 18], ["article_id", 17], ["article_id", 16], ["article_id", 15], ["article_id", 14], ["article_id", 13], ["article_id", 12], ["article_id", 11], ["article_id", 10], ["article_id", 9], ["article_id", 8], ["article_id", 7], ["article_id", 6], ["article_id", 5], ["article_id", 4], ["article_id", 3], ["article_id", 2], ["article_id", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:10:in `index'
+Completed 200 OK in 72ms (Views: 47.1ms | ActiveRecord: 13.9ms | Allocations: 17146)
+
+
+Started GET "/api/v1/articles" for 127.0.0.1 at 2022-12-07 13:14:01 +0200
+Processing by Api::V1::ArticlesController#index as HTML
+  [1m[36mArticle Load (0.7ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:10:in `index'
+  [1m[36mAuthor Load (1.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14)[0m  [["id", 18], ["id", 2], ["id", 3], ["id", 8], ["id", 19], ["id", 7], ["id", 6], ["id", 14], ["id", 9], ["id", 10], ["id", 11], ["id", 4], ["id", 5], ["id", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:10:in `index'
+  [1m[36mArticleTag Load (0.9ms)[0m  [1m[34mSELECT "article_tags".* FROM "article_tags" WHERE "article_tags"."article_id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20)[0m  [["article_id", 20], ["article_id", 19], ["article_id", 18], ["article_id", 17], ["article_id", 16], ["article_id", 15], ["article_id", 14], ["article_id", 13], ["article_id", 12], ["article_id", 11], ["article_id", 10], ["article_id", 9], ["article_id", 8], ["article_id", 7], ["article_id", 6], ["article_id", 5], ["article_id", 4], ["article_id", 3], ["article_id", 2], ["article_id", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:10:in `index'
+Completed 200 OK in 20ms (Views: 16.0ms | ActiveRecord: 2.5ms | Allocations: 7156)
+
+
+Started GET "/api/v1/articles" for 127.0.0.1 at 2022-12-07 13:17:37 +0200
+Processing by Api::V1::ArticlesController#index as HTML
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:10:in `index'
+  [1m[36mAuthor Load (0.6ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14)[0m  [["id", 18], ["id", 2], ["id", 3], ["id", 8], ["id", 19], ["id", 7], ["id", 6], ["id", 14], ["id", 9], ["id", 10], ["id", 11], ["id", 4], ["id", 5], ["id", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:10:in `index'
+  [1m[36mArticleTag Load (0.6ms)[0m  [1m[34mSELECT "article_tags".* FROM "article_tags" WHERE "article_tags"."article_id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20)[0m  [["article_id", 20], ["article_id", 19], ["article_id", 18], ["article_id", 17], ["article_id", 16], ["article_id", 15], ["article_id", 14], ["article_id", 13], ["article_id", 12], ["article_id", 11], ["article_id", 10], ["article_id", 9], ["article_id", 8], ["article_id", 7], ["article_id", 6], ["article_id", 5], ["article_id", 4], ["article_id", 3], ["article_id", 2], ["article_id", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:10:in `index'
+Completed 200 OK in 77ms (Views: 51.4ms | ActiveRecord: 14.0ms | Allocations: 17325)
+
+
+Started GET "/api/v1/articles" for 127.0.0.1 at 2022-12-07 13:20:41 +0200
+Processing by Api::V1::ArticlesController#index as HTML
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:10:in `index'
+  [1m[36mAuthor Load (0.6ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14)[0m  [["id", 18], ["id", 2], ["id", 3], ["id", 8], ["id", 19], ["id", 7], ["id", 6], ["id", 14], ["id", 9], ["id", 10], ["id", 11], ["id", 4], ["id", 5], ["id", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:10:in `index'
+  [1m[36mArticleTag Load (0.5ms)[0m  [1m[34mSELECT "article_tags".* FROM "article_tags" WHERE "article_tags"."article_id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20)[0m  [["article_id", 20], ["article_id", 19], ["article_id", 18], ["article_id", 17], ["article_id", 16], ["article_id", 15], ["article_id", 14], ["article_id", 13], ["article_id", 12], ["article_id", 11], ["article_id", 10], ["article_id", 9], ["article_id", 8], ["article_id", 7], ["article_id", 6], ["article_id", 5], ["article_id", 4], ["article_id", 3], ["article_id", 2], ["article_id", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:10:in `index'
+Completed 200 OK in 47ms (Views: 29.5ms | ActiveRecord: 10.5ms | Allocations: 17146)
+
+
+Started GET "/api/v1/articles/new" for 127.0.0.1 at 2022-12-07 13:32:23 +0200
+Processing by Api::V1::ArticlesController#show as HTML
+  Parameters: {"id"=>"new"}
+  [1m[36mArticle Load (0.7ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:84:in `set_article'
+Completed 404 Not Found in 22ms (ActiveRecord: 8.5ms | Allocations: 3850)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Article with 'id'=new):
+  
+app/controllers/api/v1/articles_controller.rb:84:in `set_article'
+Started GET "/api/v1/articles/new" for 127.0.0.1 at 2022-12-07 13:32:56 +0200
+Processing by Api::V1::ArticlesController#show as HTML
+  Parameters: {"id"=>"new"}
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:84:in `set_article'
+Completed 404 Not Found in 16ms (ActiveRecord: 6.9ms | Allocations: 3845)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Article with 'id'=new):
+  
+app/controllers/api/v1/articles_controller.rb:84:in `set_article'
+Started GET "/api/v1/articles/create" for 127.0.0.1 at 2022-12-07 13:33:37 +0200
+Processing by Api::V1::ArticlesController#show as HTML
+  Parameters: {"id"=>"create"}
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:84:in `set_article'
+Completed 404 Not Found in 17ms (ActiveRecord: 8.0ms | Allocations: 3713)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Article with 'id'=create):
+  
+app/controllers/api/v1/articles_controller.rb:84:in `set_article'
+Started GET "/api/v1/articles?tag_ids=3" for 127.0.0.1 at 2022-12-07 13:43:33 +0200
+Processing by Api::V1::ArticlesController#index as HTML
+  Parameters: {"tag_ids"=>"3"}
+  [1m[35mSQL (2.1ms)[0m  [1m[34mSELECT "articles"."id" AS t0_r0, "articles"."title" AS t0_r1, "articles"."body" AS t0_r2, "articles"."created_at" AS t0_r3, "articles"."updated_at" AS t0_r4, "articles"."status" AS t0_r5, "articles"."author_id" AS t0_r6, "authors"."id" AS t1_r0, "authors"."name" AS t1_r1, "authors"."created_at" AS t1_r2, "authors"."updated_at" AS t1_r3, "article_tags_articles"."id" AS t2_r0, "article_tags_articles"."article_id" AS t2_r1, "article_tags_articles"."tag_id" AS t2_r2, "article_tags_articles"."created_at" AS t2_r3, "article_tags_articles"."updated_at" AS t2_r4, "tags"."id" AS t3_r0, "tags"."title" AS t3_r1, "tags"."created_at" AS t3_r2, "tags"."updated_at" AS t3_r3 FROM "articles" INNER JOIN "article_tags" ON "article_tags"."article_id" = "articles"."id" INNER JOIN "tags" ON "tags"."id" = "article_tags"."tag_id" LEFT OUTER JOIN "authors" ON "authors"."id" = "articles"."author_id" LEFT OUTER JOIN "article_tags" "article_tags_articles" ON "article_tags_articles"."article_id" = "articles"."id" WHERE "tags"."id" = $1 ORDER BY "articles"."created_at" DESC[0m  [["id", 3]]
+  ↳ app/controllers/api/v1/articles_controller.rb:10:in `index'
+Completed 200 OK in 62ms (Views: 25.1ms | ActiveRecord: 18.0ms | Allocations: 14141)
+
+
+Started GET "/api/v1/articles?tag_ids=1" for 127.0.0.1 at 2022-12-07 13:43:46 +0200
+Processing by Api::V1::ArticlesController#index as HTML
+  Parameters: {"tag_ids"=>"1"}
+  [1m[35mSQL (1.7ms)[0m  [1m[34mSELECT "articles"."id" AS t0_r0, "articles"."title" AS t0_r1, "articles"."body" AS t0_r2, "articles"."created_at" AS t0_r3, "articles"."updated_at" AS t0_r4, "articles"."status" AS t0_r5, "articles"."author_id" AS t0_r6, "authors"."id" AS t1_r0, "authors"."name" AS t1_r1, "authors"."created_at" AS t1_r2, "authors"."updated_at" AS t1_r3, "article_tags_articles"."id" AS t2_r0, "article_tags_articles"."article_id" AS t2_r1, "article_tags_articles"."tag_id" AS t2_r2, "article_tags_articles"."created_at" AS t2_r3, "article_tags_articles"."updated_at" AS t2_r4, "tags"."id" AS t3_r0, "tags"."title" AS t3_r1, "tags"."created_at" AS t3_r2, "tags"."updated_at" AS t3_r3 FROM "articles" INNER JOIN "article_tags" ON "article_tags"."article_id" = "articles"."id" INNER JOIN "tags" ON "tags"."id" = "article_tags"."tag_id" LEFT OUTER JOIN "authors" ON "authors"."id" = "articles"."author_id" LEFT OUTER JOIN "article_tags" "article_tags_articles" ON "article_tags_articles"."article_id" = "articles"."id" WHERE "tags"."id" = $1 ORDER BY "articles"."created_at" DESC[0m  [["id", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:10:in `index'
+Completed 200 OK in 8ms (Views: 4.3ms | ActiveRecord: 1.7ms | Allocations: 1496)
+
+
+Started GET "/api/v1/articles?tag_ids=2" for 127.0.0.1 at 2022-12-07 13:43:50 +0200
+Processing by Api::V1::ArticlesController#index as HTML
+  Parameters: {"tag_ids"=>"2"}
+  [1m[35mSQL (1.8ms)[0m  [1m[34mSELECT "articles"."id" AS t0_r0, "articles"."title" AS t0_r1, "articles"."body" AS t0_r2, "articles"."created_at" AS t0_r3, "articles"."updated_at" AS t0_r4, "articles"."status" AS t0_r5, "articles"."author_id" AS t0_r6, "authors"."id" AS t1_r0, "authors"."name" AS t1_r1, "authors"."created_at" AS t1_r2, "authors"."updated_at" AS t1_r3, "article_tags_articles"."id" AS t2_r0, "article_tags_articles"."article_id" AS t2_r1, "article_tags_articles"."tag_id" AS t2_r2, "article_tags_articles"."created_at" AS t2_r3, "article_tags_articles"."updated_at" AS t2_r4, "tags"."id" AS t3_r0, "tags"."title" AS t3_r1, "tags"."created_at" AS t3_r2, "tags"."updated_at" AS t3_r3 FROM "articles" INNER JOIN "article_tags" ON "article_tags"."article_id" = "articles"."id" INNER JOIN "tags" ON "tags"."id" = "article_tags"."tag_id" LEFT OUTER JOIN "authors" ON "authors"."id" = "articles"."author_id" LEFT OUTER JOIN "article_tags" "article_tags_articles" ON "article_tags_articles"."article_id" = "articles"."id" WHERE "tags"."id" = $1 ORDER BY "articles"."created_at" DESC[0m  [["id", 2]]
+  ↳ app/controllers/api/v1/articles_controller.rb:10:in `index'
+Completed 200 OK in 8ms (Views: 5.1ms | ActiveRecord: 1.8ms | Allocations: 1429)
+
+
+Started GET "/api/v1/articles?tag_ids=3" for 127.0.0.1 at 2022-12-07 13:43:54 +0200
+Processing by Api::V1::ArticlesController#index as HTML
+  Parameters: {"tag_ids"=>"3"}
+  [1m[35mSQL (1.6ms)[0m  [1m[34mSELECT "articles"."id" AS t0_r0, "articles"."title" AS t0_r1, "articles"."body" AS t0_r2, "articles"."created_at" AS t0_r3, "articles"."updated_at" AS t0_r4, "articles"."status" AS t0_r5, "articles"."author_id" AS t0_r6, "authors"."id" AS t1_r0, "authors"."name" AS t1_r1, "authors"."created_at" AS t1_r2, "authors"."updated_at" AS t1_r3, "article_tags_articles"."id" AS t2_r0, "article_tags_articles"."article_id" AS t2_r1, "article_tags_articles"."tag_id" AS t2_r2, "article_tags_articles"."created_at" AS t2_r3, "article_tags_articles"."updated_at" AS t2_r4, "tags"."id" AS t3_r0, "tags"."title" AS t3_r1, "tags"."created_at" AS t3_r2, "tags"."updated_at" AS t3_r3 FROM "articles" INNER JOIN "article_tags" ON "article_tags"."article_id" = "articles"."id" INNER JOIN "tags" ON "tags"."id" = "article_tags"."tag_id" LEFT OUTER JOIN "authors" ON "authors"."id" = "articles"."author_id" LEFT OUTER JOIN "article_tags" "article_tags_articles" ON "article_tags_articles"."article_id" = "articles"."id" WHERE "tags"."id" = $1 ORDER BY "articles"."created_at" DESC[0m  [["id", 3]]
+  ↳ app/controllers/api/v1/articles_controller.rb:10:in `index'
+Completed 200 OK in 8ms (Views: 4.9ms | ActiveRecord: 1.6ms | Allocations: 1429)
+
+
+Started GET "/api/v1/articles?tag_ids=4" for 127.0.0.1 at 2022-12-07 13:43:58 +0200
+Processing by Api::V1::ArticlesController#index as HTML
+  Parameters: {"tag_ids"=>"4"}
+  [1m[35mSQL (1.8ms)[0m  [1m[34mSELECT "articles"."id" AS t0_r0, "articles"."title" AS t0_r1, "articles"."body" AS t0_r2, "articles"."created_at" AS t0_r3, "articles"."updated_at" AS t0_r4, "articles"."status" AS t0_r5, "articles"."author_id" AS t0_r6, "authors"."id" AS t1_r0, "authors"."name" AS t1_r1, "authors"."created_at" AS t1_r2, "authors"."updated_at" AS t1_r3, "article_tags_articles"."id" AS t2_r0, "article_tags_articles"."article_id" AS t2_r1, "article_tags_articles"."tag_id" AS t2_r2, "article_tags_articles"."created_at" AS t2_r3, "article_tags_articles"."updated_at" AS t2_r4, "tags"."id" AS t3_r0, "tags"."title" AS t3_r1, "tags"."created_at" AS t3_r2, "tags"."updated_at" AS t3_r3 FROM "articles" INNER JOIN "article_tags" ON "article_tags"."article_id" = "articles"."id" INNER JOIN "tags" ON "tags"."id" = "article_tags"."tag_id" LEFT OUTER JOIN "authors" ON "authors"."id" = "articles"."author_id" LEFT OUTER JOIN "article_tags" "article_tags_articles" ON "article_tags_articles"."article_id" = "articles"."id" WHERE "tags"."id" = $1 ORDER BY "articles"."created_at" DESC[0m  [["id", 4]]
+  ↳ app/controllers/api/v1/articles_controller.rb:10:in `index'
+Completed 200 OK in 10ms (Views: 6.3ms | ActiveRecord: 1.8ms | Allocations: 1429)
+
+
+Started GET "/api/v1/articles?tag_ids=3" for 127.0.0.1 at 2022-12-07 13:44:05 +0200
+Processing by Api::V1::ArticlesController#index as HTML
+  Parameters: {"tag_ids"=>"3"}
+  [1m[35mSQL (1.8ms)[0m  [1m[34mSELECT "articles"."id" AS t0_r0, "articles"."title" AS t0_r1, "articles"."body" AS t0_r2, "articles"."created_at" AS t0_r3, "articles"."updated_at" AS t0_r4, "articles"."status" AS t0_r5, "articles"."author_id" AS t0_r6, "authors"."id" AS t1_r0, "authors"."name" AS t1_r1, "authors"."created_at" AS t1_r2, "authors"."updated_at" AS t1_r3, "article_tags_articles"."id" AS t2_r0, "article_tags_articles"."article_id" AS t2_r1, "article_tags_articles"."tag_id" AS t2_r2, "article_tags_articles"."created_at" AS t2_r3, "article_tags_articles"."updated_at" AS t2_r4, "tags"."id" AS t3_r0, "tags"."title" AS t3_r1, "tags"."created_at" AS t3_r2, "tags"."updated_at" AS t3_r3 FROM "articles" INNER JOIN "article_tags" ON "article_tags"."article_id" = "articles"."id" INNER JOIN "tags" ON "tags"."id" = "article_tags"."tag_id" LEFT OUTER JOIN "authors" ON "authors"."id" = "articles"."author_id" LEFT OUTER JOIN "article_tags" "article_tags_articles" ON "article_tags_articles"."article_id" = "articles"."id" WHERE "tags"."id" = $1 ORDER BY "articles"."created_at" DESC[0m  [["id", 3]]
+  ↳ app/controllers/api/v1/articles_controller.rb:10:in `index'
+Completed 200 OK in 9ms (Views: 5.7ms | ActiveRecord: 1.8ms | Allocations: 1429)
+
+
+Started GET "/api/v1/articles?tag_ids" for 127.0.0.1 at 2022-12-07 13:44:11 +0200
+Processing by Api::V1::ArticlesController#index as HTML
+  Parameters: {"tag_ids"=>nil}
+  [1m[36mArticle Load (1.8ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:10:in `index'
+  [1m[36mAuthor Load (0.8ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14)[0m  [["id", 18], ["id", 2], ["id", 3], ["id", 8], ["id", 19], ["id", 7], ["id", 6], ["id", 14], ["id", 9], ["id", 10], ["id", 11], ["id", 4], ["id", 5], ["id", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:10:in `index'
+  [1m[36mArticleTag Load (0.7ms)[0m  [1m[34mSELECT "article_tags".* FROM "article_tags" WHERE "article_tags"."article_id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20)[0m  [["article_id", 20], ["article_id", 19], ["article_id", 18], ["article_id", 17], ["article_id", 16], ["article_id", 15], ["article_id", 14], ["article_id", 13], ["article_id", 12], ["article_id", 11], ["article_id", 10], ["article_id", 9], ["article_id", 8], ["article_id", 7], ["article_id", 6], ["article_id", 5], ["article_id", 4], ["article_id", 3], ["article_id", 2], ["article_id", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:10:in `index'
+Completed 200 OK in 30ms (Views: 26.0ms | ActiveRecord: 3.3ms | Allocations: 9634)
+
+
+Started GET "/api/v1/articles?tag_id" for 127.0.0.1 at 2022-12-07 13:44:24 +0200
+Processing by Api::V1::ArticlesController#index as HTML
+  Parameters: {"tag_id"=>nil}
+  [1m[36mArticle Load (0.6ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:10:in `index'
+  [1m[36mAuthor Load (0.8ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14)[0m  [["id", 18], ["id", 2], ["id", 3], ["id", 8], ["id", 19], ["id", 7], ["id", 6], ["id", 14], ["id", 9], ["id", 10], ["id", 11], ["id", 4], ["id", 5], ["id", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:10:in `index'
+  [1m[36mArticleTag Load (0.7ms)[0m  [1m[34mSELECT "article_tags".* FROM "article_tags" WHERE "article_tags"."article_id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20)[0m  [["article_id", 20], ["article_id", 19], ["article_id", 18], ["article_id", 17], ["article_id", 16], ["article_id", 15], ["article_id", 14], ["article_id", 13], ["article_id", 12], ["article_id", 11], ["article_id", 10], ["article_id", 9], ["article_id", 8], ["article_id", 7], ["article_id", 6], ["article_id", 5], ["article_id", 4], ["article_id", 3], ["article_id", 2], ["article_id", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:10:in `index'
+Completed 200 OK in 28ms (Views: 25.2ms | ActiveRecord: 2.1ms | Allocations: 7014)
+
+
+Started GET "/api/v1/articles?tag_id=10" for 127.0.0.1 at 2022-12-07 13:44:36 +0200
+Processing by Api::V1::ArticlesController#index as HTML
+  Parameters: {"tag_id"=>"10"}
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:10:in `index'
+  [1m[36mAuthor Load (0.5ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14)[0m  [["id", 18], ["id", 2], ["id", 3], ["id", 8], ["id", 19], ["id", 7], ["id", 6], ["id", 14], ["id", 9], ["id", 10], ["id", 11], ["id", 4], ["id", 5], ["id", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:10:in `index'
+  [1m[36mArticleTag Load (0.7ms)[0m  [1m[34mSELECT "article_tags".* FROM "article_tags" WHERE "article_tags"."article_id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20)[0m  [["article_id", 20], ["article_id", 19], ["article_id", 18], ["article_id", 17], ["article_id", 16], ["article_id", 15], ["article_id", 14], ["article_id", 13], ["article_id", 12], ["article_id", 11], ["article_id", 10], ["article_id", 9], ["article_id", 8], ["article_id", 7], ["article_id", 6], ["article_id", 5], ["article_id", 4], ["article_id", 3], ["article_id", 2], ["article_id", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:10:in `index'
+Completed 200 OK in 18ms (Views: 15.8ms | ActiveRecord: 1.6ms | Allocations: 7011)
+
+
+Started GET "/api/v1/articles?tag_ids=10" for 127.0.0.1 at 2022-12-07 13:44:41 +0200
+Processing by Api::V1::ArticlesController#index as HTML
+  Parameters: {"tag_ids"=>"10"}
+  [1m[35mSQL (1.4ms)[0m  [1m[34mSELECT "articles"."id" AS t0_r0, "articles"."title" AS t0_r1, "articles"."body" AS t0_r2, "articles"."created_at" AS t0_r3, "articles"."updated_at" AS t0_r4, "articles"."status" AS t0_r5, "articles"."author_id" AS t0_r6, "authors"."id" AS t1_r0, "authors"."name" AS t1_r1, "authors"."created_at" AS t1_r2, "authors"."updated_at" AS t1_r3, "article_tags_articles"."id" AS t2_r0, "article_tags_articles"."article_id" AS t2_r1, "article_tags_articles"."tag_id" AS t2_r2, "article_tags_articles"."created_at" AS t2_r3, "article_tags_articles"."updated_at" AS t2_r4, "tags"."id" AS t3_r0, "tags"."title" AS t3_r1, "tags"."created_at" AS t3_r2, "tags"."updated_at" AS t3_r3 FROM "articles" INNER JOIN "article_tags" ON "article_tags"."article_id" = "articles"."id" INNER JOIN "tags" ON "tags"."id" = "article_tags"."tag_id" LEFT OUTER JOIN "authors" ON "authors"."id" = "articles"."author_id" LEFT OUTER JOIN "article_tags" "article_tags_articles" ON "article_tags_articles"."article_id" = "articles"."id" WHERE "tags"."id" = $1 ORDER BY "articles"."created_at" DESC[0m  [["id", 10]]
+  ↳ app/controllers/api/v1/articles_controller.rb:10:in `index'
+Completed 200 OK in 8ms (Views: 5.3ms | ActiveRecord: 1.4ms | Allocations: 1429)
+
+
+  [1m[36mTag Load (0.8ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mArticleTag Load (0.9ms)[0m  [1m[34mSELECT "article_tags".* FROM "article_tags"[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mArticle Load (0.6ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mTag Load (0.6ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mArticleTag Create (2.1ms)[0m  [1m[32mINSERT INTO "article_tags" ("article_id", "tag_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["article_id", 14], ["tag_id", 11], ["created_at", "2022-12-07 11:52:37.561216"], ["updated_at", "2022-12-07 11:52:37.561216"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTag Load (0.5ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mArticleTag Create (0.8ms)[0m  [1m[32mINSERT INTO "article_tags" ("article_id", "tag_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["article_id", 1], ["tag_id", 5], ["created_at", "2022-12-07 11:52:37.574634"], ["updated_at", "2022-12-07 11:52:37.574634"]]
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  [1m[36mTag Load (0.6ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mArticleTag Create (1.3ms)[0m  [1m[32mINSERT INTO "article_tags" ("article_id", "tag_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["article_id", 15], ["tag_id", 13], ["created_at", "2022-12-07 11:52:37.588034"], ["updated_at", "2022-12-07 11:52:37.588034"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mArticle Load (0.7ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mTag Load (0.7ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  [1m[36mTag Load (0.8ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mArticleTag Create (1.3ms)[0m  [1m[32mINSERT INTO "article_tags" ("article_id", "tag_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["article_id", 16], ["tag_id", 3], ["created_at", "2022-12-07 11:52:37.608005"], ["updated_at", "2022-12-07 11:52:37.608005"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mArticle Load (0.6ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mTag Load (0.6ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mArticleTag Create (1.3ms)[0m  [1m[32mINSERT INTO "article_tags" ("article_id", "tag_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["article_id", 7], ["tag_id", 18], ["created_at", "2022-12-07 11:52:37.619505"], ["updated_at", "2022-12-07 11:52:37.619505"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mTag Load (0.5ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mArticleTag Create (1.3ms)[0m  [1m[32mINSERT INTO "article_tags" ("article_id", "tag_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["article_id", 12], ["tag_id", 5], ["created_at", "2022-12-07 11:52:37.631414"], ["updated_at", "2022-12-07 11:52:37.631414"]]
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mArticleTag Create (1.0ms)[0m  [1m[32mINSERT INTO "article_tags" ("article_id", "tag_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["article_id", 12], ["tag_id", 4], ["created_at", "2022-12-07 11:52:37.644377"], ["updated_at", "2022-12-07 11:52:37.644377"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mTag Load (0.5ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  [1m[36mArticleTag Create (1.0ms)[0m  [1m[32mINSERT INTO "article_tags" ("article_id", "tag_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["article_id", 5], ["tag_id", 16], ["created_at", "2022-12-07 11:52:37.655948"], ["updated_at", "2022-12-07 11:52:37.655948"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mTag Load (0.5ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mArticleTag Create (1.0ms)[0m  [1m[32mINSERT INTO "article_tags" ("article_id", "tag_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["article_id", 6], ["tag_id", 6], ["created_at", "2022-12-07 11:52:37.667642"], ["updated_at", "2022-12-07 11:52:37.667642"]]
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mArticleTag Create (1.0ms)[0m  [1m[32mINSERT INTO "article_tags" ("article_id", "tag_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["article_id", 3], ["tag_id", 6], ["created_at", "2022-12-07 11:52:37.679373"], ["updated_at", "2022-12-07 11:52:37.679373"]]
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mArticleTag Create (1.1ms)[0m  [1m[32mINSERT INTO "article_tags" ("article_id", "tag_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["article_id", 14], ["tag_id", 14], ["created_at", "2022-12-07 11:52:37.691751"], ["updated_at", "2022-12-07 11:52:37.691751"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mArticleTag Create (1.0ms)[0m  [1m[32mINSERT INTO "article_tags" ("article_id", "tag_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["article_id", 15], ["tag_id", 8], ["created_at", "2022-12-07 11:52:37.703506"], ["updated_at", "2022-12-07 11:52:37.703506"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mArticleTag Create (1.2ms)[0m  [1m[32mINSERT INTO "article_tags" ("article_id", "tag_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["article_id", 3], ["tag_id", 13], ["created_at", "2022-12-07 11:52:37.715230"], ["updated_at", "2022-12-07 11:52:37.715230"]]
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mArticleTag Create (1.0ms)[0m  [1m[32mINSERT INTO "article_tags" ("article_id", "tag_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["article_id", 15], ["tag_id", 7], ["created_at", "2022-12-07 11:52:37.730081"], ["updated_at", "2022-12-07 11:52:37.730081"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTag Load (0.5ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mArticleTag Create (1.1ms)[0m  [1m[32mINSERT INTO "article_tags" ("article_id", "tag_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["article_id", 2], ["tag_id", 7], ["created_at", "2022-12-07 11:52:37.741567"], ["updated_at", "2022-12-07 11:52:37.741567"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  [1m[36mTag Load (0.5ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mArticleTag Create (1.1ms)[0m  [1m[32mINSERT INTO "article_tags" ("article_id", "tag_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["article_id", 19], ["tag_id", 12], ["created_at", "2022-12-07 11:52:37.753190"], ["updated_at", "2022-12-07 11:52:37.753190"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mTag Load (0.5ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  [1m[36mArticleTag Create (1.0ms)[0m  [1m[32mINSERT INTO "article_tags" ("article_id", "tag_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["article_id", 11], ["tag_id", 17], ["created_at", "2022-12-07 11:52:37.764711"], ["updated_at", "2022-12-07 11:52:37.764711"]]
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTag Load (0.9ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  [1m[36mArticleTag Create (1.0ms)[0m  [1m[32mINSERT INTO "article_tags" ("article_id", "tag_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["article_id", 2], ["tag_id", 15], ["created_at", "2022-12-07 11:52:37.778008"], ["updated_at", "2022-12-07 11:52:37.778008"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  [1m[36mArticleTag Create (1.1ms)[0m  [1m[32mINSERT INTO "article_tags" ("article_id", "tag_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["article_id", 12], ["tag_id", 19], ["created_at", "2022-12-07 11:52:37.799422"], ["updated_at", "2022-12-07 11:52:37.799422"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mArticleTag Create (7.6ms)[0m  [1m[32mINSERT INTO "article_tags" ("article_id", "tag_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["article_id", 3], ["tag_id", 6], ["created_at", "2022-12-07 11:52:37.811423"], ["updated_at", "2022-12-07 11:52:37.811423"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mArticleTag Load (1.0ms)[0m  [1m[34mSELECT "article_tags".* FROM "article_tags"[0m
+Started GET "/api/v1/articles?tag_ids=10" for 127.0.0.1 at 2022-12-07 13:54:00 +0200
+Processing by Api::V1::ArticlesController#index as HTML
+  Parameters: {"tag_ids"=>"10"}
+  [1m[35mSQL (3.1ms)[0m  [1m[34mSELECT "articles"."id" AS t0_r0, "articles"."title" AS t0_r1, "articles"."body" AS t0_r2, "articles"."created_at" AS t0_r3, "articles"."updated_at" AS t0_r4, "articles"."status" AS t0_r5, "articles"."author_id" AS t0_r6, "authors"."id" AS t1_r0, "authors"."name" AS t1_r1, "authors"."created_at" AS t1_r2, "authors"."updated_at" AS t1_r3, "article_tags_articles"."id" AS t2_r0, "article_tags_articles"."article_id" AS t2_r1, "article_tags_articles"."tag_id" AS t2_r2, "article_tags_articles"."created_at" AS t2_r3, "article_tags_articles"."updated_at" AS t2_r4, "tags"."id" AS t3_r0, "tags"."title" AS t3_r1, "tags"."created_at" AS t3_r2, "tags"."updated_at" AS t3_r3 FROM "articles" INNER JOIN "article_tags" ON "article_tags"."article_id" = "articles"."id" INNER JOIN "tags" ON "tags"."id" = "article_tags"."tag_id" LEFT OUTER JOIN "authors" ON "authors"."id" = "articles"."author_id" LEFT OUTER JOIN "article_tags" "article_tags_articles" ON "article_tags_articles"."article_id" = "articles"."id" WHERE "tags"."id" = $1 ORDER BY "articles"."created_at" DESC[0m  [["id", 10]]
+  ↳ app/controllers/api/v1/articles_controller.rb:10:in `index'
+Completed 200 OK in 25ms (Views: 4.2ms | ActiveRecord: 10.4ms | Allocations: 4405)
+
+
+Started GET "/api/v1/articles?tag_ids=1" for 127.0.0.1 at 2022-12-07 13:54:06 +0200
+Processing by Api::V1::ArticlesController#index as HTML
+  Parameters: {"tag_ids"=>"1"}
+  [1m[35mSQL (2.1ms)[0m  [1m[34mSELECT "articles"."id" AS t0_r0, "articles"."title" AS t0_r1, "articles"."body" AS t0_r2, "articles"."created_at" AS t0_r3, "articles"."updated_at" AS t0_r4, "articles"."status" AS t0_r5, "articles"."author_id" AS t0_r6, "authors"."id" AS t1_r0, "authors"."name" AS t1_r1, "authors"."created_at" AS t1_r2, "authors"."updated_at" AS t1_r3, "article_tags_articles"."id" AS t2_r0, "article_tags_articles"."article_id" AS t2_r1, "article_tags_articles"."tag_id" AS t2_r2, "article_tags_articles"."created_at" AS t2_r3, "article_tags_articles"."updated_at" AS t2_r4, "tags"."id" AS t3_r0, "tags"."title" AS t3_r1, "tags"."created_at" AS t3_r2, "tags"."updated_at" AS t3_r3 FROM "articles" INNER JOIN "article_tags" ON "article_tags"."article_id" = "articles"."id" INNER JOIN "tags" ON "tags"."id" = "article_tags"."tag_id" LEFT OUTER JOIN "authors" ON "authors"."id" = "articles"."author_id" LEFT OUTER JOIN "article_tags" "article_tags_articles" ON "article_tags_articles"."article_id" = "articles"."id" WHERE "tags"."id" = $1 ORDER BY "articles"."created_at" DESC[0m  [["id", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:10:in `index'
+Completed 200 OK in 8ms (Views: 4.1ms | ActiveRecord: 2.1ms | Allocations: 1429)
+
+
+Started GET "/api/v1/articles?tag_id=1" for 127.0.0.1 at 2022-12-07 13:54:14 +0200
+Processing by Api::V1::ArticlesController#index as HTML
+  Parameters: {"tag_id"=>"1"}
+  [1m[36mArticle Load (0.8ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:10:in `index'
+  [1m[36mAuthor Load (0.6ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14)[0m  [["id", 18], ["id", 2], ["id", 3], ["id", 8], ["id", 19], ["id", 7], ["id", 6], ["id", 14], ["id", 9], ["id", 10], ["id", 11], ["id", 4], ["id", 5], ["id", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:10:in `index'
+  [1m[36mArticleTag Load (0.8ms)[0m  [1m[34mSELECT "article_tags".* FROM "article_tags" WHERE "article_tags"."article_id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20)[0m  [["article_id", 20], ["article_id", 19], ["article_id", 18], ["article_id", 17], ["article_id", 16], ["article_id", 15], ["article_id", 14], ["article_id", 13], ["article_id", 12], ["article_id", 11], ["article_id", 10], ["article_id", 9], ["article_id", 8], ["article_id", 7], ["article_id", 6], ["article_id", 5], ["article_id", 4], ["article_id", 3], ["article_id", 2], ["article_id", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:10:in `index'
+  [1m[36mTag Load (0.6ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15)[0m  [["id", 12], ["id", 3], ["id", 13], ["id", 8], ["id", 7], ["id", 11], ["id", 14], ["id", 5], ["id", 4], ["id", 19], ["id", 17], ["id", 18], ["id", 6], ["id", 16], ["id", 15]]
+  ↳ app/controllers/api/v1/articles_controller.rb:10:in `index'
+Completed 200 OK in 39ms (Views: 31.7ms | ActiveRecord: 6.4ms | Allocations: 11229)
+
+
+Started GET "/api/v1/articles?tag_id=1\2" for 127.0.0.1 at 2022-12-07 13:54:21 +0200
+Processing by Api::V1::ArticlesController#index as HTML
+  Parameters: {"tag_id"=>"1\\2"}
+  [1m[36mArticle Load (0.9ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:10:in `index'
+  [1m[36mAuthor Load (0.7ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14)[0m  [["id", 18], ["id", 2], ["id", 3], ["id", 8], ["id", 19], ["id", 7], ["id", 6], ["id", 14], ["id", 9], ["id", 10], ["id", 11], ["id", 4], ["id", 5], ["id", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:10:in `index'
+  [1m[36mArticleTag Load (0.6ms)[0m  [1m[34mSELECT "article_tags".* FROM "article_tags" WHERE "article_tags"."article_id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20)[0m  [["article_id", 20], ["article_id", 19], ["article_id", 18], ["article_id", 17], ["article_id", 16], ["article_id", 15], ["article_id", 14], ["article_id", 13], ["article_id", 12], ["article_id", 11], ["article_id", 10], ["article_id", 9], ["article_id", 8], ["article_id", 7], ["article_id", 6], ["article_id", 5], ["article_id", 4], ["article_id", 3], ["article_id", 2], ["article_id", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:10:in `index'
+  [1m[36mTag Load (0.5ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15)[0m  [["id", 12], ["id", 3], ["id", 13], ["id", 8], ["id", 7], ["id", 11], ["id", 14], ["id", 5], ["id", 4], ["id", 19], ["id", 17], ["id", 18], ["id", 6], ["id", 16], ["id", 15]]
+  ↳ app/controllers/api/v1/articles_controller.rb:10:in `index'
+Completed 200 OK in 27ms (Views: 23.2ms | ActiveRecord: 2.6ms | Allocations: 8582)
+
+
+Started GET "/api/v1/articles?tag_id=12" for 127.0.0.1 at 2022-12-07 13:54:26 +0200
+Processing by Api::V1::ArticlesController#index as HTML
+  Parameters: {"tag_id"=>"12"}
+  [1m[36mArticle Load (0.6ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:10:in `index'
+  [1m[36mAuthor Load (1.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14)[0m  [["id", 18], ["id", 2], ["id", 3], ["id", 8], ["id", 19], ["id", 7], ["id", 6], ["id", 14], ["id", 9], ["id", 10], ["id", 11], ["id", 4], ["id", 5], ["id", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:10:in `index'
+  [1m[36mArticleTag Load (0.9ms)[0m  [1m[34mSELECT "article_tags".* FROM "article_tags" WHERE "article_tags"."article_id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20)[0m  [["article_id", 20], ["article_id", 19], ["article_id", 18], ["article_id", 17], ["article_id", 16], ["article_id", 15], ["article_id", 14], ["article_id", 13], ["article_id", 12], ["article_id", 11], ["article_id", 10], ["article_id", 9], ["article_id", 8], ["article_id", 7], ["article_id", 6], ["article_id", 5], ["article_id", 4], ["article_id", 3], ["article_id", 2], ["article_id", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:10:in `index'
+  [1m[36mTag Load (0.6ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15)[0m  [["id", 12], ["id", 3], ["id", 13], ["id", 8], ["id", 7], ["id", 11], ["id", 14], ["id", 5], ["id", 4], ["id", 19], ["id", 17], ["id", 18], ["id", 6], ["id", 16], ["id", 15]]
+  ↳ app/controllers/api/v1/articles_controller.rb:10:in `index'
+Completed 200 OK in 29ms (Views: 24.9ms | ActiveRecord: 3.1ms | Allocations: 8579)
+
+
+Started GET "/api/v1/articles?tag_ids=12" for 127.0.0.1 at 2022-12-07 13:54:32 +0200
+Processing by Api::V1::ArticlesController#index as HTML
+  Parameters: {"tag_ids"=>"12"}
+  [1m[35mSQL (1.5ms)[0m  [1m[34mSELECT "articles"."id" AS t0_r0, "articles"."title" AS t0_r1, "articles"."body" AS t0_r2, "articles"."created_at" AS t0_r3, "articles"."updated_at" AS t0_r4, "articles"."status" AS t0_r5, "articles"."author_id" AS t0_r6, "authors"."id" AS t1_r0, "authors"."name" AS t1_r1, "authors"."created_at" AS t1_r2, "authors"."updated_at" AS t1_r3, "article_tags_articles"."id" AS t2_r0, "article_tags_articles"."article_id" AS t2_r1, "article_tags_articles"."tag_id" AS t2_r2, "article_tags_articles"."created_at" AS t2_r3, "article_tags_articles"."updated_at" AS t2_r4, "tags"."id" AS t3_r0, "tags"."title" AS t3_r1, "tags"."created_at" AS t3_r2, "tags"."updated_at" AS t3_r3 FROM "articles" INNER JOIN "article_tags" ON "article_tags"."article_id" = "articles"."id" INNER JOIN "tags" ON "tags"."id" = "article_tags"."tag_id" LEFT OUTER JOIN "authors" ON "authors"."id" = "articles"."author_id" LEFT OUTER JOIN "article_tags" "article_tags_articles" ON "article_tags_articles"."article_id" = "articles"."id" WHERE "tags"."id" = $1 ORDER BY "articles"."created_at" DESC[0m  [["id", 12]]
+  ↳ app/controllers/api/v1/articles_controller.rb:10:in `index'
+Completed 200 OK in 20ms (Views: 17.4ms | ActiveRecord: 1.5ms | Allocations: 1702)
+
+
+Started GET "/api/v1/articles?tag_ids=14" for 127.0.0.1 at 2022-12-07 13:54:49 +0200
+Processing by Api::V1::ArticlesController#index as HTML
+  Parameters: {"tag_ids"=>"14"}
+  [1m[35mSQL (1.6ms)[0m  [1m[34mSELECT "articles"."id" AS t0_r0, "articles"."title" AS t0_r1, "articles"."body" AS t0_r2, "articles"."created_at" AS t0_r3, "articles"."updated_at" AS t0_r4, "articles"."status" AS t0_r5, "articles"."author_id" AS t0_r6, "authors"."id" AS t1_r0, "authors"."name" AS t1_r1, "authors"."created_at" AS t1_r2, "authors"."updated_at" AS t1_r3, "article_tags_articles"."id" AS t2_r0, "article_tags_articles"."article_id" AS t2_r1, "article_tags_articles"."tag_id" AS t2_r2, "article_tags_articles"."created_at" AS t2_r3, "article_tags_articles"."updated_at" AS t2_r4, "tags"."id" AS t3_r0, "tags"."title" AS t3_r1, "tags"."created_at" AS t3_r2, "tags"."updated_at" AS t3_r3 FROM "articles" INNER JOIN "article_tags" ON "article_tags"."article_id" = "articles"."id" INNER JOIN "tags" ON "tags"."id" = "article_tags"."tag_id" LEFT OUTER JOIN "authors" ON "authors"."id" = "articles"."author_id" LEFT OUTER JOIN "article_tags" "article_tags_articles" ON "article_tags_articles"."article_id" = "articles"."id" WHERE "tags"."id" = $1 ORDER BY "articles"."created_at" DESC[0m  [["id", 14]]
+  ↳ app/controllers/api/v1/articles_controller.rb:10:in `index'
+Completed 200 OK in 9ms (Views: 6.0ms | ActiveRecord: 1.6ms | Allocations: 1685)
+
+
+Started GET "/api/v1/articles?published" for 127.0.0.1 at 2022-12-07 13:59:46 +0200
+Processing by Api::V1::ArticlesController#index as HTML
+  Parameters: {"published"=>nil}
+  [1m[36mArticle Load (0.6ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:10:in `index'
+  [1m[36mAuthor Load (0.8ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14)[0m  [["id", 18], ["id", 2], ["id", 3], ["id", 8], ["id", 19], ["id", 7], ["id", 6], ["id", 14], ["id", 9], ["id", 10], ["id", 11], ["id", 4], ["id", 5], ["id", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:10:in `index'
+  [1m[36mArticleTag Load (0.7ms)[0m  [1m[34mSELECT "article_tags".* FROM "article_tags" WHERE "article_tags"."article_id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20)[0m  [["article_id", 20], ["article_id", 19], ["article_id", 18], ["article_id", 17], ["article_id", 16], ["article_id", 15], ["article_id", 14], ["article_id", 13], ["article_id", 12], ["article_id", 11], ["article_id", 10], ["article_id", 9], ["article_id", 8], ["article_id", 7], ["article_id", 6], ["article_id", 5], ["article_id", 4], ["article_id", 3], ["article_id", 2], ["article_id", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:10:in `index'
+  [1m[36mTag Load (0.6ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15)[0m  [["id", 12], ["id", 3], ["id", 13], ["id", 8], ["id", 7], ["id", 11], ["id", 14], ["id", 5], ["id", 4], ["id", 19], ["id", 17], ["id", 18], ["id", 6], ["id", 16], ["id", 15]]
+  ↳ app/controllers/api/v1/articles_controller.rb:10:in `index'
+Completed 200 OK in 31ms (Views: 27.9ms | ActiveRecord: 2.7ms | Allocations: 8581)
+
+
+Started GET "/api/v1/articles/published" for 127.0.0.1 at 2022-12-07 13:59:58 +0200
+Processing by Api::V1::ArticlesController#show as HTML
+  Parameters: {"id"=>"published"}
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:84:in `set_article'
+Completed 404 Not Found in 6ms (ActiveRecord: 0.7ms | Allocations: 736)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Article with 'id'=published):
+  
+app/controllers/api/v1/articles_controller.rb:84:in `set_article'
+Started GET "/api/v1/articles?published" for 127.0.0.1 at 2022-12-07 14:00:07 +0200
+Processing by Api::V1::ArticlesController#index as HTML
+  Parameters: {"published"=>nil}
+  [1m[36mArticle Load (0.8ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:10:in `index'
+  [1m[36mAuthor Load (1.9ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14)[0m  [["id", 18], ["id", 2], ["id", 3], ["id", 8], ["id", 19], ["id", 7], ["id", 6], ["id", 14], ["id", 9], ["id", 10], ["id", 11], ["id", 4], ["id", 5], ["id", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:10:in `index'
+  [1m[36mArticleTag Load (0.5ms)[0m  [1m[34mSELECT "article_tags".* FROM "article_tags" WHERE "article_tags"."article_id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20)[0m  [["article_id", 20], ["article_id", 19], ["article_id", 18], ["article_id", 17], ["article_id", 16], ["article_id", 15], ["article_id", 14], ["article_id", 13], ["article_id", 12], ["article_id", 11], ["article_id", 10], ["article_id", 9], ["article_id", 8], ["article_id", 7], ["article_id", 6], ["article_id", 5], ["article_id", 4], ["article_id", 3], ["article_id", 2], ["article_id", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:10:in `index'
+  [1m[36mTag Load (0.6ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15)[0m  [["id", 12], ["id", 3], ["id", 13], ["id", 8], ["id", 7], ["id", 11], ["id", 14], ["id", 5], ["id", 4], ["id", 19], ["id", 17], ["id", 18], ["id", 6], ["id", 16], ["id", 15]]
+  ↳ app/controllers/api/v1/articles_controller.rb:10:in `index'
+Completed 200 OK in 31ms (Views: 26.8ms | ActiveRecord: 3.8ms | Allocations: 8579)
+
+
+Started GET "/api/v1/articles?unpublished" for 127.0.0.1 at 2022-12-07 14:00:14 +0200
+Processing by Api::V1::ArticlesController#index as HTML
+  Parameters: {"unpublished"=>nil}
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:10:in `index'
+  [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14)[0m  [["id", 18], ["id", 2], ["id", 3], ["id", 8], ["id", 19], ["id", 7], ["id", 6], ["id", 14], ["id", 9], ["id", 10], ["id", 11], ["id", 4], ["id", 5], ["id", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:10:in `index'
+  [1m[36mArticleTag Load (0.6ms)[0m  [1m[34mSELECT "article_tags".* FROM "article_tags" WHERE "article_tags"."article_id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20)[0m  [["article_id", 20], ["article_id", 19], ["article_id", 18], ["article_id", 17], ["article_id", 16], ["article_id", 15], ["article_id", 14], ["article_id", 13], ["article_id", 12], ["article_id", 11], ["article_id", 10], ["article_id", 9], ["article_id", 8], ["article_id", 7], ["article_id", 6], ["article_id", 5], ["article_id", 4], ["article_id", 3], ["article_id", 2], ["article_id", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:10:in `index'
+  [1m[36mTag Load (0.5ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15)[0m  [["id", 12], ["id", 3], ["id", 13], ["id", 8], ["id", 7], ["id", 11], ["id", 14], ["id", 5], ["id", 4], ["id", 19], ["id", 17], ["id", 18], ["id", 6], ["id", 16], ["id", 15]]
+  ↳ app/controllers/api/v1/articles_controller.rb:10:in `index'
+Completed 200 OK in 21ms (Views: 18.4ms | ActiveRecord: 2.1ms | Allocations: 8579)
+
+
+Started GET "/api/v1/articles?comments" for 127.0.0.1 at 2022-12-07 14:02:14 +0200
+Processing by Api::V1::ArticlesController#index as HTML
+  Parameters: {"comments"=>nil}
+  [1m[36mArticle Load (0.7ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:10:in `index'
+  [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14)[0m  [["id", 18], ["id", 2], ["id", 3], ["id", 8], ["id", 19], ["id", 7], ["id", 6], ["id", 14], ["id", 9], ["id", 10], ["id", 11], ["id", 4], ["id", 5], ["id", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:10:in `index'
+  [1m[36mArticleTag Load (0.6ms)[0m  [1m[34mSELECT "article_tags".* FROM "article_tags" WHERE "article_tags"."article_id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20)[0m  [["article_id", 20], ["article_id", 19], ["article_id", 18], ["article_id", 17], ["article_id", 16], ["article_id", 15], ["article_id", 14], ["article_id", 13], ["article_id", 12], ["article_id", 11], ["article_id", 10], ["article_id", 9], ["article_id", 8], ["article_id", 7], ["article_id", 6], ["article_id", 5], ["article_id", 4], ["article_id", 3], ["article_id", 2], ["article_id", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:10:in `index'
+  [1m[36mTag Load (0.6ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15)[0m  [["id", 12], ["id", 3], ["id", 13], ["id", 8], ["id", 7], ["id", 11], ["id", 14], ["id", 5], ["id", 4], ["id", 19], ["id", 17], ["id", 18], ["id", 6], ["id", 16], ["id", 15]]
+  ↳ app/controllers/api/v1/articles_controller.rb:10:in `index'
+Completed 200 OK in 71ms (Views: 41.2ms | ActiveRecord: 22.1ms | Allocations: 21515)
+
+
+Started GET "/api/v1/articles?ten_last_comments" for 127.0.0.1 at 2022-12-07 14:02:27 +0200
+Processing by Api::V1::ArticlesController#index as HTML
+  Parameters: {"ten_last_comments"=>nil}
+  [1m[36mArticle Load (0.8ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:10:in `index'
+  [1m[36mAuthor Load (0.9ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14)[0m  [["id", 18], ["id", 2], ["id", 3], ["id", 8], ["id", 19], ["id", 7], ["id", 6], ["id", 14], ["id", 9], ["id", 10], ["id", 11], ["id", 4], ["id", 5], ["id", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:10:in `index'
+  [1m[36mArticleTag Load (0.6ms)[0m  [1m[34mSELECT "article_tags".* FROM "article_tags" WHERE "article_tags"."article_id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20)[0m  [["article_id", 20], ["article_id", 19], ["article_id", 18], ["article_id", 17], ["article_id", 16], ["article_id", 15], ["article_id", 14], ["article_id", 13], ["article_id", 12], ["article_id", 11], ["article_id", 10], ["article_id", 9], ["article_id", 8], ["article_id", 7], ["article_id", 6], ["article_id", 5], ["article_id", 4], ["article_id", 3], ["article_id", 2], ["article_id", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:10:in `index'
+  [1m[36mTag Load (0.9ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15)[0m  [["id", 12], ["id", 3], ["id", 13], ["id", 8], ["id", 7], ["id", 11], ["id", 14], ["id", 5], ["id", 4], ["id", 19], ["id", 17], ["id", 18], ["id", 6], ["id", 16], ["id", 15]]
+  ↳ app/controllers/api/v1/articles_controller.rb:10:in `index'
+Completed 200 OK in 35ms (Views: 31.3ms | ActiveRecord: 3.3ms | Allocations: 8643)
+
+
+Started GET "/api/v1/articles?published" for 127.0.0.1 at 2022-12-07 14:10:26 +0200
+Processing by Api::V1::ArticlesController#index as HTML
+  Parameters: {"published"=>nil}
+  [1m[36mArticle Load (1.6ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:10:in `index'
+  [1m[36mAuthor Load (1.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14)[0m  [["id", 18], ["id", 2], ["id", 3], ["id", 8], ["id", 19], ["id", 7], ["id", 6], ["id", 14], ["id", 9], ["id", 10], ["id", 11], ["id", 4], ["id", 5], ["id", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:10:in `index'
+  [1m[36mArticleTag Load (1.1ms)[0m  [1m[34mSELECT "article_tags".* FROM "article_tags" WHERE "article_tags"."article_id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20)[0m  [["article_id", 20], ["article_id", 19], ["article_id", 18], ["article_id", 17], ["article_id", 16], ["article_id", 15], ["article_id", 14], ["article_id", 13], ["article_id", 12], ["article_id", 11], ["article_id", 10], ["article_id", 9], ["article_id", 8], ["article_id", 7], ["article_id", 6], ["article_id", 5], ["article_id", 4], ["article_id", 3], ["article_id", 2], ["article_id", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:10:in `index'
+  [1m[36mTag Load (0.9ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15)[0m  [["id", 12], ["id", 3], ["id", 13], ["id", 8], ["id", 7], ["id", 11], ["id", 14], ["id", 5], ["id", 4], ["id", 19], ["id", 17], ["id", 18], ["id", 6], ["id", 16], ["id", 15]]
+  ↳ app/controllers/api/v1/articles_controller.rb:10:in `index'
+Completed 200 OK in 78ms (Views: 40.2ms | ActiveRecord: 14.2ms | Allocations: 23457)
+
+
+Started GET "/api/v1/articles?published" for 127.0.0.1 at 2022-12-07 14:11:58 +0200
+Processing by Api::V1::ArticlesController#index as HTML
+  Parameters: {"published"=>nil}
+  [1m[36mArticle Load (0.8ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."created_at" DESC[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:10:in `index'
+  [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14)[0m  [["id", 18], ["id", 2], ["id", 3], ["id", 8], ["id", 19], ["id", 7], ["id", 6], ["id", 14], ["id", 9], ["id", 10], ["id", 11], ["id", 4], ["id", 5], ["id", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:10:in `index'
+  [1m[36mArticleTag Load (0.4ms)[0m  [1m[34mSELECT "article_tags".* FROM "article_tags" WHERE "article_tags"."article_id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20)[0m  [["article_id", 20], ["article_id", 19], ["article_id", 18], ["article_id", 17], ["article_id", 16], ["article_id", 15], ["article_id", 14], ["article_id", 13], ["article_id", 12], ["article_id", 11], ["article_id", 10], ["article_id", 9], ["article_id", 8], ["article_id", 7], ["article_id", 6], ["article_id", 5], ["article_id", 4], ["article_id", 3], ["article_id", 2], ["article_id", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:10:in `index'
+  [1m[36mTag Load (0.8ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15)[0m  [["id", 12], ["id", 3], ["id", 13], ["id", 8], ["id", 7], ["id", 11], ["id", 14], ["id", 5], ["id", 4], ["id", 19], ["id", 17], ["id", 18], ["id", 6], ["id", 16], ["id", 15]]
+  ↳ app/controllers/api/v1/articles_controller.rb:10:in `index'
+Completed 200 OK in 71ms (Views: 37.3ms | ActiveRecord: 26.7ms | Allocations: 21358)
+
+
+Started GET "/api/v1/articles/1" for 127.0.0.1 at 2022-12-07 14:12:09 +0200
+Processing by Api::V1::ArticlesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:85:in `set_article'
+  [1m[36mCACHE Article Load (0.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:89:in `fetch_comments'
+  [1m[36mComment Load (0.8ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1 AND "comments"."status" = $2[0m  [["article_id", 1], ["status", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:35:in `show'
+Completed 200 OK in 26ms (Views: 7.2ms | ActiveRecord: 6.3ms | Allocations: 5866)
+
+
+Started GET "/api/v1/articles/1?published" for 127.0.0.1 at 2022-12-07 14:12:23 +0200
+Processing by Api::V1::ArticlesController#show as HTML
+  Parameters: {"published"=>nil, "id"=>"1"}
+  [1m[36mArticle Load (0.6ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:85:in `set_article'
+  [1m[36mCACHE Article Load (0.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:89:in `fetch_comments'
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1 AND "comments"."status" = $2[0m  [["article_id", 1], ["status", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:35:in `show'
+Completed 200 OK in 10ms (Views: 3.7ms | ActiveRecord: 1.1ms | Allocations: 2017)
+
+
+  [1m[36mComment Load (0.9ms)[0m  [1m[34mSELECT "comments".* FROM "comments" ORDER BY "comments"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+Started GET "/api/v1/articles/1?published" for 127.0.0.1 at 2022-12-07 14:33:41 +0200
+Processing by Api::V1::ArticlesController#show as HTML
+  Parameters: {"published"=>nil, "id"=>"1"}
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:82:in `set_article'
+  [1m[36mCACHE Article Load (0.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:86:in `fetch_comments'
+  [1m[36mComment Load (0.9ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1 AND "comments"."status" = $2[0m  [["article_id", 1], ["status", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:35:in `show'
+Completed 200 OK in 55ms (Views: 10.1ms | ActiveRecord: 9.8ms | Allocations: 12812)
+
+
+Started GET "/api/v1/articles?published" for 127.0.0.1 at 2022-12-07 14:34:59 +0200
+Processing by Api::V1::ArticlesController#index as HTML
+  Parameters: {"published"=>nil}
+Completed 404 Not Found in 11ms (ActiveRecord: 4.6ms | Allocations: 2572)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Article without an ID):
+  
+app/controllers/api/v1/articles_controller.rb:82:in `set_article'
+Started GET "/api/v1/articles?published" for 127.0.0.1 at 2022-12-07 14:35:45 +0200
+Processing by Api::V1::ArticlesController#index as HTML
+  Parameters: {"published"=>nil}
+Completed 404 Not Found in 10ms (ActiveRecord: 4.4ms | Allocations: 2580)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Article without an ID):
+  
+app/controllers/api/v1/articles_controller.rb:82:in `set_article'
+Started GET "/api/v1/articles?published" for 127.0.0.1 at 2022-12-07 14:38:07 +0200
+Processing by Api::V1::ArticlesController#index as HTML
+  Parameters: {"published"=>nil}
+Completed 404 Not Found in 20ms (ActiveRecord: 4.3ms | Allocations: 2581)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Article without an ID):
+  
+app/controllers/api/v1/articles_controller.rb:83:in `set_article'
+Started GET "/api/v1/articles=published" for 127.0.0.1 at 2022-12-07 14:38:32 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/articles=published"):
+  
+Started GET "/api/v1/articles=published" for 127.0.0.1 at 2022-12-07 14:39:54 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/articles=published"):
+  
+Started GET "/api/v1/articles=published" for 127.0.0.1 at 2022-12-07 14:41:31 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/articles=published"):
+  
+Started GET "/api/v1/articles=published" for 127.0.0.1 at 2022-12-07 14:42:09 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/articles=published"):
+  
+Started GET "/api/v1/articles=published" for 127.0.0.1 at 2022-12-07 14:42:50 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/articles=published"):
+  
+Started GET "/api/v1/articles?published" for 127.0.0.1 at 2022-12-07 14:43:09 +0200
+Processing by Api::V1::ArticlesController#index as HTML
+  Parameters: {"published"=>nil}
+Completed 404 Not Found in 8ms (ActiveRecord: 2.6ms | Allocations: 2614)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Article without an ID):
+  
+app/controllers/api/v1/articles_controller.rb:83:in `set_article'

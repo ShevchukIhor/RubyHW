@@ -10,9 +10,9 @@ class Article < ApplicationRecord
   enum :status, %i[unpublished published]
   scope :published, -> { where(status: 1) }
   scope :unpublished, -> { where(status: 0) }
-
-  scope :all_by_tags, ->(tag_ids) {
-    articles = includes(:author, :article_tags, :tags)
-    articles = articles.joins(:tags).where(tags: tag_ids) if tag_ids
-    articles.order(created_at: :desc) }
+  scope :all_by_tags, ->(tag_ids) do
+    article = includes(:author, :article_tags, :tags)
+    article = article.joins(:tags).where(tags: tag_ids) if tag_ids
+    article.order(created_at: :desc)
+  end
 end
