@@ -2,11 +2,11 @@ class Api::V1::CommentsController < ApplicationController
   before_action :set_comment, only: %i[show create edit update destroy]
 
   def index
-    @comment = Article.find(params[:article_id]).comments
-    if @comment
-      render json: @comment, status: :ok
+    comment = Comment.all
+    if comment
+      render json: comment, status: :ok
     else
-      render json: @comment.errors, status: :bad_request
+      render json: comment.errors, status: :bad_request
     end
   end
 
@@ -24,10 +24,10 @@ class Api::V1::CommentsController < ApplicationController
   end
 
   def show
-    if @comment
-      render json: @comment, state: :ok
+    if @ten_comments
+      render json: @ten_comments, state: :ok
     else
-      render json: @comment.errors, status: :bad_request
+      render json: @ten_comments.errors, status: :bad_request
     end
   end
 
@@ -51,13 +51,13 @@ class Api::V1::CommentsController < ApplicationController
   end
 
   def published
-    @comment = Article.find(params[:article_id]).comments.published
-    render json: @comments
+    comment = Comment.published
+    render json: comment, status: :ok
   end
 
   def unpublished
-    @comment = Article.find(params[:article_id]).comments.unpublished
-    render json: @comment
+    comment = Comment.unpublished
+    render json: comment, status: :ok
   end
 
   private
@@ -68,6 +68,10 @@ class Api::V1::CommentsController < ApplicationController
 
   def set_comment
     @comment = Comment.find params[:id]
+  end
+
+  def ten_last_comments
+    @ten_comments = Comment.find(params[:id]).comments.last(10)
   end
 end
 

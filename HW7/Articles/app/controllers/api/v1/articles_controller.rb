@@ -2,7 +2,7 @@ class Api::V1::ArticlesController < ApplicationController
   before_action :set_article, only: %i[show create edit update destroy]
   before_action :fetch_comments, only: %i[show]
   before_action :fetch_tags, only: %i[new edit]
-  #before_action :status, only: %i[published unpublished]
+  before_action :status, only: %i[published unpublished]
 
   # GET method to get all article from database
   def index
@@ -14,12 +14,10 @@ class Api::V1::ArticlesController < ApplicationController
     end
   end
 
-  # GET method for the new article
   def new
     @article = Article.new
   end
 
-  # POST method for processing form data
   def create
     @article = Article.new(article_params)
     if @article.save
@@ -29,7 +27,6 @@ class Api::V1::ArticlesController < ApplicationController
     end
   end
 
-  # GET method to get a article by id
   #/api/v1/articles/:id(.:format)
   def show
     if @article
@@ -39,11 +36,9 @@ class Api::V1::ArticlesController < ApplicationController
     end
   end
 
-  # GET method for editing a article based on id
   def edit
   end
 
-  # PUT method for updating in database a article based on id
   def update
     if @article.update(article_params)
       render json: @article, status: :ok
@@ -52,7 +47,6 @@ class Api::V1::ArticlesController < ApplicationController
     end
   end
 
-  # DELETE method for deleting a product from database based on id
   def destroy
     if @article.destroy
       render json: @article, status: :ok
@@ -64,14 +58,17 @@ class Api::V1::ArticlesController < ApplicationController
 
   def published
     @article = Article.published
-    render json: @article
+    render json: @article, status: :ok
   end
 
   def unpublished
     @article = Article.unpublished
-    render json: @article
+    render json: @article, status: :ok
   end
 
+  def last_ten_comments
+    render json: @comments, status: :ok
+  end
 
   private
 
@@ -96,6 +93,6 @@ class Api::V1::ArticlesController < ApplicationController
   end
 
   def ten_last_comments
-    @comment = Article.find(params[:id]).comments.published.last(10)
+    @comments = Article.find(params[:id]).comments.published.last(10)
   end
 end

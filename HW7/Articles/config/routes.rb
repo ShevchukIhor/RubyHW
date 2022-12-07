@@ -5,11 +5,20 @@ Rails.application.routes.draw do
   # root "articles#index"
   namespace :api do
     namespace :v1 do
-      resources :authors
+      resources :authors, only: %i[new create edit update]
       resources :articles do
-        resources :comments, only: %i[index create show edit destroy]
+        resources :comments, only: %i[new edit create destroy published unpublished]
+        get :unpublished, :published, :last_ten_comments
+        resources :likes
       end
-      resources :comments, only: %i[index create show edit destroy]
+      resources :comments, except: %i[new show] do
+        resources :articles, only: %i[create destroy]
+        get :unpublished, :published, :last_ten_comments
+        resources :likes
+      end
+
+
+
     end
   end
 end
