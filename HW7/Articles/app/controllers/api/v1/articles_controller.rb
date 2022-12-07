@@ -1,8 +1,8 @@
 class Api::V1::ArticlesController < ApplicationController
-  before_action :set_article, only: %i[index show create edit update destroy]
+  before_action :set_article, only: %i[show create edit update destroy]
   before_action :fetch_comments, only: %i[show]
   before_action :fetch_tags, only: %i[new edit]
-  before_action :status, only: %i[published unpublished]
+  #before_action :status, only: %i[published unpublished]
 
   # GET method to get all article from database
   def index
