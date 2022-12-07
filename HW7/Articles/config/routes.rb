@@ -7,14 +7,9 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :authors
       resources :articles do
-        get :published, :unpublished, only: %i[show index]
-        resources :comments, only: %i[index create show edit destroy] do
-          get :published, :unpublished, only: %i[show index]
-        end
+        resources :comments, only: %i[index create show edit destroy]
       end
-      resources :comments, only: %i[index create show edit destroy] do
-        get :published, :unpublished, only: %i[show index]
-      end
+      resources :comments, only: %i[index create show edit destroy]
     end
   end
 end
