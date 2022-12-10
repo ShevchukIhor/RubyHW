@@ -1,5 +1,5 @@
-class LikeController < ApplicationController
-    before_action :set_like, only: %i[show create edit update destroy]
+class Api::V1::LikeController < ApplicationController
+    before_action :set_like, only: %i[show edit update destroy]
 
     def new
       @like = Like.new

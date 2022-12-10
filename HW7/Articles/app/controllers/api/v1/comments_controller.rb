@@ -1,5 +1,5 @@
 class Api::V1::CommentsController < ApplicationController
-  before_action :set_comment, only: %i[show create edit update destroy]
+  before_action :set_comment, only: %i[show edit update destroy]
 
   def index
     comment = Comment.all

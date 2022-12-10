@@ -8,17 +8,14 @@ Rails.application.routes.draw do
       resources :authors, only: %i[new create edit update]
       resources :articles do
         resources :comments, only: %i[new edit create destroy published unpublished]
-        get :unpublished, :published, :last_ten_comments
-        resources :likes
+        get :unpublished, :published, :last_ten_comments, only: %i[index show]
+        resources :likes, only: %i[index show update]
       end
       resources :comments, except: %i[new show] do
         resources :articles, only: %i[create destroy]
-        get :unpublished, :published, :last_ten_comments
-        resources :likes
+        get :unpublished, :published, :last_ten_comments, only: %i[index show]
+        resources :likes, only: %i[index show update]
       end
-
-
-
     end
   end
 end
