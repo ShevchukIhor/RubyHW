@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateArticleTags < ActiveRecord::Migration[7.0]
   def change
     create_table :article_tags do |t|
@@ -6,6 +8,6 @@ class CreateArticleTags < ActiveRecord::Migration[7.0]
 
       t.timestamps
     end
-    add_index :article_tags, [:article_id, :tag_id], unique: true
+    add_index :article_tags, %i[article_id tag_id], unique: true
   end
 end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -5,17 +7,17 @@ Rails.application.routes.draw do
   # root "articles#index"
   namespace :api do
     namespace :v1 do
-      resources :authors, only: %i[new create edit update]
+      resources :authors
       resources :articles do
-        resources :comments, only: %i[new edit create destroy published unpublished]
-        get :unpublished, :published, :last_ten_comments, only: %i[index show]
-        resources :likes, only: %i[index show update]
+        get :unpublished, :published
+        patch :change_status
       end
-      resources :comments, except: %i[new show] do
-        resources :articles, only: %i[create destroy]
-        get :unpublished, :published, :last_ten_comments, only: %i[index show]
-        resources :likes, only: %i[index show update]
+      resources :comments do
+        get :unpublished, :published
+        patch :change_status
       end
+      resources :likes
+      resources :tags
     end
   end
 end
