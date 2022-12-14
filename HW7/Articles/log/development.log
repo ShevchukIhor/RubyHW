@@ -38455,3 +38455,22 @@ ActiveRecord::RecordNotFound (Couldn't find Article with 'id'=6 [WHERE "articles
   
 app/controllers/api/v1/articles_controller.rb:53:in `unpublished'
   [1m[36mTag Load (30.0ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+Started GET "/api/v1/articles/6/unpublished" for ::1 at 2022-12-14 12:26:36 +0200
+Processing by Api::V1::ArticlesController#unpublished as HTML
+  Parameters: {"article_id"=>"6"}
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."status" = $1 AND "articles"."id" = $2 LIMIT $3[0m  [["status", 0], ["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:54:in `unpublished'
+Completed 404 Not Found in 30ms (ActiveRecord: 8.3ms | Allocations: 7019)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Article with 'id'=6 [WHERE "articles"."status" = $1]):
+  
+app/controllers/api/v1/articles_controller.rb:54:in `unpublished'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAuthor Load (0.8ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mLike Exists? (1.7ms)[0m  [1m[34mSELECT 1 AS one FROM "likes" WHERE "likes"."author_id" = $1 LIMIT $2[0m  [["author_id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mLike Exists? (1.2ms)[0m  [1m[34mSELECT 1 AS one FROM "likes" WHERE "likes"."author_id" = $1 LIMIT $2[0m  [["author_id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK[0m
