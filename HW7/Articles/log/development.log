@@ -38474,3 +38474,1019 @@ app/controllers/api/v1/articles_controller.rb:54:in `unpublished'
   [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
   [1m[36mLike Exists? (1.2ms)[0m  [1m[34mSELECT 1 AS one FROM "likes" WHERE "likes"."author_id" = $1 LIMIT $2[0m  [["author_id", 1], ["LIMIT", 1]]
   [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK[0m
+Started GET "/api/v1/articles/6/unpublished" for ::1 at 2022-12-14 13:24:20 +0200
+Processing by Api::V1::ArticlesController#unpublished as HTML
+  Parameters: {"article_id"=>"6"}
+  [1m[36mArticle Load (0.6ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."status" = $1 AND "articles"."id" = $2 LIMIT $3[0m  [["status", 0], ["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:54:in `unpublished'
+Completed 404 Not Found in 36ms (ActiveRecord: 10.5ms | Allocations: 7019)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Article with 'id'=6 [WHERE "articles"."status" = $1]):
+  
+app/controllers/api/v1/articles_controller.rb:54:in `unpublished'
+Started GET "/api/v1/articles" for ::1 at 2022-12-14 13:24:31 +0200
+Processing by Api::V1::ArticlesController#index as HTML
+  [1m[36mArticle Load (0.6ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:13:in `index'
+No serializer found for resource: #<Article id: 2, title: "Sleep the Brave", body: "Eum reiciendis fugiat et.", created_at: "2022-12-07 22:35:55.935905000 +0000", updated_at: "2022-12-07 22:35:55.935905000 +0000", status: "unpublished", author_id: 6>
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Article::ActiveRecord_Relation (3.59ms)
+Completed 200 OK in 17ms (Views: 15.6ms | ActiveRecord: 0.6ms | Allocations: 5086)
+
+
+Started GET "/api/v1/articles/1" for ::1 at 2022-12-14 13:24:40 +0200
+Processing by Api::V1::ArticlesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mArticle Load (0.7ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:71:in `set_article'
+  [1m[36mCACHE Article Load (0.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:75:in `fetch_comments'
+  [1m[36mComment Load (3.7ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1 ORDER BY "comments"."id" DESC LIMIT $2[0m  [["article_id", 1], ["LIMIT", 10]]
+  ↳ app/models/comment.rb:13:in `block in <class:Comment>'
+  [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:83:in `fetch_tags'
+  [1m[36mLike Load (0.5ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:87:in `fetch_likes'
+Completed 404 Not Found in 65ms (ActiveRecord: 19.9ms | Allocations: 13288)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Like with 'id'=1):
+  
+app/controllers/api/v1/articles_controller.rb:87:in `fetch_likes'
+Started GET "/api/v1/articles/1" for ::1 at 2022-12-14 13:25:58 +0200
+Processing by Api::V1::ArticlesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:71:in `set_article'
+  [1m[36mCACHE Article Load (0.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:75:in `fetch_comments'
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1 ORDER BY "comments"."id" DESC LIMIT $2[0m  [["article_id", 1], ["LIMIT", 10]]
+  ↳ app/models/comment.rb:13:in `block in <class:Comment>'
+  [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:83:in `fetch_tags'
+Completed 404 Not Found in 75ms (ActiveRecord: 20.6ms | Allocations: 14838)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Like without an ID):
+  
+app/controllers/api/v1/articles_controller.rb:87:in `fetch_likes'
+Started GET "/api/v1/articles/1" for ::1 at 2022-12-14 13:27:27 +0200
+Processing by Api::V1::ArticlesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:71:in `set_article'
+  [1m[36mCACHE Article Load (0.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:75:in `fetch_comments'
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1 ORDER BY "comments"."id" DESC LIMIT $2[0m  [["article_id", 1], ["LIMIT", 10]]
+  ↳ app/models/comment.rb:13:in `block in <class:Comment>'
+  [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:83:in `fetch_tags'
+Completed 500 Internal Server Error in 88ms (ActiveRecord: 16.7ms | Allocations: 18816)
+
+
+  
+NoMethodError (undefined method `fetch_likes' for #<Api::V1::ArticlesController:0x00000000063b50>
+
+              target.send(@method_name, &block)
+                    ^^^^^
+Did you mean?  fetch_tags):
+  
+activesupport (7.0.4) lib/active_support/callbacks.rb:400:in `block in make_lambda'
+activesupport (7.0.4) lib/active_support/callbacks.rb:180:in `block (2 levels) in halting_and_conditional'
+actionpack (7.0.4) lib/abstract_controller/callbacks.rb:34:in `block (2 levels) in <module:Callbacks>'
+activesupport (7.0.4) lib/active_support/callbacks.rb:181:in `block in halting_and_conditional'
+activesupport (7.0.4) lib/active_support/callbacks.rb:595:in `block in invoke_before'
+activesupport (7.0.4) lib/active_support/callbacks.rb:595:in `each'
+activesupport (7.0.4) lib/active_support/callbacks.rb:595:in `invoke_before'
+activesupport (7.0.4) lib/active_support/callbacks.rb:106:in `run_callbacks'
+actionpack (7.0.4) lib/abstract_controller/callbacks.rb:233:in `process_action'
+actionpack (7.0.4) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (7.0.4) lib/action_controller/metal/instrumentation.rb:67:in `block in process_action'
+activesupport (7.0.4) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.0.4) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (7.0.4) lib/active_support/notifications.rb:206:in `instrument'
+actionpack (7.0.4) lib/action_controller/metal/instrumentation.rb:66:in `process_action'
+actionpack (7.0.4) lib/action_controller/metal/params_wrapper.rb:259:in `process_action'
+activerecord (7.0.4) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (7.0.4) lib/abstract_controller/base.rb:151:in `process'
+actionpack (7.0.4) lib/action_controller/metal.rb:188:in `dispatch'
+actionpack (7.0.4) lib/action_controller/metal.rb:251:in `dispatch'
+actionpack (7.0.4) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.0.4) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.0.4) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (7.0.4) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (7.0.4) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.0.4) lib/action_dispatch/routing/route_set.rb:852:in `call'
+rack (2.2.4) lib/rack/etag.rb:27:in `call'
+rack (2.2.4) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.4) lib/rack/head.rb:12:in `call'
+activerecord (7.0.4) lib/active_record/migration.rb:603:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.4) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.4) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/show_exceptions.rb:26:in `call'
+railties (7.0.4) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.4) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.4) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.4) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.4) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.4) lib/rails/rack/logger.rb:25:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.4) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.4) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.4) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.4) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+railties (7.0.4) lib/rails/engine.rb:530:in `call'
+puma (5.6.5) lib/puma/configuration.rb:252:in `call'
+puma (5.6.5) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.5) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.5) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.5) lib/puma/server.rb:443:in `process_client'
+puma (5.6.5) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started GET "/api/v1/articles/1" for ::1 at 2022-12-14 13:28:22 +0200
+Processing by Api::V1::ArticlesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:71:in `set_article'
+  [1m[36mCACHE Article Load (0.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:75:in `fetch_comments'
+  [1m[36mComment Load (0.7ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1 ORDER BY "comments"."id" DESC LIMIT $2[0m  [["article_id", 1], ["LIMIT", 10]]
+  ↳ app/models/comment.rb:13:in `block in <class:Comment>'
+  [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:83:in `fetch_tags'
+[active_model_serializers]   [1m[36mLike Load (0.3ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."likeable_id" = $1 AND "likes"."likeable_type" = $2[0m  [["likeable_id", 1], ["likeable_type", "Article"]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:18:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (7.82ms)
+Completed 200 OK in 82ms (Views: 7.1ms | ActiveRecord: 17.2ms | Allocations: 17609)
+
+
+Started GET "/api/v1/comments" for ::1 at 2022-12-14 13:28:47 +0200
+Processing by Api::V1::CommentsController#index as HTML
+  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+  ↳ app/controllers/api/v1/comments_controller.rb:10:in `index'
+No serializer found for resource: #<Comment id: 1, body: "Libero eos quia est.", status: "unpublished", author_id: 5, article_id: 3, created_at: "2022-12-07 22:35:56.155487000 +0000", updated_at: "2022-12-07 22:35:56.155487000 +0000">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Comment::ActiveRecord_Relation (19.88ms)
+Completed 200 OK in 29ms (Views: 26.9ms | ActiveRecord: 0.6ms | Allocations: 10017)
+
+
+Started GET "/api/v1/comments/1" for ::1 at 2022-12-14 13:28:54 +0200
+Processing by Api::V1::CommentsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:67:in `set_comment'
+[active_model_serializers]   [1m[36mLike Load (0.5ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."likeable_id" = $1 AND "likes"."likeable_type" = $2[0m  [["likeable_id", 1], ["likeable_type", "Comment"]]
+[active_model_serializers]   ↳ app/controllers/api/v1/comments_controller.rb:14:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (3.86ms)
+Completed 200 OK in 10ms (Views: 3.9ms | ActiveRecord: 0.9ms | Allocations: 2122)
+
+
+Started GET "/api/v1/articles" for ::1 at 2022-12-14 13:29:58 +0200
+Processing by Api::V1::ArticlesController#index as HTML
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:13:in `index'
+No serializer found for resource: #<Article id: 2, title: "Sleep the Brave", body: "Eum reiciendis fugiat et.", created_at: "2022-12-07 22:35:55.935905000 +0000", updated_at: "2022-12-07 22:35:55.935905000 +0000", status: "unpublished", author_id: 6>
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Article::ActiveRecord_Relation (5.92ms)
+Completed 200 OK in 17ms (Views: 15.9ms | ActiveRecord: 0.5ms | Allocations: 2878)
+
+
+Started GET "/api/v1/articles/1" for ::1 at 2022-12-14 13:30:11 +0200
+Processing by Api::V1::ArticlesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:71:in `set_article'
+  [1m[36mCACHE Article Load (0.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:75:in `fetch_comments'
+  [1m[36mComment Load (0.7ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1 ORDER BY "comments"."id" DESC LIMIT $2[0m  [["article_id", 1], ["LIMIT", 10]]
+  ↳ app/models/comment.rb:13:in `block in <class:Comment>'
+  [1m[36mTag Load (0.6ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:83:in `fetch_tags'
+[active_model_serializers]   [1m[36mLike Load (0.5ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."likeable_id" = $1 AND "likes"."likeable_type" = $2[0m  [["likeable_id", 1], ["likeable_type", "Article"]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:18:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (7.49ms)
+Completed 200 OK in 23ms (Views: 7.8ms | ActiveRecord: 2.4ms | Allocations: 3735)
+
+
+Started GET "/api/v1/articles/1/published" for ::1 at 2022-12-14 13:38:37 +0200
+Processing by Api::V1::ArticlesController#published as HTML
+  Parameters: {"article_id"=>"1"}
+  [1m[36mArticle Load (0.8ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."status" = $1 AND "articles"."id" = $2 LIMIT $3[0m  [["status", 1], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:49:in `published'
+Completed 404 Not Found in 21ms (ActiveRecord: 9.8ms | Allocations: 3863)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Article with 'id'=1 [WHERE "articles"."status" = $1]):
+  
+app/controllers/api/v1/articles_controller.rb:49:in `published'
+Started GET "/api/v1/articles/1/unpublished" for ::1 at 2022-12-14 13:38:48 +0200
+Processing by Api::V1::ArticlesController#unpublished as HTML
+  Parameters: {"article_id"=>"1"}
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."status" = $1 AND "articles"."id" = $2 LIMIT $3[0m  [["status", 0], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:54:in `unpublished'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Article (0.3ms)
+Completed 200 OK in 4ms (Views: 0.9ms | ActiveRecord: 0.4ms | Allocations: 937)
+
+
+Started GET "/api/v1/articles/1/change_status" for ::1 at 2022-12-14 13:39:09 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/articles/1/change_status"):
+  
+Started GET "/gen204?invalidResponse=q=https%3A%2F%2Ftranslate.googleapis.com%2Ftranslate_a%2Fsingle%3Fclient%3Dgtx%26s,ql=196,r=,rl=0" for ::1 at 2022-12-14 13:40:14 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/gen204"):
+  
+Started GET "/api/v1/articles/1/change_status(published)" for ::1 at 2022-12-14 13:40:35 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/articles/1/change_status(published)"):
+  
+Started GET "/api/v1/articles/1/change_status(.published)" for ::1 at 2022-12-14 13:40:42 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/articles/1/change_status(.published)"):
+  
+Started GET "/" for 127.0.0.1 at 2022-12-14 15:17:57 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/power/.rvm/gems/ruby-3.1.2/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/power/.rvm/gems/ruby-3.1.2/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb (Duration: 40.3ms | Allocations: 478)
+Completed 200 OK in 55ms (Views: 45.6ms | ActiveRecord: 0.0ms | Allocations: 3170)
+
+
+Started GET "/api/v1/articles" for 127.0.0.1 at 2022-12-14 15:19:02 +0200
+Processing by Api::V1::ArticlesController#index as HTML
+  [1m[36mArticle Load (1.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:12:in `index'
+No serializer found for resource: #<Article id: 2, title: "Sleep the Brave", body: "Eum reiciendis fugiat et.", created_at: "2022-12-07 22:35:55.935905000 +0000", updated_at: "2022-12-07 22:35:55.935905000 +0000", status: "unpublished", author_id: 6>
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Article::ActiveRecord_Relation (5.14ms)
+Completed 200 OK in 61ms (Views: 32.3ms | ActiveRecord: 12.3ms | Allocations: 12521)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2022-12-14 15:19:05 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/api/v1/articles/1" for 127.0.0.1 at 2022-12-14 15:19:19 +0200
+Processing by Api::V1::ArticlesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:70:in `set_article'
+  [1m[36mCACHE Article Load (0.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:74:in `fetch_comments'
+  [1m[36mComment Load (0.9ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1 ORDER BY "comments"."id" DESC LIMIT $2[0m  [["article_id", 1], ["LIMIT", 10]]
+  ↳ app/models/comment.rb:13:in `block in <class:Comment>'
+  [1m[36mTag Load (0.5ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:82:in `fetch_tags'
+[active_model_serializers]   [1m[36mLike Load (0.9ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."likeable_id" = $1 AND "likes"."likeable_type" = $2[0m  [["likeable_id", 1], ["likeable_type", "Article"]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:17:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (13.72ms)
+Completed 200 OK in 125ms (Views: 13.9ms | ActiveRecord: 21.9ms | Allocations: 15567)
+
+
+Started GET "/api/v1/articles" for 127.0.0.1 at 2022-12-14 15:21:19 +0200
+Processing by Api::V1::ArticlesController#index as */*
+  Parameters: {"title"=>"hello", "body"=>"world", "article"=>{"title"=>"hello", "body"=>"world"}}
+  [1m[36mArticle Load (0.6ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:12:in `index'
+No serializer found for resource: #<Article id: 2, title: "Sleep the Brave", body: "Eum reiciendis fugiat et.", created_at: "2022-12-07 22:35:55.935905000 +0000", updated_at: "2022-12-07 22:35:55.935905000 +0000", status: "unpublished", author_id: 6>
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Article::ActiveRecord_Relation (4.4ms)
+Completed 200 OK in 14ms (Views: 12.4ms | ActiveRecord: 0.6ms | Allocations: 2835)
+
+
+Started POST "/api/v1/articles/" for 127.0.0.1 at 2022-12-14 15:23:52 +0200
+Processing by Api::V1::ArticlesController#create as */*
+  Parameters: {"title"=>"test article first", "body"=>"same test body article fifeth", "status"=>"published", "article"=>{"title"=>"test article first", "body"=>"same test body article fifeth", "status"=>"published"}}
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms | Allocations: 1490)
+
+
+  
+NoMethodError (undefined method `permit' for :article:Symbol
+
+        params.require :article.permit(:title, :body, :status, tags: [])
+                               ^^^^^^^):
+  
+app/controllers/api/v1/articles_controller.rb:66:in `articles_params'
+app/controllers/api/v1/articles_controller.rb:23:in `create'
+Started POST "/api/v1/articles/" for 127.0.0.1 at 2022-12-14 15:25:28 +0200
+Processing by Api::V1::ArticlesController#create as */*
+  Parameters: {"title"=>"test article first", "body"=>"same test body article fifeth", "status"=>"published", "tags"=>[1, 2, 3], "article"=>{"title"=>"test article first", "body"=>"same test body article fifeth", "status"=>"published"}}
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.0ms | Allocations: 1374)
+
+
+  
+NoMethodError (undefined method `permit' for :article:Symbol
+
+        params.require :article.permit(:title, :body, :status, tags: [])
+                               ^^^^^^^):
+  
+app/controllers/api/v1/articles_controller.rb:66:in `articles_params'
+app/controllers/api/v1/articles_controller.rb:23:in `create'
+Started POST "/api/v1/articles/" for 127.0.0.1 at 2022-12-14 15:26:48 +0200
+Processing by Api::V1::ArticlesController#create as */*
+  Parameters: {"title"=>"test article first", "body"=>"same test body article fifeth", "status"=>"published", "tags"=>[1, 2, 3], "article"=>{"title"=>"test article first", "body"=>"same test body article fifeth", "status"=>"published"}}
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with ActiveModel::Errors (451.68ms)
+Completed 422 Unprocessable Entity in 471ms (Views: 453.2ms | ActiveRecord: 5.5ms | Allocations: 279989)
+
+
+Started POST "/api/v1/articles/" for 127.0.0.1 at 2022-12-14 15:27:24 +0200
+Processing by Api::V1::ArticlesController#create as */*
+  Parameters: {"title"=>"test article first", "body"=>"same test body article fifeth", "status"=>"published", "author"=>10, "article"=>{"title"=>"test article first", "body"=>"same test body article fifeth", "status"=>"published"}}
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with ActiveModel::Errors (0.64ms)
+Completed 422 Unprocessable Entity in 7ms (Views: 1.3ms | ActiveRecord: 0.0ms | Allocations: 736)
+
+
+Started POST "/api/v1/articles/" for 127.0.0.1 at 2022-12-14 15:27:35 +0200
+Processing by Api::V1::ArticlesController#create as */*
+  Parameters: {"title"=>"test article first", "body"=>"same test body article fifeth", "status"=>"published", "author"=>"10", "article"=>{"title"=>"test article first", "body"=>"same test body article fifeth", "status"=>"published"}}
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with ActiveModel::Errors (1.26ms)
+Completed 422 Unprocessable Entity in 5ms (Views: 2.0ms | ActiveRecord: 0.0ms | Allocations: 699)
+
+
+Started POST "/api/v1/articles/" for 127.0.0.1 at 2022-12-14 15:28:32 +0200
+Processing by Api::V1::ArticlesController#create as */*
+  Parameters: {"title"=>"test article first", "body"=>"same test body article fifeth", "status"=>"published", "author_id"=>10, "article"=>{"title"=>"test article first", "body"=>"same test body article fifeth", "status"=>"published", "author_id"=>10}}
+[31mUnpermitted parameter: :author_id. Context: { controller: Api::V1::ArticlesController, action: create, request: #<ActionDispatch::Request:0x00007f1faeaecdb8>, params: {"title"=>"test article first", "body"=>"same test body article fifeth", "status"=>"published", "author_id"=>10, "controller"=>"api/v1/articles", "action"=>"create", "article"=>{"title"=>"test article first", "body"=>"same test body article fifeth", "status"=>"published", "author_id"=>10}} }[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with ActiveModel::Errors (1.5ms)
+Completed 422 Unprocessable Entity in 4ms (Views: 2.2ms | ActiveRecord: 0.0ms | Allocations: 804)
+
+
+Started POST "/api/v1/articles/" for 127.0.0.1 at 2022-12-14 15:32:18 +0200
+Processing by Api::V1::ArticlesController#create as */*
+  Parameters: {"title"=>"test article first", "body"=>"same test body article fifeth", "status"=>"published", "author_id"=>10, "article"=>{"title"=>"test article first", "body"=>"same test body article fifeth", "status"=>"published", "author_id"=>10}}
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:24:in `create'
+  [1m[36mAuthor Load (0.5ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:24:in `create'
+  [1m[36mArticle Create (11.4ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "created_at", "updated_at", "status", "author_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "test article first"], ["body", "same test body article fifeth"], ["created_at", "2022-12-14 13:32:18.755837"], ["updated_at", "2022-12-14 13:32:18.755837"], ["status", 1], ["author_id", 10]]
+  ↳ app/controllers/api/v1/articles_controller.rb:24:in `create'
+  [1m[36mTRANSACTION (3.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:24:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Article (0.47ms)
+Completed 201 Created in 84ms (Views: 2.5ms | ActiveRecord: 33.1ms | Allocations: 9629)
+
+
+Started GET "/api/v1/articles/19" for 127.0.0.1 at 2022-12-14 15:32:58 +0200
+Processing by Api::V1::ArticlesController#show as */*
+  Parameters: {"id"=>"19"}
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:70:in `set_article'
+  [1m[36mCACHE Article Load (0.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:74:in `fetch_comments'
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1 ORDER BY "comments"."id" DESC LIMIT $2[0m  [["article_id", 19], ["LIMIT", 10]]
+  ↳ app/models/comment.rb:13:in `block in <class:Comment>'
+  [1m[36mTag Load (0.5ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:82:in `fetch_tags'
+[active_model_serializers]   [1m[36mLike Load (0.4ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."likeable_id" = $1 AND "likes"."likeable_type" = $2[0m  [["likeable_id", 19], ["likeable_type", "Article"]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:17:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (9.52ms)
+Completed 200 OK in 77ms (Views: 8.3ms | ActiveRecord: 13.9ms | Allocations: 11607)
+
+
+Started GET "/api/v1/articles/19" for 127.0.0.1 at 2022-12-14 15:33:49 +0200
+Processing by Api::V1::ArticlesController#show as */*
+  Parameters: {"id"=>"19"}
+  [1m[36mArticle Load (0.6ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:70:in `set_article'
+  [1m[36mCACHE Article Load (0.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:74:in `fetch_comments'
+  [1m[36mComment Load (0.8ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1 ORDER BY "comments"."id" DESC LIMIT $2[0m  [["article_id", 19], ["LIMIT", 10]]
+  ↳ app/models/comment.rb:13:in `block in <class:Comment>'
+Completed 404 Not Found in 57ms (ActiveRecord: 15.8ms | Allocations: 10355)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Tag without an ID):
+  
+app/controllers/api/v1/articles_controller.rb:82:in `fetch_tags'
+Started GET "/api/v1/articles/19" for 127.0.0.1 at 2022-12-14 15:34:09 +0200
+Processing by Api::V1::ArticlesController#show as */*
+  Parameters: {"id"=>"19"}
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:70:in `set_article'
+  [1m[36mCACHE Article Load (0.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:74:in `fetch_comments'
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1 ORDER BY "comments"."id" DESC LIMIT $2[0m  [["article_id", 19], ["LIMIT", 10]]
+  ↳ app/models/comment.rb:13:in `block in <class:Comment>'
+  [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:82:in `fetch_tags'
+[active_model_serializers]   [1m[36mLike Load (0.6ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."likeable_id" = $1 AND "likes"."likeable_type" = $2[0m  [["likeable_id", 19], ["likeable_type", "Article"]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:17:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (9.77ms)
+Completed 200 OK in 108ms (Views: 9.1ms | ActiveRecord: 19.2ms | Allocations: 15489)
+
+
+Started POST "/api/v1/articles/" for 127.0.0.1 at 2022-12-14 15:34:54 +0200
+Processing by Api::V1::ArticlesController#create as */*
+  Parameters: {"title"=>"test article first", "body"=>"same test body article fifeth", "status"=>"published", "author_id"=>10, "tags"=>[15, 14, 2], "article"=>{"title"=>"test article first", "body"=>"same test body article fifeth", "status"=>"published", "author_id"=>10}}
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:24:in `create'
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:24:in `create'
+  [1m[36mArticle Create (0.7ms)[0m  [1m[32mINSERT INTO "articles" ("title", "body", "created_at", "updated_at", "status", "author_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "test article first"], ["body", "same test body article fifeth"], ["created_at", "2022-12-14 13:34:54.540750"], ["updated_at", "2022-12-14 13:34:54.540750"], ["status", 1], ["author_id", 10]]
+  ↳ app/controllers/api/v1/articles_controller.rb:24:in `create'
+  [1m[36mTRANSACTION (3.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:24:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Article (0.42ms)
+Completed 201 Created in 43ms (Views: 2.0ms | ActiveRecord: 9.5ms | Allocations: 8116)
+
+
+Started GET "/api/v1/articles/20" for 127.0.0.1 at 2022-12-14 15:35:15 +0200
+Processing by Api::V1::ArticlesController#show as */*
+  Parameters: {"id"=>"20"}
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:70:in `set_article'
+  [1m[36mCACHE Article Load (0.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:74:in `fetch_comments'
+  [1m[36mComment Load (1.7ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1 ORDER BY "comments"."id" DESC LIMIT $2[0m  [["article_id", 20], ["LIMIT", 10]]
+  ↳ app/models/comment.rb:13:in `block in <class:Comment>'
+  [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:82:in `fetch_tags'
+[active_model_serializers]   [1m[36mLike Load (0.5ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."likeable_id" = $1 AND "likes"."likeable_type" = $2[0m  [["likeable_id", 20], ["likeable_type", "Article"]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:17:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (7.76ms)
+Completed 200 OK in 21ms (Views: 8.0ms | ActiveRecord: 3.1ms | Allocations: 3364)
+
+
+Started DELETE "/api/v1/articles/19" for 127.0.0.1 at 2022-12-14 15:36:06 +0200
+Processing by Api::V1::ArticlesController#destroy as */*
+  Parameters: {"id"=>"19"}
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:70:in `set_article'
+  [1m[36mCACHE Article Load (0.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:74:in `fetch_comments'
+  [1m[36mComment Load (4.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1 ORDER BY "comments"."id" DESC LIMIT $2[0m  [["article_id", 19], ["LIMIT", 10]]
+  ↳ app/models/comment.rb:13:in `block in <class:Comment>'
+  [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:82:in `fetch_tags'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:40:in `destroy'
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1[0m  [["article_id", 19]]
+  ↳ app/controllers/api/v1/articles_controller.rb:40:in `destroy'
+  [1m[36mArticleTag Load (4.4ms)[0m  [1m[34mSELECT "article_tags".* FROM "article_tags" WHERE "article_tags"."article_id" = $1[0m  [["article_id", 19]]
+  ↳ app/controllers/api/v1/articles_controller.rb:40:in `destroy'
+  [1m[36mLike Load (0.4ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."likeable_id" = $1 AND "likes"."likeable_type" = $2[0m  [["likeable_id", 19], ["likeable_type", "Article"]]
+  ↳ app/controllers/api/v1/articles_controller.rb:40:in `destroy'
+  [1m[36mArticle Destroy (1.7ms)[0m  [1m[31mDELETE FROM "articles" WHERE "articles"."id" = $1[0m  [["id", 19]]
+  ↳ app/controllers/api/v1/articles_controller.rb:40:in `destroy'
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:40:in `destroy'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Article (0.54ms)
+Completed 200 OK in 66ms (Views: 1.6ms | ActiveRecord: 15.8ms | Allocations: 9331)
+
+
+Started GET "/api/v1/articles/19" for 127.0.0.1 at 2022-12-14 15:36:16 +0200
+Processing by Api::V1::ArticlesController#show as */*
+  Parameters: {"id"=>"19"}
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:70:in `set_article'
+Completed 404 Not Found in 4ms (ActiveRecord: 0.3ms | Allocations: 582)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Article with 'id'=19):
+  
+app/controllers/api/v1/articles_controller.rb:70:in `set_article'
+Started GET "/api/v1/articles/20" for 127.0.0.1 at 2022-12-14 15:36:22 +0200
+Processing by Api::V1::ArticlesController#show as */*
+  Parameters: {"id"=>"20"}
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:70:in `set_article'
+  [1m[36mCACHE Article Load (0.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:74:in `fetch_comments'
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1 ORDER BY "comments"."id" DESC LIMIT $2[0m  [["article_id", 20], ["LIMIT", 10]]
+  ↳ app/models/comment.rb:13:in `block in <class:Comment>'
+  [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:82:in `fetch_tags'
+[active_model_serializers]   [1m[36mLike Load (0.4ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."likeable_id" = $1 AND "likes"."likeable_type" = $2[0m  [["likeable_id", 20], ["likeable_type", "Article"]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:17:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (3.32ms)
+Completed 200 OK in 12ms (Views: 3.4ms | ActiveRecord: 1.4ms | Allocations: 3354)
+
+
+Started GET "/api/v1/articles/2" for 127.0.0.1 at 2022-12-14 15:38:05 +0200
+Processing by Api::V1::ArticlesController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:70:in `set_article'
+  [1m[36mCACHE Article Load (0.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:74:in `fetch_comments'
+  [1m[36mComment Load (0.9ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1 ORDER BY "comments"."id" DESC LIMIT $2[0m  [["article_id", 2], ["LIMIT", 10]]
+  ↳ app/models/comment.rb:13:in `block in <class:Comment>'
+  [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:82:in `fetch_tags'
+[active_model_serializers]   [1m[36mLike Load (0.2ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."likeable_id" = $1 AND "likes"."likeable_type" = $2[0m  [["likeable_id", 2], ["likeable_type", "Article"]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:17:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (3.78ms)
+Completed 200 OK in 22ms (Views: 4.3ms | ActiveRecord: 1.8ms | Allocations: 5124)
+
+
+Started GET "/api/v1/articles/1/commnets" for 127.0.0.1 at 2022-12-14 15:39:04 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/articles/1/commnets"):
+  
+Started GET "/api/v1/articles/1/commnets/1" for 127.0.0.1 at 2022-12-14 15:39:09 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/articles/1/commnets/1"):
+  
+Started GET "/api/v1/articles/1/commnets/" for 127.0.0.1 at 2022-12-14 15:39:14 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/articles/1/commnets"):
+  
+Started GET "/api/v1/articles/1/" for 127.0.0.1 at 2022-12-14 15:39:40 +0200
+Processing by Api::V1::ArticlesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:70:in `set_article'
+  [1m[36mCACHE Article Load (0.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:74:in `fetch_comments'
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1 ORDER BY "comments"."id" DESC LIMIT $2[0m  [["article_id", 1], ["LIMIT", 10]]
+  ↳ app/models/comment.rb:13:in `block in <class:Comment>'
+  [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:82:in `fetch_tags'
+[active_model_serializers]   [1m[36mLike Load (0.4ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."likeable_id" = $1 AND "likes"."likeable_type" = $2[0m  [["likeable_id", 1], ["likeable_type", "Article"]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:17:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (5.18ms)
+Completed 200 OK in 20ms (Views: 5.4ms | ActiveRecord: 1.5ms | Allocations: 3710)
+
+
+Started PUT "/api/v1/articles/1/" for 127.0.0.1 at 2022-12-14 15:41:13 +0200
+Processing by Api::V1::ArticlesController#update as */*
+  Parameters: {"likes"=>[1], "id"=>"1", "article"=>{}}
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:70:in `set_article'
+  [1m[36mCACHE Article Load (0.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:74:in `fetch_comments'
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1 ORDER BY "comments"."id" DESC LIMIT $2[0m  [["article_id", 1], ["LIMIT", 10]]
+  ↳ app/models/comment.rb:13:in `block in <class:Comment>'
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:82:in `fetch_tags'
+Completed 400 Bad Request in 7ms (ActiveRecord: 0.9ms | Allocations: 2289)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: article):
+  
+app/controllers/api/v1/articles_controller.rb:66:in `articles_params'
+app/controllers/api/v1/articles_controller.rb:32:in `update'
+Started POST "/api/v1/articles/1/" for 127.0.0.1 at 2022-12-14 15:41:55 +0200
+  
+ActionController::RoutingError (No route matches [POST] "/api/v1/articles/1"):
+  
+Started PATCH "/api/v1/articles/1/" for 127.0.0.1 at 2022-12-14 15:42:15 +0200
+Processing by Api::V1::ArticlesController#update as */*
+  Parameters: {"likes"=>[1], "id"=>"1", "article"=>{}}
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:70:in `set_article'
+  [1m[36mCACHE Article Load (0.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:74:in `fetch_comments'
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1 ORDER BY "comments"."id" DESC LIMIT $2[0m  [["article_id", 1], ["LIMIT", 10]]
+  ↳ app/models/comment.rb:13:in `block in <class:Comment>'
+  [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:82:in `fetch_tags'
+Completed 400 Bad Request in 11ms (ActiveRecord: 1.1ms | Allocations: 2259)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: article):
+  
+app/controllers/api/v1/articles_controller.rb:66:in `articles_params'
+app/controllers/api/v1/articles_controller.rb:32:in `update'
+Started GET "/api/v1/articles/published" for 127.0.0.1 at 2022-12-14 15:43:59 +0200
+Processing by Api::V1::ArticlesController#show as */*
+  Parameters: {"id"=>"published"}
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:70:in `set_article'
+Completed 404 Not Found in 2ms (ActiveRecord: 0.2ms | Allocations: 552)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Article with 'id'=published):
+  
+app/controllers/api/v1/articles_controller.rb:70:in `set_article'
+Started GET "/api/v1/articles/1/published" for 127.0.0.1 at 2022-12-14 15:44:12 +0200
+Processing by Api::V1::ArticlesController#published as */*
+  Parameters: {"article_id"=>"1"}
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."status" = $1 AND "articles"."id" = $2 LIMIT $3[0m  [["status", 1], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:48:in `published'
+Completed 404 Not Found in 4ms (ActiveRecord: 0.3ms | Allocations: 850)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Article with 'id'=1 [WHERE "articles"."status" = $1]):
+  
+app/controllers/api/v1/articles_controller.rb:48:in `published'
+Started GET "/api/v1/articles/1/unpublished" for 127.0.0.1 at 2022-12-14 15:44:21 +0200
+Processing by Api::V1::ArticlesController#unpublished as */*
+  Parameters: {"article_id"=>"1"}
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."status" = $1 AND "articles"."id" = $2 LIMIT $3[0m  [["status", 0], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:53:in `unpublished'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Article (0.42ms)
+Completed 200 OK in 6ms (Views: 1.1ms | ActiveRecord: 0.4ms | Allocations: 940)
+
+
+Started PATCH "/api/v1/articles/1/chenge_status" for 127.0.0.1 at 2022-12-14 15:45:02 +0200
+  
+ActionController::RoutingError (No route matches [PATCH] "/api/v1/articles/1/chenge_status"):
+  
+Error occurred while parsing request parameters.
+Contents:
+
+
+
+Started PATCH "/api/v1/articles/1/chenge_status" for 127.0.0.1 at 2022-12-14 15:45:41 +0200
+  
+ActionController::RoutingError (No route matches [PATCH] "/api/v1/articles/1/chenge_status"):
+  
+Started PATCH "/api/v1/articles/1/change_status" for 127.0.0.1 at 2022-12-14 15:45:59 +0200
+Processing by Api::V1::ArticlesController#change_status as */*
+  Parameters: {"article_id"=>"1"}
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:78:in `status'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:59:in `change_status'
+  [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:59:in `change_status'
+  [1m[36mArticle Update (5.4ms)[0m  [1m[33mUPDATE "articles" SET "updated_at" = $1, "status" = $2 WHERE "articles"."id" = $3[0m  [["updated_at", "2022-12-14 13:45:59.278715"], ["status", 1], ["id", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:59:in `change_status'
+  [1m[36mTRANSACTION (12.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:59:in `change_status'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Article (0.22ms)
+Completed 200 OK in 31ms (Views: 0.7ms | ActiveRecord: 18.5ms | Allocations: 3745)
+
+
+Started GET "/api/v1/articles/1/unpublished" for 127.0.0.1 at 2022-12-14 15:46:11 +0200
+Processing by Api::V1::ArticlesController#unpublished as */*
+  Parameters: {"article_id"=>"1"}
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."status" = $1 AND "articles"."id" = $2 LIMIT $3[0m  [["status", 0], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:53:in `unpublished'
+Completed 404 Not Found in 3ms (ActiveRecord: 0.3ms | Allocations: 782)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Article with 'id'=1 [WHERE "articles"."status" = $1]):
+  
+app/controllers/api/v1/articles_controller.rb:53:in `unpublished'
+Started GET "/api/v1/articles/1/published" for 127.0.0.1 at 2022-12-14 15:46:17 +0200
+Processing by Api::V1::ArticlesController#published as */*
+  Parameters: {"article_id"=>"1"}
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."status" = $1 AND "articles"."id" = $2 LIMIT $3[0m  [["status", 1], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:48:in `published'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Article (0.43ms)
+Completed 200 OK in 4ms (Views: 1.1ms | ActiveRecord: 0.3ms | Allocations: 936)
+
+
+Started GET "/api/v1/articles/10" for 127.0.0.1 at 2022-12-14 15:46:35 +0200
+Processing by Api::V1::ArticlesController#show as */*
+  Parameters: {"id"=>"10"}
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:70:in `set_article'
+  [1m[36mCACHE Article Load (0.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:74:in `fetch_comments'
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1 ORDER BY "comments"."id" DESC LIMIT $2[0m  [["article_id", 10], ["LIMIT", 10]]
+  ↳ app/models/comment.rb:13:in `block in <class:Comment>'
+  [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:82:in `fetch_tags'
+[active_model_serializers]   [1m[36mLike Load (3.5ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."likeable_id" = $1 AND "likes"."likeable_type" = $2[0m  [["likeable_id", 10], ["likeable_type", "Article"]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:17:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (8.33ms)
+Completed 200 OK in 20ms (Views: 5.5ms | ActiveRecord: 4.5ms | Allocations: 3611)
+
+
+Started GET "/api/v1/likes" for 127.0.0.1 at 2022-12-14 15:50:36 +0200
+  
+AbstractController::ActionNotFound (The action 'index' could not be found for Api::V1::LikesController):
+  
+actionpack (7.0.4) lib/abstract_controller/base.rb:146:in `process'
+actionpack (7.0.4) lib/action_controller/metal.rb:188:in `dispatch'
+actionpack (7.0.4) lib/action_controller/metal.rb:251:in `dispatch'
+actionpack (7.0.4) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.0.4) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.0.4) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (7.0.4) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (7.0.4) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.0.4) lib/action_dispatch/routing/route_set.rb:852:in `call'
+rack (2.2.4) lib/rack/etag.rb:27:in `call'
+rack (2.2.4) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.4) lib/rack/head.rb:12:in `call'
+activerecord (7.0.4) lib/active_record/migration.rb:603:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.4) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.4) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/show_exceptions.rb:26:in `call'
+railties (7.0.4) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.4) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.4) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.4) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.4) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.4) lib/rails/rack/logger.rb:25:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.4) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.4) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.4) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.4) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+railties (7.0.4) lib/rails/engine.rb:530:in `call'
+puma (5.6.5) lib/puma/configuration.rb:252:in `call'
+puma (5.6.5) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.5) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.5) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.5) lib/puma/server.rb:443:in `process_client'
+puma (5.6.5) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started POST "/api/v1/likes" for 127.0.0.1 at 2022-12-14 15:51:55 +0200
+Processing by Api::V1::LikesController#create as */*
+  Parameters: {"author_id"=>10, "likeable_id"=>1, "like"=>{"author_id"=>10, "likeable_id"=>1}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/likes_controller.rb:11:in `create'
+  [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/likes_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/v1/likes_controller.rb:11:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with ActiveModel::Errors (0.76ms)
+Completed 422 Unprocessable Entity in 43ms (Views: 2.0ms | ActiveRecord: 2.7ms | Allocations: 6809)
+
+
+Started POST "/api/v1/likes" for 127.0.0.1 at 2022-12-14 15:52:31 +0200
+Processing by Api::V1::LikesController#create as */*
+  Parameters: {"author_id"=>10, "likeable_id"=>1, "likeable"=>"article", "like"=>{"author_id"=>10, "likeable_id"=>1}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/likes_controller.rb:11:in `create'
+  [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/likes_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/v1/likes_controller.rb:11:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with ActiveModel::Errors (1.1ms)
+Completed 422 Unprocessable Entity in 12ms (Views: 1.8ms | ActiveRecord: 0.8ms | Allocations: 2616)
+
+
+Started POST "/api/v1/likes" for 127.0.0.1 at 2022-12-14 15:52:39 +0200
+Error occurred while parsing request parameters.
+Contents:
+
+{
+    "author_id": 10,
+    "likeable_id": 1,
+    "likeable":
+}
+Processing by Api::V1::LikesController#create as */*
+Completed 400 Bad Request in 0ms (ActiveRecord: 0.0ms | Allocations: 135)
+
+
+  
+ActionDispatch::Http::Parameters::ParseError (Error occurred while parsing request parameters):
+  
+app/controllers/api/v1/likes_controller.rb:29:in `like_params'
+app/controllers/api/v1/likes_controller.rb:9:in `create'
+Started POST "/api/v1/likes" for 127.0.0.1 at 2022-12-14 15:52:49 +0200
+Processing by Api::V1::LikesController#create as */*
+  Parameters: {"author_id"=>10, "likeable_id"=>1, "likeable"=>1, "like"=>{"author_id"=>10, "likeable_id"=>1}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/likes_controller.rb:11:in `create'
+  [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/likes_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/v1/likes_controller.rb:11:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with ActiveModel::Errors (1.04ms)
+Completed 422 Unprocessable Entity in 9ms (Views: 1.8ms | ActiveRecord: 0.7ms | Allocations: 2584)
+
+
+Started POST "/api/v1/likes" for 127.0.0.1 at 2022-12-14 16:04:27 +0200
+Processing by Api::V1::LikesController#create as */*
+  Parameters: {"author_id"=>10, "likeable_id"=>1, "likeable"=>"Article", "like"=>{"author_id"=>10, "likeable_id"=>1}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/likes_controller.rb:11:in `create'
+  [1m[36mAuthor Load (2.6ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/likes_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/v1/likes_controller.rb:11:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with ActiveModel::Errors (0.71ms)
+Completed 422 Unprocessable Entity in 48ms (Views: 1.2ms | ActiveRecord: 25.0ms | Allocations: 5589)
+
+
+Started POST "/api/v1/likes" for 127.0.0.1 at 2022-12-14 16:04:51 +0200
+Processing by Api::V1::LikesController#create as */*
+  Parameters: {"author_id"=>10, "likeable_id"=>1, "likeable_type"=>"Article", "like"=>{"author_id"=>10, "likeable_type"=>"Article", "likeable_id"=>1}}
+  [1m[36mArticle Load (0.6ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/likes_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/likes_controller.rb:11:in `create'
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/likes_controller.rb:11:in `create'
+  [1m[36mLike Create (8.1ms)[0m  [1m[32mINSERT INTO "likes" ("author_id", "likeable_type", "likeable_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["author_id", 10], ["likeable_type", "Article"], ["likeable_id", 1], ["created_at", "2022-12-14 14:04:51.902076"], ["updated_at", "2022-12-14 14:04:51.902076"]]
+  ↳ app/controllers/api/v1/likes_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (4.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/likes_controller.rb:11:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Article (0.31ms)
+Completed 200 OK in 25ms (Views: 0.8ms | ActiveRecord: 13.8ms | Allocations: 4097)
+
+
+Started GET "/api/v1/articles/1" for 127.0.0.1 at 2022-12-14 16:05:24 +0200
+Processing by Api::V1::ArticlesController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:70:in `set_article'
+  [1m[36mCACHE Article Load (0.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:74:in `fetch_comments'
+  [1m[36mComment Load (0.8ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1 ORDER BY "comments"."id" DESC LIMIT $2[0m  [["article_id", 1], ["LIMIT", 10]]
+  ↳ app/models/comment.rb:13:in `block in <class:Comment>'
+  [1m[36mTag Load (0.8ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:82:in `fetch_tags'
+[active_model_serializers]   [1m[36mLike Load (0.9ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."likeable_id" = $1 AND "likes"."likeable_type" = $2[0m  [["likeable_id", 1], ["likeable_type", "Article"]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:17:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (9.55ms)
+Completed 200 OK in 26ms (Views: 9.3ms | ActiveRecord: 2.9ms | Allocations: 3889)
+
+
+Started GET "/api/v1/comments" for 127.0.0.1 at 2022-12-14 16:06:03 +0200
+Processing by Api::V1::CommentsController#index as */*
+  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+  ↳ app/controllers/api/v1/comments_controller.rb:10:in `index'
+No serializer found for resource: #<Comment id: 1, body: "Libero eos quia est.", status: "unpublished", author_id: 5, article_id: 3, created_at: "2022-12-07 22:35:56.155487000 +0000", updated_at: "2022-12-07 22:35:56.155487000 +0000">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Comment::ActiveRecord_Relation (12.96ms)
+Completed 200 OK in 20ms (Views: 19.3ms | ActiveRecord: 0.6ms | Allocations: 9924)
+
+
+Started GET "/api/v1/likes" for 127.0.0.1 at 2022-12-14 16:06:13 +0200
+  
+AbstractController::ActionNotFound (The action 'index' could not be found for Api::V1::LikesController):
+  
+actionpack (7.0.4) lib/abstract_controller/base.rb:146:in `process'
+actionpack (7.0.4) lib/action_controller/metal.rb:188:in `dispatch'
+actionpack (7.0.4) lib/action_controller/metal.rb:251:in `dispatch'
+actionpack (7.0.4) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.0.4) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.0.4) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (7.0.4) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (7.0.4) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.0.4) lib/action_dispatch/routing/route_set.rb:852:in `call'
+rack (2.2.4) lib/rack/etag.rb:27:in `call'
+rack (2.2.4) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.4) lib/rack/head.rb:12:in `call'
+activerecord (7.0.4) lib/active_record/migration.rb:603:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.4) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.4) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/show_exceptions.rb:26:in `call'
+railties (7.0.4) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.4) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.4) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.4) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.4) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.4) lib/rails/rack/logger.rb:25:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.4) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.4) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.4) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.4) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+railties (7.0.4) lib/rails/engine.rb:530:in `call'
+puma (5.6.5) lib/puma/configuration.rb:252:in `call'
+puma (5.6.5) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.5) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.5) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.5) lib/puma/server.rb:443:in `process_client'
+puma (5.6.5) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started GET "/api/v1/tags" for 127.0.0.1 at 2022-12-14 16:06:19 +0200
+Processing by Api::V1::TagsController#index as */*
+  [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/controllers/api/v1/tags_controller.rb:8:in `index'
+No serializer found for resource: #<Tag id: 1, title: "cross-platform", created_at: "2022-12-07 22:35:56.407340000 +0000", updated_at: "2022-12-07 22:35:56.407340000 +0000">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Tag::ActiveRecord_Relation (2.56ms)
+Completed 200 OK in 7ms (Views: 6.0ms | ActiveRecord: 0.4ms | Allocations: 3331)
+
+
+Started POST "/api/v1/likes" for 127.0.0.1 at 2022-12-14 16:13:12 +0200
+Processing by Api::V1::LikesController#create as */*
+  Parameters: {"author_id"=>4, "likeable_id"=>2, "likeable_type"=>"Article", "like"=>{"author_id"=>4, "likeable_type"=>"Article", "likeable_id"=>2}}
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/likes_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/likes_controller.rb:11:in `create'
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/likes_controller.rb:11:in `create'
+  [1m[36mLike Create (3.7ms)[0m  [1m[32mINSERT INTO "likes" ("author_id", "likeable_type", "likeable_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["author_id", 4], ["likeable_type", "Article"], ["likeable_id", 2], ["created_at", "2022-12-14 14:13:12.137407"], ["updated_at", "2022-12-14 14:13:12.137407"]]
+  ↳ app/controllers/api/v1/likes_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/likes_controller.rb:11:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Article (0.55ms)
+Completed 200 OK in 48ms (Views: 1.6ms | ActiveRecord: 27.4ms | Allocations: 6759)
+
+
+Started DELETE "/api/v1/likes" for 127.0.0.1 at 2022-12-14 16:13:23 +0200
+  
+ActionController::RoutingError (No route matches [DELETE] "/api/v1/likes"):
+  
+Started DELETE "/api/v1/likes/2" for 127.0.0.1 at 2022-12-14 16:13:38 +0200
+Processing by Api::V1::LikesController#destroy as */*
+  Parameters: {"author_id"=>4, "likeable_id"=>2, "likeable_type"=>"Article", "id"=>"2", "like"=>{"author_id"=>4, "likeable_type"=>"Article", "likeable_id"=>2}}
+  [1m[36mLike Load (0.3ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/likes_controller.rb:33:in `set_like'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/likes_controller.rb:19:in `destroy'
+  [1m[36mLike Destroy (14.2ms)[0m  [1m[31mDELETE FROM "likes" WHERE "likes"."id" = $1[0m  [["id", 2]]
+  ↳ app/controllers/api/v1/likes_controller.rb:19:in `destroy'
+  [1m[36mTRANSACTION (12.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/likes_controller.rb:19:in `destroy'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Like (0.32ms)
+Completed 200 OK in 34ms (Views: 1.1ms | ActiveRecord: 27.2ms | Allocations: 2416)
+
+
+Started DELETE "/api/v1/comments/2" for 127.0.0.1 at 2022-12-14 16:14:55 +0200
+Processing by Api::V1::CommentsController#destroy as */*
+  Parameters: {"body"=>"test fiveth comment", "status"=>1, "author_id"=>2, "article_id"=>1, "id"=>"2", "comment"=>{"body"=>"test fiveth comment", "status"=>1, "author_id"=>2, "article_id"=>1}}
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:67:in `set_comment'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/comments_controller.rb:37:in `destroy'
+  [1m[36mLike Load (0.4ms)[0m  [1m[34mSELECT "likes".* FROM "likes" WHERE "likes"."likeable_id" = $1 AND "likes"."likeable_type" = $2[0m  [["likeable_id", 2], ["likeable_type", "Comment"]]
+  ↳ app/controllers/api/v1/comments_controller.rb:37:in `destroy'
+  [1m[36mComment Destroy (0.5ms)[0m  [1m[31mDELETE FROM "comments" WHERE "comments"."id" = $1[0m  [["id", 2]]
+  ↳ app/controllers/api/v1/comments_controller.rb:37:in `destroy'
+  [1m[36mTRANSACTION (16.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/comments_controller.rb:37:in `destroy'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Comment (0.34ms)
+Completed 200 OK in 29ms (Views: 1.1ms | ActiveRecord: 18.0ms | Allocations: 3499)
+
+
+Started GET "/api/v1/comments/" for 127.0.0.1 at 2022-12-14 16:15:31 +0200
+Processing by Api::V1::CommentsController#index as */*
+  Parameters: {"body"=>"test fiveth comment", "status"=>1, "author_id"=>2, "article_id"=>1, "comment"=>{"body"=>"test fiveth comment", "status"=>1, "author_id"=>2, "article_id"=>1}}
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+  ↳ app/controllers/api/v1/comments_controller.rb:10:in `index'
+No serializer found for resource: #<Comment id: 1, body: "Libero eos quia est.", status: "unpublished", author_id: 5, article_id: 3, created_at: "2022-12-07 22:35:56.155487000 +0000", updated_at: "2022-12-07 22:35:56.155487000 +0000">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Comment::ActiveRecord_Relation (14.18ms)
+Completed 200 OK in 18ms (Views: 17.2ms | ActiveRecord: 0.4ms | Allocations: 9365)
+
+
+Started PATCH "/api/v1/comments/1/change_status" for 127.0.0.1 at 2022-12-14 16:16:01 +0200
+Processing by Api::V1::CommentsController#change_status as */*
+  Parameters: {"comment_id"=>"1"}
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.0ms | Allocations: 2833)
+
+
+  
+NameError (undefined local variable or method `comments' for #<Api::V1::CommentsController:0x00000000027d80>
+
+        new_status = comments.status == 'unpublished' ? 'published' : 'unpublished'
+                     ^^^^^^^^
+Did you mean?  comment_params):
+  
+app/controllers/api/v1/comments_controller.rb:55:in `change_status'
+Started PATCH "/api/v1/comments/1/change_status" for 127.0.0.1 at 2022-12-14 16:17:26 +0200
+Processing by Api::V1::CommentsController#change_status as */*
+  Parameters: {"comment_id"=>"1"}
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 0.0ms | Allocations: 2889)
+
+
+  
+NameError (undefined local variable or method `comments' for #<Api::V1::CommentsController:0x0000000002e680>
+
+        new_status = comments.status == 'unpublished' ? 'published' : 'unpublished'
+                     ^^^^^^^^
+Did you mean?  comment_params):
+  
+app/controllers/api/v1/comments_controller.rb:55:in `change_status'
+Started PATCH "/api/v1/comments/1/change_status" for 127.0.0.1 at 2022-12-14 16:19:10 +0200
+Processing by Api::V1::CommentsController#change_status as */*
+  Parameters: {"comment_id"=>"1"}
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:72:in `status'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/comments_controller.rb:56:in `change_status'
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:56:in `change_status'
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:56:in `change_status'
+  [1m[36mComment Update (0.7ms)[0m  [1m[33mUPDATE "comments" SET "status" = $1, "updated_at" = $2 WHERE "comments"."id" = $3[0m  [["status", 1], ["updated_at", "2022-12-14 14:19:10.321592"], ["id", 1]]
+  ↳ app/controllers/api/v1/comments_controller.rb:56:in `change_status'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/comments_controller.rb:56:in `change_status'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Comment (0.43ms)
+Completed 200 OK in 83ms (Views: 2.6ms | ActiveRecord: 19.4ms | Allocations: 17292)
+
+

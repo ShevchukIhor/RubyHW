@@ -26,7 +26,7 @@ module Api
       private
 
       def like_params
-        params.require :like.permit(:author_id, :likeable_id, :likeable_type)
+        params.require(:like).permit(:author_id, :likeable_id, :likeable_type)
       end
 
       def set_like

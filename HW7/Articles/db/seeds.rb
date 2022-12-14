@@ -11,4 +11,4 @@ end
 end
 20.times { Tag.create({ title: Faker::Hacker.adjective }) }
 40.times { ArticleTag.create({ article_id: rand(21), tag_id: rand(21) }) }
-40.times { Like.create({ author_id: rand(21), likeable_id: rand(21) }) }
+#40.times { Like.create({ author_id: rand(21), likeable_id: rand(21) }) }
