@@ -5,7 +5,7 @@ class Comment < ApplicationRecord
   belongs_to :article
   has_many :likes, as: :likeable, dependent: :destroy
 
-  validates :body, :author_id, :article_id, presence: true
+  validates :body, presence: true
 
   enum :status, %i[unpublished published]
   scope :published, -> { where(status: 1) }

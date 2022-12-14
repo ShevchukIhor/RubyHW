@@ -3,7 +3,8 @@
 module Api
   module V1
     class ArticlesController < ApplicationController
-      before_action :set_article,:fetch_comments, :fetch_tags, only: %i[show edit update destroy]
+      before_action :set_article, :fetch_comments, :fetch_tags, :fetch_likes,
+                    only: %i[show edit update destroy]
       before_action :status, only: %i[change_status]
 
       # GET method to get all article from database
@@ -14,7 +15,7 @@ module Api
 
       # /api/v1/articles/:id(.:format)
       def show
-        render json: { articles: @article, comments: @comments, tags: @tags, likes: @article.likes }
+        render json: { articles: @article, comments: @comments, tags: @tags, likes: @likes }
       end
 
       def edit; end
@@ -45,13 +46,13 @@ module Api
       end
 
       def published
-        @article = Article.published.find(params[:article_id])
-        render json: @article, status: :ok
+        article = Article.published.find(params[:article_id])
+        render json: article, status: :ok
       end
 
       def unpublished
-        @article = Article.unpublished.find(params[:article_id])
-        render json: @article, status: :ok
+        article = Article.unpublished.find(params[:article_id])
+        render json: article, status: :ok
       end
 
       def change_status
@@ -80,6 +81,10 @@ module Api
 
       def fetch_tags
         @tags = Tag.find params[:id]
+      end
+
+      def fetch_likes
+        @likes = Like.find params[:id]
       end
     end
   end

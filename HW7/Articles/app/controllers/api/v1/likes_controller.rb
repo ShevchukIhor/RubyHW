@@ -2,7 +2,7 @@
 
 module Api
   module V1
-    class LikeController < ApplicationController
+    class LikesController < ApplicationController
       before_action :set_like, only: %i[destroy]
 
       def create

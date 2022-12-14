@@ -3,11 +3,15 @@
 module Api
   module V1
     class CommentsController < ApplicationController
-      before_action :set_comment, only: %i[edit update destroy]
+      before_action :set_comment, only: %i[show edit update destroy]
 
       def index
         comment = Comment.all
-          render json: comment, status: :ok
+        render json: comment, status: :ok
+      end
+
+      def show
+        render json: { comments: @comment }
       end
 
       def edit; end
@@ -38,19 +42,19 @@ module Api
       end
 
       def published
-        @comments = Article.find(params[:article_id]).comments.published
-        render json: @comments, status: :ok
+        comments = Article.find(params[:comment_id]).comments.published
+        render json: comments, status: :ok
       end
 
       def unpublished
-        @comments = Article.find(params[:article_id]).comments.unpublished
-        render json: @comments, status: :ok
+        comments = Article.find(params[:comment_id]).comments.unpublished
+        render json: comments, status: :ok
       end
 
       def change_status
-        new_status = @comments.status == 'unpublished' ? 'published' : 'unpublished'
-        @comments.update(status: new_status)
-        render json: @comments, notice: "Comments changed status to #{@articles.status} "
+        new_status = comments.status == 'unpublished' ? 'published' : 'unpublished'
+        comments.update(status: new_status)
+        render json: comments, notice: "Comments changed status to #{@articles.status} "
       end
 
       private
