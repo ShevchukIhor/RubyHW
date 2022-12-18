@@ -21,12 +21,12 @@ module Api
         @articles = @articles.order(created_at: params[:order]) if params[:order]
         # pagy for articles, show only 15 articles
         @pagy, @articles = pagy(@articles, items: 15)
-        render json: @articles, each_serializer: Api::V1::ArticleSerializer, status: :ok
+        render json: @articles, status: :ok
       end
 
       # /api/v1/articles/:id(.:format)
       def show
-        render json: { articles: @article, comments: @comments, tags: @tags, likes: @article.likes }
+        render json: @article, serializer: Api::V1::ArticleSerializer, status: :ok
       end
 
       def edit; end

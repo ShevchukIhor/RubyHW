@@ -40967,3 +40967,277 @@ Processing by Api::V1::ArticlesController#index as HTML
 Completed 200 OK in 616ms (Views: 554.6ms | ActiveRecord: 43.4ms | Allocations: 139494)
 
 
+Started GET "/api/v1/articles/" for ::1 at 2022-12-18 11:34:33 +0200
+Processing by Api::V1::ArticlesController#index as HTML
+  [1m[36mArticle Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "articles"[0m
+  ↳ app/controllers/api/v1/articles_controller.rb:23:in `index'
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles" LIMIT $1 OFFSET $2[0m  [["LIMIT", 15], ["OFFSET", 0]]
+  ↳ app/controllers/api/v1/articles_controller.rb:24:in `index'
+[active_model_serializers]   [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:24:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1[0m  [["article_id", 2]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:24:in `index'
+[active_model_serializers]   [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:24:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1[0m  [["article_id", 3]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:24:in `index'
+[active_model_serializers]   [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:24:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1[0m  [["article_id", 4]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:24:in `index'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:24:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1[0m  [["article_id", 5]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:24:in `index'
+[active_model_serializers]   [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:24:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1[0m  [["article_id", 6]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:24:in `index'
+[active_model_serializers]   [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:24:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1[0m  [["article_id", 7]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:24:in `index'
+[active_model_serializers]   [1m[36mAuthor Load (0.9ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:24:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1[0m  [["article_id", 8]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:24:in `index'
+[active_model_serializers]   [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:24:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1[0m  [["article_id", 9]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:24:in `index'
+[active_model_serializers]   [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:24:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1[0m  [["article_id", 10]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:24:in `index'
+[active_model_serializers]   [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:24:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1[0m  [["article_id", 11]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:24:in `index'
+[active_model_serializers]   [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:24:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1[0m  [["article_id", 12]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:24:in `index'
+[active_model_serializers]   [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:24:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1[0m  [["article_id", 13]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:24:in `index'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:24:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1[0m  [["article_id", 14]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:24:in `index'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:24:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1[0m  [["article_id", 15]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:24:in `index'
+[active_model_serializers]   [1m[36mAuthor Load (2.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:24:in `index'
+[active_model_serializers]   [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1[0m  [["article_id", 16]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:24:in `index'
+[active_model_serializers]   [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:24:in `index'
+[active_model_serializers]   [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:24:in `index'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:24:in `index'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:24:in `index'
+[active_model_serializers]   [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:24:in `index'
+[active_model_serializers]   [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:24:in `index'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:24:in `index'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:24:in `index'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:24:in `index'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:24:in `index'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:24:in `index'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:24:in `index'
+[active_model_serializers]   [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:24:in `index'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:24:in `index'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:24:in `index'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:24:in `index'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:24:in `index'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:24:in `index'
+[active_model_serializers]   [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:24:in `index'
+[active_model_serializers]   [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:24:in `index'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:24:in `index'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:24:in `index'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:24:in `index'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:24:in `index'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:24:in `index'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:24:in `index'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:24:in `index'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:24:in `index'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:24:in `index'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:24:in `index'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:24:in `index'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:24:in `index'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:24:in `index'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:24:in `index'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:24:in `index'
+[active_model_serializers]   [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:24:in `index'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:24:in `index'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:24:in `index'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:24:in `index'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:24:in `index'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:24:in `index'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:24:in `index'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:24:in `index'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:24:in `index'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:24:in `index'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:24:in `index'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:24:in `index'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:24:in `index'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:24:in `index'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:24:in `index'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:24:in `index'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:24:in `index'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:24:in `index'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:24:in `index'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:24:in `index'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:24:in `index'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:24:in `index'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:24:in `index'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:24:in `index'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:24:in `index'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:24:in `index'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:24:in `index'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:24:in `index'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:24:in `index'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:24:in `index'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:24:in `index'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:24:in `index'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:24:in `index'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:24:in `index'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:24:in `index'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:24:in `index'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:24:in `index'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:24:in `index'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:24:in `index'
+[active_model_serializers]   [1m[36mCACHE Author Load (0.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:24:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (449.9ms)
+Completed 200 OK in 476ms (Views: 434.3ms | ActiveRecord: 29.7ms | Allocations: 139373)
+
+
+Started GET "/api/v1/articles/1" for ::1 at 2022-12-18 11:34:55 +0200
+Processing by Api::V1::ArticlesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:82:in `set_article'
+  [1m[36mCACHE Article Load (0.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:86:in `fetch_comments'
+  [1m[36mComment Load (4.8ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1 ORDER BY "comments"."id" DESC LIMIT $2[0m  [["article_id", 1], ["LIMIT", 10]]
+  ↳ app/models/comment.rb:13:in `block in <class:Comment>'
+  [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:94:in `fetch_tags'
+[active_model_serializers]   [1m[36mAuthor Load (3.2ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:29:in `show'
+[active_model_serializers]   [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1[0m  [["article_id", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:29:in `show'
+[active_model_serializers]   [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:29:in `show'
+[active_model_serializers]   [1m[36mAuthor Load (0.6ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:29:in `show'
+[active_model_serializers]   [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:29:in `show'
+[active_model_serializers]   [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:29:in `show'
+[active_model_serializers] Rendered Api::V1::ArticleSerializer with ActiveModelSerializers::Adapter::Attributes (37.82ms)
+Completed 200 OK in 75ms (Views: 33.6ms | ActiveRecord: 17.3ms | Allocations: 12406)
+
+
+Started GET "/api/v1/articles/1" for ::1 at 2022-12-18 11:35:47 +0200
+Processing by Api::V1::ArticlesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:82:in `set_article'
+  [1m[36mCACHE Article Load (0.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:86:in `fetch_comments'
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1 ORDER BY "comments"."id" DESC LIMIT $2[0m  [["article_id", 1], ["LIMIT", 10]]
+  ↳ app/models/comment.rb:13:in `block in <class:Comment>'
+  [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:94:in `fetch_tags'
+[active_model_serializers]   [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:29:in `show'
+[active_model_serializers]   [1m[36mComment Load (0.7ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1[0m  [["article_id", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:29:in `show'
+[active_model_serializers]   [1m[36mAuthor Load (1.6ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:29:in `show'
+[active_model_serializers]   [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:29:in `show'
+[active_model_serializers]   [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:29:in `show'
+[active_model_serializers]   [1m[36mAuthor Load (1.6ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:29:in `show'
+[active_model_serializers] Rendered Api::V1::ArticleSerializer with ActiveModelSerializers::Adapter::Attributes (57.82ms)
+Completed 200 OK in 138ms (Views: 49.0ms | ActiveRecord: 26.9ms | Allocations: 26338)
+
+
