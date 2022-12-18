@@ -27,6 +27,7 @@ module Api
       # /api/v1/articles/:id(.:format)
       def show
         render json: @article, serializer: Api::V1::ArticleSerializer, status: :ok
+        # в response повертає в comment "author":{"id": ,"name":" ","created_at":"","updated_at":""
       end
 
       def edit; end

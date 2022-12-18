@@ -41241,3 +41241,165 @@ Processing by Api::V1::ArticlesController#show as HTML
 Completed 200 OK in 138ms (Views: 49.0ms | ActiveRecord: 26.9ms | Allocations: 26338)
 
 
+Started GET "/api/v1/articles/1" for ::1 at 2022-12-18 11:36:21 +0200
+Processing by Api::V1::ArticlesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:82:in `set_article'
+  [1m[36mCACHE Article Load (0.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:86:in `fetch_comments'
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1 ORDER BY "comments"."id" DESC LIMIT $2[0m  [["article_id", 1], ["LIMIT", 10]]
+  ↳ app/models/comment.rb:13:in `block in <class:Comment>'
+  [1m[36mTag Load (0.5ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:94:in `fetch_tags'
+[active_model_serializers]   [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:29:in `show'
+[active_model_serializers]   [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1[0m  [["article_id", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:29:in `show'
+[active_model_serializers]   [1m[36mAuthor Load (1.7ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:29:in `show'
+[active_model_serializers]   [1m[36mAuthor Load (0.6ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:29:in `show'
+[active_model_serializers]   [1m[36mAuthor Load (0.5ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:29:in `show'
+[active_model_serializers]   [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:29:in `show'
+[active_model_serializers] Rendered Api::V1::ArticleSerializer with ActiveModelSerializers::Adapter::Attributes (34.85ms)
+Completed 200 OK in 50ms (Views: 32.0ms | ActiveRecord: 5.4ms | Allocations: 9331)
+
+
+Started GET "/api/v1/articles/1" for ::1 at 2022-12-18 11:42:41 +0200
+Processing by Api::V1::ArticlesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:82:in `set_article'
+  [1m[36mCACHE Article Load (0.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:86:in `fetch_comments'
+  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1 ORDER BY "comments"."id" DESC LIMIT $2[0m  [["article_id", 1], ["LIMIT", 10]]
+  ↳ app/models/comment.rb:13:in `block in <class:Comment>'
+  [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:94:in `fetch_tags'
+[active_model_serializers]   [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:29:in `show'
+[active_model_serializers]   [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1[0m  [["article_id", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:29:in `show'
+[active_model_serializers]   [1m[36mAuthor Load (0.7ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:29:in `show'
+[active_model_serializers]   [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:29:in `show'
+[active_model_serializers]   [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:29:in `show'
+[active_model_serializers]   [1m[36mAuthor Load (0.6ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:29:in `show'
+[active_model_serializers] Rendered Api::V1::ArticleSerializer with ActiveModelSerializers::Adapter::Attributes (34.74ms)
+Completed 200 OK in 102ms (Views: 32.8ms | ActiveRecord: 13.1ms | Allocations: 28345)
+
+
+Started GET "/api/v1/articles/1" for ::1 at 2022-12-18 11:52:54 +0200
+Processing by Api::V1::ArticlesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:83:in `set_article'
+  [1m[36mCACHE Article Load (0.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:87:in `fetch_comments'
+  [1m[36mComment Load (1.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1 ORDER BY "comments"."id" DESC LIMIT $2[0m  [["article_id", 1], ["LIMIT", 10]]
+  ↳ app/models/comment.rb:13:in `block in <class:Comment>'
+  [1m[36mTag Load (0.5ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:95:in `fetch_tags'
+[active_model_serializers]   [1m[36mAuthor Load (0.5ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:29:in `show'
+[active_model_serializers]   [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1[0m  [["article_id", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:29:in `show'
+[active_model_serializers]   [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:29:in `show'
+[active_model_serializers]   [1m[36mAuthor Load (0.6ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:29:in `show'
+[active_model_serializers]   [1m[36mAuthor Load (0.6ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:29:in `show'
+[active_model_serializers]   [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:29:in `show'
+[active_model_serializers] Rendered Api::V1::ArticleSerializer with ActiveModelSerializers::Adapter::Attributes (36.28ms)
+Completed 200 OK in 88ms (Views: 34.2ms | ActiveRecord: 12.9ms | Allocations: 28267)
+
+
+Started GET "/api/v1/articles/1" for ::1 at 2022-12-18 11:53:36 +0200
+Processing by Api::V1::ArticlesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:83:in `set_article'
+  [1m[36mCACHE Article Load (0.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:87:in `fetch_comments'
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1 ORDER BY "comments"."id" DESC LIMIT $2[0m  [["article_id", 1], ["LIMIT", 10]]
+  ↳ app/models/comment.rb:13:in `block in <class:Comment>'
+  [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:95:in `fetch_tags'
+[active_model_serializers]   [1m[36mAuthor Load (0.5ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:29:in `show'
+[active_model_serializers]   [1m[36mComment Load (2.6ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1[0m  [["article_id", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:29:in `show'
+[active_model_serializers]   [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:29:in `show'
+[active_model_serializers]   [1m[36mAuthor Load (0.9ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:29:in `show'
+[active_model_serializers]   [1m[36mAuthor Load (1.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:29:in `show'
+[active_model_serializers]   [1m[36mAuthor Load (2.0ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:29:in `show'
+[active_model_serializers] Rendered Api::V1::ArticleSerializer with ActiveModelSerializers::Adapter::Attributes (70.26ms)
+Completed 200 OK in 141ms (Views: 58.2ms | ActiveRecord: 35.5ms | Allocations: 26441)
+
+
+Started GET "/api/v1/articles/1" for ::1 at 2022-12-18 11:53:40 +0200
+Processing by Api::V1::ArticlesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:83:in `set_article'
+  [1m[36mCACHE Article Load (0.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:87:in `fetch_comments'
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1 ORDER BY "comments"."id" DESC LIMIT $2[0m  [["article_id", 1], ["LIMIT", 10]]
+  ↳ app/models/comment.rb:13:in `block in <class:Comment>'
+  [1m[36mTag Load (0.7ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:95:in `fetch_tags'
+[active_model_serializers]   [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:29:in `show'
+[active_model_serializers]   [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1[0m  [["article_id", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:29:in `show'
+[active_model_serializers]   [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:29:in `show'
+[active_model_serializers]   [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:29:in `show'
+[active_model_serializers]   [1m[36mAuthor Load (0.9ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:29:in `show'
+[active_model_serializers]   [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:29:in `show'
+[active_model_serializers] Rendered Api::V1::ArticleSerializer with ActiveModelSerializers::Adapter::Attributes (30.13ms)
+Completed 200 OK in 42ms (Views: 28.3ms | ActiveRecord: 4.2ms | Allocations: 9330)
+
+
+Started GET "/api/v1/articles/1" for ::1 at 2022-12-18 11:54:26 +0200
+Processing by Api::V1::ArticlesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:83:in `set_article'
+  [1m[36mCACHE Article Load (0.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:87:in `fetch_comments'
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1 ORDER BY "comments"."id" DESC LIMIT $2[0m  [["article_id", 1], ["LIMIT", 10]]
+  ↳ app/models/comment.rb:13:in `block in <class:Comment>'
+  [1m[36mTag Load (0.5ms)[0m  [1m[34mSELECT "tags".* FROM "tags" WHERE "tags"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/articles_controller.rb:95:in `fetch_tags'
+[active_model_serializers]   [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:29:in `show'
+[active_model_serializers]   [1m[36mComment Load (0.7ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = $1[0m  [["article_id", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:29:in `show'
+[active_model_serializers]   [1m[36mAuthor Load (3.1ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 19], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:29:in `show'
+[active_model_serializers]   [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:29:in `show'
+[active_model_serializers]   [1m[36mAuthor Load (0.4ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:29:in `show'
+[active_model_serializers]   [1m[36mAuthor Load (2.9ms)[0m  [1m[34mSELECT "authors".* FROM "authors" WHERE "authors"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/api/v1/articles_controller.rb:29:in `show'
+[active_model_serializers] Rendered Api::V1::ArticleSerializer with ActiveModelSerializers::Adapter::Attributes (73.27ms)
+Completed 200 OK in 161ms (Views: 59.2ms | ActiveRecord: 38.5ms | Allocations: 26447)
+
+
