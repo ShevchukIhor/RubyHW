@@ -17,5 +17,5 @@ class Article < ApplicationRecord
   scope :search, ->(params) { where('title ILIKE ?', "%#{params}%").or(where('body ILIKE ?', "%#{params}%")) }
   scope :filter_by_status, ->(status) { where status: }
   scope :filter_by_author, ->(name) { joins(:author).where('authors.name ILIKE ?', "%#{name}%") }
-  scope :filter_by_tags, ->(tags) { joins(:tags).where(tags: { name: tags }) }
+  scope :filter_by_tags, ->(tags) { joins(:tags).where('tags.title ILIKE ?', "%#{tags}%") }
 end

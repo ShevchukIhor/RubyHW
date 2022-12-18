@@ -8,7 +8,8 @@ module Api
 
       # GET method to get all article from database
       def index
-        @articles = Article.all
+        # pagy for articles, show only 15 articles
+        @pagy, @articles = pagy Article.includes(:article_tags, :tags, :likes), items: 15
         # search by text in body or title
         @articles = @articles.search(params[:search]) if params[:search]
         # filter by status
@@ -19,8 +20,7 @@ module Api
         @articles = @articles.filter_by_tags(params[:tags]) if params[:tags]
         # sort by asc/desc for order
         @articles = @articles.order(created_at: params[:order]) if params[:order]
-        # pagy for articles, show only 15 articles
-        @pagy, @articles = pagy(@articles, items: 15)
+
         render json: @articles, status: :ok
       end
 
