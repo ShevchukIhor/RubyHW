@@ -14,8 +14,8 @@ class Article < ApplicationRecord
   scope :published, -> { where(status: 1) }
   scope :unpublished, -> { where(status: 0) }
   scope :get_last_ten_comments, -> { last(10) }
-  scope :search, ->(params) { where('title || body ILIKE ?', "%#{params}%") }
+  scope :search, ->(params) { where('title ILIKE ?', "%#{params}%").or(where('body ILIKE ?', "%#{params}%")) }
   scope :filter_by_status, ->(status) { where status: }
   scope :filter_by_author, ->(name) { joins(:author).where('authors.name ILIKE ?', "%#{name}%") }
-  scope :filter_by_tags, ->(tags) { joins(:tags).where('tags.name IN (?)', tags) }
+  scope :filter_by_tags, ->(tags) { joins(:tags).where(tags: { name: tags }) }
 end

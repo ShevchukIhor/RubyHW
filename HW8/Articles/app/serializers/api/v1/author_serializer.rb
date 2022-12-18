@@ -1,7 +1,12 @@
+# frozen_string_literal: true
 
-class Api::V1::AuthorSerializer < ActiveModel::Serializer
-  attributes :name
+module Api
+  module V1
+    class AuthorSerializer < ActiveModel::Serializer
+      attributes :name
 
-  has_many :articles
-  has_many :comments
+      has_many :articles
+      has_many :comments
+    end
+  end
 end

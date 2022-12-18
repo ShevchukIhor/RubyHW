@@ -68,9 +68,9 @@ module Api
       end
 
       def change_status
-        new_status = @articles.status == 'unpublished' ? 'published' : 'unpublished'
-        @articles.update(status: new_status)
-        render json: @articles, notice: "Article changed status to #{@articles.status}"
+        new_status = @article.status == 'unpublished' ? 'published' : 'unpublished'
+        @article.update(status: new_status)
+        render json: @article, notice: "Article changed status to #{@article.status}"
       end
 
       private
@@ -88,7 +88,7 @@ module Api
       end
 
       def status
-        @articles = Article.find params[:article_id]
+        @article = Article.find params[:article_id]
       end
 
       def fetch_tags

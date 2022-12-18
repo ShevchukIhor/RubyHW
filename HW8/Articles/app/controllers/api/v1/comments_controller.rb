@@ -67,7 +67,6 @@ module Api
         @comment = Comment.find params[:id]
       end
 
-
       def status
         @comments = Comment.find params[:comment_id]
       end
