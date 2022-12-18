@@ -3,13 +3,17 @@
 module Api
   module V1
     class ArticlesController < ApplicationController
-      before_action :set_article, :fetch_comments, :fetch_tags, only: %i[show edit update destroy]
+      before_action :set_article, only: %i[show edit update destroy]
       before_action :status, only: %i[change_status]
 
       # GET method to get all article from database
       def index
         # pagy for articles, show only 15 articles
-        @pagy, @articles = pagy Article.includes(:article_tags, :tags, :likes), items: 15
+        @pagy, @articles = pagy Article.all.order(created_at: :desc), items: 15
+        #
+        # @pagy, @articles = pagy Article.all.includes(:article_tags, :tags, :likes).order(created_at: :desc), items: 15
+        # не повертає теги та лайки
+        #
         # search by text in body or title
         @articles = @articles.search(params[:search]) if params[:search]
         # filter by status
@@ -83,16 +87,8 @@ module Api
         @article = Article.find params[:id]
       end
 
-      def fetch_comments
-        @comments = Article.find(params[:id]).comments.get_last_ten_comments
-      end
-
       def status
         @article = Article.find params[:article_id]
-      end
-
-      def fetch_tags
-        @tags = Tag.find params[:id]
       end
     end
   end
