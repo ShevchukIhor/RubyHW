@@ -1,0 +1,356 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+paths:
+  "/api/v1/articles/{article_id}/unpublished":
+    parameters:
+    - name: article_id
+      in: path
+      description: article_id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: unpublished article
+      tags:
+      - Articles
+      responses:
+        '200':
+          description: successful
+  "/api/v1/articles/{article_id}/published":
+    parameters:
+    - name: article_id
+      in: path
+      description: article_id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: published article
+      tags:
+      - Articles
+      responses:
+        '200':
+          description: successful
+  "/api/v1/articles/{article_id}/change_status":
+    parameters:
+    - name: article_id
+      in: path
+      description: article_id
+      required: true
+      schema:
+        type: string
+    patch:
+      summary: change_status article
+      tags:
+      - Articles
+      responses:
+        '200':
+          description: successful
+  "/api/v1/articles":
+    get:
+      summary: list articles
+      tags:
+      - Articles
+      responses:
+        '200':
+          description: successful
+    post:
+      summary: create article
+      tags:
+      - Articles
+      responses:
+        '200':
+          description: successful
+  "/api/v1/articles/{id}":
+    parameters:
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: show article
+      tags:
+      - Articles
+      responses:
+        '200':
+          description: successful
+    patch:
+      summary: update article
+      tags:
+      - Articles
+      responses:
+        '200':
+          description: successful
+    put:
+      summary: update article
+      tags:
+      - Articles
+      responses:
+        '200':
+          description: successful
+    delete:
+      summary: delete article
+      tags:
+      - Articles
+      responses:
+        '200':
+          description: successful
+  "/api/v1/authors":
+    get:
+      summary: list authors
+      tags:
+      - Author
+      responses:
+        '200':
+          description: successful
+    post:
+      summary: create author
+      tags:
+      - Author
+      responses:
+        '200':
+          description: successful
+  "/api/v1/authors/{id}":
+    parameters:
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: show author
+      tags:
+      - Author
+      responses:
+        '200':
+          description: successful
+    patch:
+      summary: update author
+      tags:
+      - Author
+      responses:
+        '200':
+          description: successful
+    put:
+      summary: update author
+      tags:
+      - Author
+      responses:
+        '200':
+          description: successful
+    delete:
+      summary: delete author
+      tags:
+      - Author
+      responses:
+        '200':
+          description: successful
+  "/api/v1/comments/{comment_id}/unpublished":
+    parameters:
+    - name: comment_id
+      in: path
+      description: comment_id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: unpublished comment
+      tags:
+      - Comments
+      responses:
+        '200':
+          description: successful
+  "/api/v1/comments/{comment_id}/published":
+    parameters:
+    - name: comment_id
+      in: path
+      description: comment_id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: published comment
+      tags:
+      - Comments
+      responses:
+        '200':
+          description: successful
+  "/api/v1/comments/{comment_id}/change_status":
+    parameters:
+    - name: comment_id
+      in: path
+      description: comment_id
+      required: true
+      schema:
+        type: string
+    patch:
+      summary: change_status comment
+      tags:
+      - Comments
+      responses:
+        '200':
+          description: successful
+  "/api/v1/comments":
+    get:
+      summary: list comments
+      tags:
+      - Comments
+      responses:
+        '200':
+          description: successful
+    post:
+      summary: create comment
+      tags:
+      - Comments
+      responses:
+        '200':
+          description: successful
+  "/api/v1/comments/{id}":
+    parameters:
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: show comment
+      tags:
+      - Comments
+      responses:
+        '200':
+          description: successful
+    patch:
+      summary: update comment
+      tags:
+      - Comments
+      responses:
+        '200':
+          description: successful
+    put:
+      summary: update comment
+      tags:
+      - Comments
+      responses:
+        '200':
+          description: successful
+    delete:
+      summary: delete comment
+      tags:
+      - Comments
+      responses:
+        '200':
+          description: successful
+  "/api/v1/likes":
+    get:
+      summary: list likes
+      tags:
+      - Like
+      responses:
+        '200':
+          description: successful
+    post:
+      summary: create like
+      tags:
+      - Like
+      responses:
+        '200':
+          description: successful
+  "/api/v1/likes/{id}":
+    parameters:
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: show like
+      tags:
+      - Like
+      responses:
+        '200':
+          description: successful
+    patch:
+      summary: update like
+      tags:
+      - Like
+      responses:
+        '200':
+          description: successful
+    put:
+      summary: update like
+      tags:
+      - Like
+      responses:
+        '200':
+          description: successful
+    delete:
+      summary: delete like
+      tags:
+      - Like
+      responses:
+        '200':
+          description: successful
+  "/api/v1/tags":
+    get:
+      summary: list tags
+      tags:
+      - Tag
+      responses:
+        '200':
+          description: successful
+    post:
+      summary: create tag
+      tags:
+      - Tag
+      responses:
+        '200':
+          description: successful
+  "/api/v1/tags/{id}":
+    parameters:
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: show tag
+      tags:
+      - Tag
+      responses:
+        '200':
+          description: successful
+    patch:
+      summary: update tag
+      tags:
+      - Tag
+      responses:
+        '200':
+          description: successful
+    put:
+      summary: update tag
+      tags:
+      - Tag
+      responses:
+        '200':
+          description: successful
+    delete:
+      summary: delete tag
+      tags:
+      - Tag
+      responses:
+        '200':
+          description: successful
+servers:
+- url: https://{defaultHost}
+  variables:
+    defaultHost:
+      default: 127.0.0.1:3000
