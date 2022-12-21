@@ -9,7 +9,7 @@ module Api
       # GET method to get all article from database
       def index
         # pagy for articles, show only 15 articles
-        @pagy, @articles = pagy Article.all.order(created_at: :desc), items: 15
+        @pagy, @articles = pagy Article.all, items: 15
         #
         # @pagy, @articles = pagy Article.all.includes(:article_tags, :tags, :likes).order(created_at: :desc), items: 15
         # не повертає теги та лайки
