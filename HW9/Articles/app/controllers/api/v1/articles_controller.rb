@@ -3,7 +3,7 @@
 module Api
   module V1
     class ArticlesController < ApplicationController
-      before_action :set_article, only: %i[show edit update destroy]
+      before_action :set_article, only: %i[show update destroy]
       before_action :status, only: %i[change_status]
 
       # GET method to get all article from database
@@ -33,8 +33,6 @@ module Api
         render json: @article, serializer: Api::V1::ArticleSerializer, status: :ok
         # в response повертає в comment "author":{"id": ,"name":" ","created_at":"","updated_at":""
       end
-
-      def edit; end
 
       def create
         @article = Article.new(articles_params)

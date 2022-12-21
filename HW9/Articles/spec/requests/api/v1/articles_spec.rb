@@ -2,44 +2,9 @@ require 'swagger_helper'
 
 RSpec.describe 'api/v1/articles', type: :request do
 
-  path '/api/v1/articles' do
-    parameter name: :search, in: :query, type: :string, description: 'search by text in title or body articles'
-    ##################
-    parameter name: :status, in: :query, type: :string,
-              schema: { type: :string, enum: %w[unpublished published] },
-              description: 'sort article by status published/unpublished'
-    #################
-    parameter name: :name, in: :query, type: :string, description: 'search article by author name'
-    #################
-    parameter name: :tags, in: :query, type: :string, description: 'search articles by tags'
-    #################
-    parameter name: :order, in: :query, type: :string, description: 'sort articles by creation date like asc/desc'
-    ################
-    get('list article') do
-      tags 'Articles'
-      response(200, 'successful') do
-
-        after do |example|
-          example.metadata[:response][:content] = {
-            'application/json' => {
-              example: JSON.parse(response.body, symbolize_names: true)
-            }
-          }
-        end
-        run_test!
-      end
-
-      response '404', "#{name} not found" do
-        let(:id) { 'invalid' }
-        run_test!
-      end
-    end
-  end
-
-
   path '/api/v1/articles/{article_id}/unpublished' do
     # You'll want to customize the parameter types...
-    parameter name: 'article_id', in: :path, type: :string, description: 'article_id'
+    parameter name: 'article_id', in: :path, type: :string, description: 'show unpublished articles by article_id'
 
     get('unpublished article') do
       tags 'Articles'
@@ -60,7 +25,7 @@ RSpec.describe 'api/v1/articles', type: :request do
 
   path '/api/v1/articles/{article_id}/published' do
     # You'll want to customize the parameter types...
-    parameter name: 'article_id', in: :path, type: :string, description: 'article_id'
+    parameter name: 'article_id', in: :path, type: :string, description: 'show published articles by article_id'
 
     get('published article') do
       tags 'Articles'
@@ -81,7 +46,8 @@ RSpec.describe 'api/v1/articles', type: :request do
 
   path '/api/v1/articles/{article_id}/change_status' do
     # You'll want to customize the parameter types...
-    parameter name: 'article_id', in: :path, type: :string, description: 'article_id'
+    parameter name: 'article_id', in: :path, type: :string,
+              description: ' change status article to published/unpublished by article_id'
 
     patch('change_status article') do
       tags 'Articles'
@@ -101,10 +67,22 @@ RSpec.describe 'api/v1/articles', type: :request do
   end
 
   path '/api/v1/articles' do
+    parameter name: :search, in: :query, type: :string,
+              description: 'search by text in title or body articles'
+    parameter name: :status, in: :query, type: :string,
+              description: 'sort article by status published/unpublished'
+    parameter name: :name, in: :query, type: :string,
+              description: 'search article by author name'
+    parameter name: :tags, in: :query, type: :string,
+              description: 'search articles by tags'
+    parameter name: :order, in: :query, type: :string,
+              description: 'sort articles by creation date like asc/desc'
 
     get('list articles') do
       tags 'Articles'
-      description 'Get all articles'
+      consumes 'application/json'
+      parameter name: :article, in: :path,
+                description: 'if parameter not selected render all articles'
       response(200, 'successful') do
 
         after do |example|
@@ -130,7 +108,6 @@ RSpec.describe 'api/v1/articles', type: :request do
 
     post('create article') do
       tags 'Articles'
-      description 'Create article'
       consumes 'application/json'
       request_body_example value: { title: 'Foo', body: 'basic', status: 1, author_id: 4 }
       parameter name: :article, in: :body, schema: {
@@ -158,11 +135,10 @@ RSpec.describe 'api/v1/articles', type: :request do
 
   path '/api/v1/articles/{id}' do
     # You'll want to customize the parameter types...
-    parameter name: 'id', in: :path, type: :string, description: 'id'
+    parameter name: 'id', in: :path, type: :string, description: 'show article by id'
 
     get('show article') do
       tags 'Articles'
-      description 'Get article by id'
       response(200, 'successful') do
         let(:id) { '123' }
 
@@ -184,17 +160,16 @@ RSpec.describe 'api/v1/articles', type: :request do
 
     patch('update article') do
       tags 'Articles'
-      description 'Update article by id'
       consumes 'application/json'
       request_body_example value: { title: 'Foo', body: 'basic', status: 1, author_id: 4 }
-      parameter name: :id, in: :path, schema: {
+      parameter name: 'id', in: :path, schema: {
         type: :object,
         properties: {
           title: { type: :string },
           body: { type: :string },
           status: { type: :integer },
           author_id: { type: :integer }
-        },
+        }, description: 'Update article by id',
         required: %w[title body status author_id]
       }
 
@@ -211,7 +186,6 @@ RSpec.describe 'api/v1/articles', type: :request do
 
     put('update article') do
       tags 'Articles'
-      description 'Update article by id'
       consumes 'application/json'
       request_body_example value: { title: 'Foo', body: 'basic', status: 1, author_id: 4 }
       parameter name: :id, in: :path, schema: {
@@ -221,7 +195,7 @@ RSpec.describe 'api/v1/articles', type: :request do
           body: { type: :string },
           status: { type: :integer },
           author_id: { type: :integer }
-        },
+        }, description: 'Update article by id',
         required: %w[title body status author_id]
       }
 
@@ -238,7 +212,8 @@ RSpec.describe 'api/v1/articles', type: :request do
 
     delete('delete article') do
       tags 'Articles'
-      description 'Delete article by id'
+      consumes 'application/json'
+      parameter name: :id, in: :path, description: 'Delete article by id'
       response(200, 'successful') do
         let(:id) { '123' }
 

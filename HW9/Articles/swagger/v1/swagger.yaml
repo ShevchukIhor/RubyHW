@@ -4,89 +4,6 @@ info:
   title: API V1
   version: v1
 paths:
-  "/api/v1/articles":
-    parameters:
-    - name: search
-      in: query
-      description: search by text in title or body articles
-      schema:
-        type: string
-    - name: status
-      in: query
-      type: string
-      schema:
-        type: string
-        enum:
-        - unpublished
-        - published
-      description: sort article by status published/unpublished
-    - name: name
-      in: query
-      description: search article by author name
-      schema:
-        type: string
-    - name: tags
-      in: query
-      description: search articles by tags
-      schema:
-        type: string
-    - name: order
-      in: query
-      required:
-      - created_at
-      description: sort articles by creation date like asc/desc
-      schema:
-        type: string
-    get:
-      summary: list articles
-      tags:
-      - Articles
-      responses:
-        '200':
-          description: successful
-        '404':
-          description: article not found
-        '406':
-          description: unsupported accept header
-      description: Get all articles
-    post:
-      summary: create article
-      tags:
-      - Articles
-      description: Create article
-      parameters: []
-      responses:
-        '201':
-          description: article created
-        '422':
-          description: invalid request
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                title:
-                  type: string
-                body:
-                  type: string
-                status:
-                  type: integer
-                author_id:
-                  type: integer
-              required:
-              - title
-              - body
-              - status
-              - author_id
-            examples:
-              '0':
-                summary: create article
-                value:
-                  title: Foo
-                  body: basic
-                  status: 1
-                  author_id: 4
   "/api/v1/articles/{article_id}/unpublished":
     parameters:
     - name: article_id
@@ -132,6 +49,82 @@ paths:
       responses:
         '200':
           description: successful
+  "/api/v1/articles":
+    parameters:
+    - name: search
+      in: query
+      description: search by text in title or body articles
+      schema:
+        type: string
+    - name: status
+      in: query
+      description: sort article by status published/unpublished
+      schema:
+        type: string
+    - name: name
+      in: query
+      description: search article by author name
+      schema:
+        type: string
+    - name: tags
+      in: query
+      description: search articles by tags
+      schema:
+        type: string
+    - name: order
+      in: query
+      description: sort articles by creation date like asc/desc
+      schema:
+        type: string
+    get:
+      summary: list articles
+      tags:
+      - Articles
+      responses:
+        '200':
+          description: successful
+        '404':
+          description: article not found
+        '406':
+          description: unsupported accept header
+    post:
+      summary: create article
+      tags:
+      - Articles
+      description: Create article
+      parameters: []
+      responses:
+        '201':
+          description: article created
+        '422':
+          description: invalid request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                body:
+                  type: string
+                status:
+                  type: integer
+                author_id:
+                  type: integer
+              required:
+              - title
+              - body
+              - status
+              - author_id
+            examples:
+              '0':
+                summary: create article
+                value:
+                  title: Foo
+                  body: basic
+                  status: 1
+                  author_id: 4
   "/api/v1/articles/{id}":
     parameters:
     - name: id
@@ -305,7 +298,7 @@ paths:
     parameters:
     - name: comment_id
       in: path
-      description: comment_id
+      description: change status comments by id to published/unpublished
       required: true
       schema:
         type: string
@@ -328,9 +321,40 @@ paths:
       summary: create comment
       tags:
       - Comments
+      parameters: []
       responses:
         '200':
           description: successful
+        '422':
+          description: invalid request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                body:
+                  type: string
+                status:
+                  type: integer
+                author_id:
+                  type: integer
+                article_id:
+                  type: integer
+              description: Create comment
+              required:
+              - body
+              - status
+              - author_id
+              - article_id
+            examples:
+              '0':
+                summary: create comment
+                value:
+                  body: basic
+                  status: 1
+                  author_id: 10
+                  article_id: 10
   "/api/v1/comments/{id}":
     parameters:
     - name: id
