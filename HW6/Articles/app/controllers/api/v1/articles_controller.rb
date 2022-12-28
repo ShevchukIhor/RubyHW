@@ -51,7 +51,7 @@ class Api::V1::ArticlesController < ApplicationController
     end
   end
 
-  # DELETE method for deleting a product from database based on id
+  # DELETE method for deleting a products from database based on id
   def destroy
     if @article.destroy
       render json: @article, status: :ok
