@@ -1,11 +1,12 @@
 
-<div id="product" class="d-flex h-100 text-center text-bg-dark">
-  <h3 class="float-md-start mb-0">Products</h3>
+<div id="product" class="container d-flex h-100 text-center text-bg-dark">
+  <div class="row">
+   <h3>Products</h3>
+    <div class="row">
       <% @products.each do | product |%>
         <%= render product %>
-        <p>
-          <%= link_to "Show this product", product %>
-        </p>
       <% end %>
+    </div>
+  </div>
 </div>
 
