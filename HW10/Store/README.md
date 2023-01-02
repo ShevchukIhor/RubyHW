@@ -1,24 +1,52 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## How to use
 
-Things you may want to cover:
+**Type in console:**
 
-* Ruby version
+```ruby
+git clone 
+```
 
-* System dependencies
+```ruby
+cd RubyHW/HW10/Store
+````
 
-* Configuration
+```ruby
+gem install bundler
+```
+```ruby
+bundle install
+```
 
-* Database creation
+**Attach ```config/database.yml``` acording `database_example.yml` with your username and password**
 
-* Database initialization
+**Type in console:**
 
-* How to run the test suite
+```ruby
+rails db:create
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+```ruby
+rails db:migrate
+```
 
-* Deployment instructions
+```ruby
+rails db:seed
+```
+```ruby
+rails s
+```
 
-* ...
+**Run online store in browser:**
+```ruby
+http://127.0.0.1:3000/
+```
+**Login with ```user@example.com```, password: ```password```**
+**or SignUp new user**
+
+**Run admin panel in browser:**
+```ruby
+http://127.0.0.1:3000/admin
+```
+**Login with ```admin@example.com```, password: ```password```**
