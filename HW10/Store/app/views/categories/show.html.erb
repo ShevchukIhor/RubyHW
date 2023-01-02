@@ -1,4 +1,9 @@
-<%= render @category %>
-<div>
-  <%= link_to "Back to category", categories_path %>
+<div class="container">
+  <div class="container-fluid p-4 text-center text-bg-dark">
+    <div class="row">
+      <% @category.each do |category| %>
+        <%= render category %>
+      <% end %>
+    </div>
+  </div>
 </div>

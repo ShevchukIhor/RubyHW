@@ -8,7 +8,10 @@ class CategoriesController < ApplicationController
   end
 
   # GET /categories/1 or /categories/1.json
-  def show; end
+  def show
+    @title = @category.title
+    @category = @category.products
+  end
 
   private
   # Use callbacks to share common setup or constraints between actions.
