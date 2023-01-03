@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 
 class ProductsController < ApplicationController
   before_action :set_product, only: %i[show]
@@ -11,6 +12,7 @@ class ProductsController < ApplicationController
   def show; end
 
   private
+
   # Use callbacks to share common setup or constraints between actions.
   def set_product
     @product = Product.find(params[:id])
