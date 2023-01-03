@@ -1,0 +1,20 @@
+
+    <div id="<%= dom_id product %>" class="col-2 card p-0 m-2 shadow-sm">
+      <div class="card-header d-flex justify-content-end">
+        <p class="text-primary">Category: <%= product.category.title %></p>
+      </div>
+
+          <% if product.image.blank? %>
+            <%= image_tag 'no_image.png', class: 'card-img-top product_image', alt: "#{product.name}" %>
+          <% else %>
+            <%= image_tag product.image, class: 'card-img-top product_image', alt: "#{product.name}" %>
+          <% end %>
+
+        <div class="card-body px">
+          <%= link_to product do %>
+            <h5 class="card-title text-center"><%= product.name %></h5>
+            <% end %>
+          <p class="card-title text-center text-primary"><%= product.description %></p>
+          <p class="card-price mt-auto text-end text-primary"><%= number_to_currency product.price %></p>
+        </div>
+    </div>
