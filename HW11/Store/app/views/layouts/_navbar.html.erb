@@ -1,4 +1,4 @@
-<% if current_user %>
+
   <nav class="navbar nav-layout navbar-expand-lg bg-dark">
     <div class="container-fluid align-items-center">
       <div class="navbar-header">
@@ -8,13 +8,24 @@
       <ul class="nav navbar-nav navbar-right">
         <li>
           <div>
-            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "btn btn-outline-light me-2" %>
-            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
-              <span class="navbar-toggler-icon"></span>
-            </button>
+            <% if user_signed_in? == false %>
+              <%= link_to "Log in", user_session_path, class: "btn btn-outline-light btn-primary me-2 " %>
+              <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+            <% end %>
+          </div>
+        </li>
+        <li>
+          <div>
+            <% if current_user %>
+              <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "btn btn-outline-light me-2" %>
+                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+            <% end %>
           </div>
         </li>
       </ul>
     </div>
   </nav>
-<% end %>
