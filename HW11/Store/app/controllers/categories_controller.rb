@@ -12,6 +12,7 @@ class CategoriesController < ApplicationController
   def show
     @title = @category.title
     @category = @category.products
+    @product_id = @category.ids
   end
 
   private
