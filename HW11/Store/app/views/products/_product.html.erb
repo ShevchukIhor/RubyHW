@@ -5,9 +5,9 @@
       </div>
 
           <% if product.image.blank? %>
-            <%= image_tag 'no_image.png', class: 'card-img-top product_image', alt: "#{product.name}" %>
+            <%= image_tag src='no_image.png', class: 'card-img-top product_image', alt: "#{product.name}" %>
           <% else %>
-            <%= image_tag product.image, class: 'card-img-top product_image', alt: "#{product.name}" %>
+            <%= image_tag src="#{product.image}", class: 'card-img-top product_image', alt: "#{product.name}" %>
           <% end %>
 
         <div class="card-body px">
