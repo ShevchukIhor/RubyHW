@@ -9,7 +9,7 @@ git clone
 ```
 
 ```ruby
-cd RubyHW/HW10/Store
+cd RubyHW/HW11/Store
 ````
 
 ```ruby
@@ -33,6 +33,10 @@ rails db:migrate
 
 ```ruby
 rails db:seed
+```
+or
+```ruby
+rails db:purge && rails db:create && rails db:migrate && rails db:seed
 ```
 ```ruby
 rails s
