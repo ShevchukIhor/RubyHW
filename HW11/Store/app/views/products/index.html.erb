@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
       <% @products.each do | product |%>
         <%= render product %>
-         <%= button_to 'Add to cart', line_items_path(product_id: product.id), class: 'btn btn-outline-light btn-primary me-2' %>
+
       <% end %>
     </div>
   </div>

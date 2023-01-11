@@ -3,7 +3,6 @@
     <div class="row">
       <% @category.each do |category| %>
         <%= render category %>
-        <%= button_to "Add to cart", line_items_path(product_id: @product), class: "btn btn-outline-light btn-primary me-2" %>
       <% end %>
     </div>
   </div>
