@@ -1,0 +1,15 @@
+<div id="product" class="container-fluid p-4 text-center text-bg-dark">
+  <div class="row justify-content-center">
+    <h1>Cart</h1>
+      <% if current_user && current_cart.line_items.any? %>
+      <table class="table text-white">
+        <%= render 'layouts/cart' %>
+      </table>
+      <%= button_to 'Place order', orders_path, class: 'btn btn-success' %>
+      <% else %>
+        <p>Currently no product in the cart</p>
+      <% end %>
+  </div>
+</div>
+
+
