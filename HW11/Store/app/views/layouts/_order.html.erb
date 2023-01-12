@@ -18,7 +18,7 @@
     </td>
     <td><%= line_item.product.name %></td>
     <td><%= line_item.quantity %></td>
-    <td><%= number_to_currency line_item.product.price %></td>
+    <td><%= number_to_currency(line_item.price_multiply_quantity) %></td>
   </tr>
 <% end %>
 <tr>
@@ -26,5 +26,5 @@
   <td></td>
   <td></td>
   <td>Total price:</td>
-  <td><b><%= number_to_currency current_cart.total_price %></b></td>
+  <td><b><%= number_to_currency(@order.cart.cart_total_price) %></b></td>
 </tr>

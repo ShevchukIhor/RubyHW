@@ -7,12 +7,12 @@
       <tr>
         <td></td>
         <td></td>
-        <td><%= @order.status %></td>
+        <td><b><%= @order.status %></b></td>
         <td></td>
         <td></td>
       </tr>
       </table>
-      <%= button_to 'Confirm order', orders_confirm_path, method: :patch, class:'btn btn-success' %>
+      <%= button_to 'Confirm order', orders_confirm_path, method: :patch, class:'btn btn-success' if @order.unpaid? %>
     <% else %>
       <p>Currently no product in the cart</p>
     <% end %>

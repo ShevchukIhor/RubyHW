@@ -1,3 +1,4 @@
+
 # == Schema Information
 #
 # Table name: carts
@@ -8,7 +9,7 @@
 #
 class Cart < ApplicationRecord
   has_many :line_items, dependent: :nullify
-  has_one :order, dependent: :destroy
+  has_one :order, dependent: :nullify
 
   def add_product(product)
     if (line_items = self.line_items.find_by(product_id: product.id))
@@ -20,7 +21,7 @@ class Cart < ApplicationRecord
     end
   end
 
-  def total_price
+  def cart_total_price
     # line_items.price_multiply_quantity.map(&:product).sum(&:price)
     sum = 0
     line_items.each do |line_item|
