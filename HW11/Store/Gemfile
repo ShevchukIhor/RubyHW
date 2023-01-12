@@ -69,6 +69,8 @@ group :development, :test do
   gem 'rubocop', '~> 1.40', require: false
   gem 'rubocop-performance', '~> 1.15', require: false
   gem 'rubocop-rails', '~> 2.17', require: false
+  gem 'annotate'
+  gem 'enumerize'
   # for rswag
   # gem 'rspec-rails'
   # gem 'rswag-specs'

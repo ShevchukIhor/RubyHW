@@ -4,24 +4,10 @@ class LineItemsController < ApplicationController
 
   def create
     product = Product.find(params[:product_id])
-=begin
-    line_item = current_cart.line_items
+    current_cart.add_product(product)
+    redirect_to cart_path, notice: "#{product.name} added to cart"
+  end
 
-    if line_item.products.id == product.id
-      line_item = line_items.find(params[:id])
-      line_item.product = product
-      line_item.quantity += 1
-      line_item.save!
-      redirect_to cart_path(product), notice: "#{product.name} added to cart"
-    else
-      current_cart.add_product(product)
-      redirect_to cart_path, notice: "#{product.name} added to cart"
-    end
-  end
-=end
-  current_cart.add_product(product)
-  redirect_to cart_path, notice: "#{product.name} added to cart"
-  end
   def destroy
     set_line_item
     @line_item.destroy
