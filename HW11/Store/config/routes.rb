@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   get 'line_items/:id' => 'line_items#destroy', as: 'line_item'
   get 'line_items/:id/add' => 'line_items#add_quantity', as: 'line_item_add'
   get 'line_items/:id/reduce' => 'line_items#reduce_quantity', as: 'line_item_reduce'
+  patch 'orders/:id' => 'orders#update', as: 'orders_confirm'
 end
 
 # == Route Map
