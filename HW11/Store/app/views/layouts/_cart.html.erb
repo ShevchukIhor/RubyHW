@@ -29,7 +29,7 @@
         <% end %>
         <!-- -->
       </td>
-      <td><%= number_to_currency line_item.product.price %></td>
+      <td><%= number_to_currency(line_item.price_multiply_quantity) %></td>
       <td>
         <!-- Remove -->
         <%=link_to line_item_path(id: line_item), method: :delete, class: "btn btn-outline-danger btn-sm" do %>
@@ -45,6 +45,6 @@
     <td></td>
     <td></td>
     <td>Total price:</td>
-    <td><b><%= number_to_currency current_cart.total_price %></b></td>
+    <td><b><%= number_to_currency(current_cart.total_price) %></b></td>
     <td></td>
   </tr>
