@@ -12,7 +12,7 @@ class OrdersController < ApplicationController
   end
 
   def update
-    @order.update(status: :paid)
+    @order.paid!
     redirect_to order_path(@order), notice: 'Order was successfully paided'
   end
 
