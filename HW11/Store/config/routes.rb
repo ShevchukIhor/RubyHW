@@ -16,11 +16,12 @@ Rails.application.routes.draw do
   resources :products
   resources :categories
   resources :line_items, only: :create
-  resources :orders, only: %i[show create update]
+  resources :orders
   get 'line_items/:id' => 'line_items#destroy', as: 'line_item'
   get 'line_items/:id/add' => 'line_items#add_quantity', as: 'line_item_add'
   get 'line_items/:id/reduce' => 'line_items#reduce_quantity', as: 'line_item_reduce'
   patch 'orders/:id' => 'orders#update', as: 'orders_confirm'
+  # get 'orders' => 'orders#index', as: 'orders_history'
 end
 
 # == Route Map

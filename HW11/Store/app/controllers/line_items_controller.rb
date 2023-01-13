@@ -1,3 +1,4 @@
+
 class LineItemsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_line_item, only: %i[destroy add_quantity reduce_quantity]

@@ -3,7 +3,9 @@ class OrdersController < ApplicationController
   before_action :authenticate_user!
   before_action :set_order, only: %i[show update]
 
-
+  def index
+    @orders = current_user.orders.all if current_user
+  end
   def show; end
 
   def create

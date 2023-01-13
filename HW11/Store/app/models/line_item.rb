@@ -24,6 +24,7 @@
 class LineItem < ApplicationRecord
   belongs_to :product, dependent: :destroy
   belongs_to :cart, dependent: :destroy
+
   validates :quantity, numericality: { greater_than_or_equal_to: 1 }
 
   def price_multiply_quantity
