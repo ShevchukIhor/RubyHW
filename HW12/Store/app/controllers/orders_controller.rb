@@ -7,6 +7,7 @@ class OrdersController < ApplicationController
   def index
     @orders = current_user.orders.all if current_user
   end
+
   def show; end
 
   def create
