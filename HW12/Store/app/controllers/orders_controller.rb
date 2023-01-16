@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 
 class OrdersController < ApplicationController
   before_action :authenticate_user!
@@ -27,5 +28,4 @@ class OrdersController < ApplicationController
     logger.info e
     render json: { message: 'order id not found' }, status: :not_found
   end
-
 end

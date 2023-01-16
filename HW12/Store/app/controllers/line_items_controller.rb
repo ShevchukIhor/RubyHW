@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 
 class LineItemsController < ApplicationController
   before_action :authenticate_user!

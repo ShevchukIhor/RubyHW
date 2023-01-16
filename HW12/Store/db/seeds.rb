@@ -1,3 +1,4 @@
+
 5.times do
   Category.create({ title: Faker::Games::WorldOfWarcraft.class_name })
 end

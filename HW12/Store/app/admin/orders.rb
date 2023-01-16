@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 ActiveAdmin.register Order do
 
   # See permitted parameters documentation:
@@ -14,5 +16,4 @@ ActiveAdmin.register Order do
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
-  
 end
