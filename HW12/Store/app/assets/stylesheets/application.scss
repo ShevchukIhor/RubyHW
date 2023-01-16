@@ -1,0 +1,20 @@
+@import "bootstrap";
+
+body {
+  height: 100vh;
+  background-color: black;
+}
+.alert {
+  color: #B00100;
+}
+
+.notice {
+  color: #EFEFEF;
+}
+ul {
+  list-style-type: none;
+}
+.product_image {
+  max-width: 200px;
+  max-height: 200px;
+}

@@ -1,0 +1,11 @@
+<div id="product" class="container-fluid p-4 text-center text-bg-dark">
+  <div class="row justify-content-center">
+    <h1>Orders # <%= @order.id %></h1>
+    <% if current_user %>
+    <%= render 'layouts/order' %>
+      <%= button_to 'Confirm order', orders_confirm_path, method: :patch, class:'btn btn-success' if @order.unpaid? && @order.cart.line_items.exists? %>
+    <% else %>
+      <p>Currently no product in the cart</p>
+    <% end %>
+  </div>
+</div>
