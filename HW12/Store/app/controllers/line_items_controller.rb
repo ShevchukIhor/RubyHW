@@ -17,19 +17,17 @@ class LineItemsController < ApplicationController
   end
 
   def add_quantity
-    set_line_item
     @line_item.quantity += 1
     @line_item.save
     redirect_back(fallback_location: current_cart)
   end
 
   def reduce_quantity
-    set_line_item
     if @line_item.quantity > 1
       @line_item.quantity -= 1
       @line_item.save
       redirect_back(fallback_location: current_cart)
-    elsif @line_item.quantity == 1
+    elsif @line_item.quantity.eql?(1)
       destroy
     end
   end
