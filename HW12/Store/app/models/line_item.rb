@@ -23,8 +23,9 @@
 #  fk_rails_...  (product_id => products.id)
 #
 class LineItem < ApplicationRecord
-  belongs_to :product, dependent: :destroy
-  belongs_to :cart, dependent: :destroy
+  belongs_to :product
+  belongs_to :cart
+  belongs_to :order, optional: true
 
   validates :quantity, numericality: { greater_than_or_equal_to: 1 }
 
