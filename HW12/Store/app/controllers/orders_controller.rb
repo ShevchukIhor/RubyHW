@@ -5,7 +5,7 @@ class OrdersController < ApplicationController
   before_action :set_order, only: %i[show update]
 
   def index
-    @orders = current_user.orders.all if current_user
+    @orders = current_user.orders.includes([:cart]).all if current_user
   end
 
   def show; end
