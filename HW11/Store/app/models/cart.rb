@@ -8,8 +8,8 @@
 #  updated_at :datetime         not null
 #
 class Cart < ApplicationRecord
-  has_many :line_items, dependent: :nullify
-  has_one :order, dependent: :nullify
+  has_many :line_items, dependent: :destroy
+  has_one :order
 
   def add_product(product)
     if (line_items = self.line_items.find_by(product_id: product.id))
