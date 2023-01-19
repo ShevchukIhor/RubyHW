@@ -23,11 +23,6 @@ class Cart < ApplicationRecord
   end
 
   def cart_total_price
-    # line_items.price_multiply_quantity.map(&:product).sum(&:price)
-    sum = 0
-    line_items.each do |line_item|
-      sum += line_item.price_multiply_quantity
-    end
-    sum
+    line_items.includes(:product).sum(&:price_multiply_quantity)
   end
 end
