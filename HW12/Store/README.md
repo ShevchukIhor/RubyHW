@@ -5,11 +5,11 @@
 **Type in console:**
 
 ```ruby
-git clone 
+git clone https://github.com/ShevchukIhor/RubyHW/tree/main/HW12
 ```
 
 ```ruby
-cd RubyHW/HW11/Store
+cd RubyHW/HW12/Store
 ````
 
 ```ruby
@@ -36,7 +36,7 @@ rails db:seed
 ```
 or
 ```ruby
-rails db:purge && rails db:create && rails db:migrate && rails db:seed
+rails db:setup
 ```
 ```ruby
 rails s
