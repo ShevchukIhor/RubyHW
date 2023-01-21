@@ -19,22 +19,24 @@
         </td>
         <td><%= line_item.product.name %></td>
         <td>
+          <div class="d-flex justify-content-around">
           <!-- reduce -->
-          <%=link_to line_item_reduce_path(id: line_item) , method: :put, class: "btn btn-outline-danger btn-sm", style: "padding-left:11px; padding-right:11px;" do %>
+          <%= button_to line_item_path(id: line_item), method: :patch, class: "btn btn-outline-danger btn-sm" do %>
             <span><b>-</b></span>
           <% end %>
           <!-- -->
           <%= line_item.quantity %>
           <!-- add -->
-          <%=link_to line_item_add_path(id: line_item) , method: :put , class: "btn btn-outline-success btn-sm", style: "padding-left:9px; padding-right:9px;" do %>
+          <%= button_to line_item_path(id: line_item, params: { add: 'increase' }), method: :patch , class: "btn btn-outline-success btn-sm" do %>
             <span><b>+</b></span>
           <% end %>
           <!-- -->
+          </div>
         </td>
         <td><%= number_to_currency(line_item.price_multiply_quantity) %></td>
         <td>
           <!-- Remove -->
-          <%=link_to line_item_path(id: line_item), method: :delete, class: "btn btn-outline-danger btn-sm" do %>
+          <%= link_to line_item_path(id: line_item), method: :delete, class: "btn btn-outline-danger btn-sm" do %>
             <span><b>delete</b></span>
           <% end %>
           <!-- -->
