@@ -26,7 +26,7 @@
 #  fk_rails_...  (product_id => products.id)
 #
 class LineItem < ApplicationRecord
-  belongs_to :product, dependent: :destroy
+  belongs_to :product, optional: true
   belongs_to :cart, optional: true
   belongs_to :order, optional: true
 
