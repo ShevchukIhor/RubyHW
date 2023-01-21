@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  get '/cart', to: 'carts#show', as: :cart
   # admin section
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
@@ -15,13 +14,10 @@ Rails.application.routes.draw do
   root 'products#index'
   resources :products
   resources :categories
-  resources :line_items, only: :create
+  resources :line_items, only: %i[create update destroy]
   resources :orders
-  get 'line_items/:id' => 'line_items#destroy', as: 'line_item'
-  get 'line_items/:id/add' => 'line_items#add_quantity', as: 'line_item_add'
-  get 'line_items/:id/reduce' => 'line_items#reduce_quantity', as: 'line_item_reduce'
-  patch 'orders/:id' => 'orders#update', as: 'orders_confirm'
-  # get 'orders' => 'orders#index', as: 'orders_history'
+  get '/cart', to: 'carts#show', as: :cart
+  get 'orders/:id' => 'orders#update', as: 'orders_confirm'
 end
 
 # == Route Map
