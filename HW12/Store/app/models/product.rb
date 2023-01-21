@@ -23,7 +23,7 @@
 #
 class Product < ApplicationRecord
   belongs_to :category, dependent: :destroy
-  has_many   :line_items, dependent: :nullify
+  has_many   :line_items, dependent: :destroy
 
   validates :name, presence: true
 end
