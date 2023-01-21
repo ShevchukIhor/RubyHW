@@ -11,7 +11,7 @@
 class Cart < ApplicationRecord
   has_many :line_items, dependent: :destroy
   has_one :order, dependent: :nullify
-
+  has_one :user, dependent: :destroy
   def add_product(product)
     if (line_items = self.line_items.find_by(product_id: product.id))
       line_items.quantity += 1
