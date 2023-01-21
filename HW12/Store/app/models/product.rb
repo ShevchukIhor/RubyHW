@@ -22,7 +22,7 @@
 #  fk_rails_...  (category_id => categories.id)
 #
 class Product < ApplicationRecord
-  belongs_to :category
+  belongs_to :category, dependent: :destroy
   has_many   :line_items, dependent: :nullify
 
   validates :name, presence: true
