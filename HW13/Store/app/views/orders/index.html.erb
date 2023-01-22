@@ -1,0 +1,11 @@
+
+<div id="product" class="container-fluid p-4 text-center text-bg-dark">
+  <div class="row justify-content-center">
+    <% if current_user %>
+      <h2><%= current_user.email %> orders:</h2>
+        <%= render 'orders/layouts/orders_history' %>
+    <% else %>
+      <h3>Please SignIn or SignUp!</h3>
+    <% end %>
+  </div>
+</div>
