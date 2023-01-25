@@ -11,10 +11,10 @@
     <% current_cart.line_items.includes([:product]).each do |line_item| %>
       <tr>
         <td>
-          <% if line_item.product.image.blank? %>
-            <%= image_tag image_url('no_image.png'), width:50, height:50 %>
+          <% if line_item.product.image.attached? %>
+            <%= image_tag line_item.product.image.variant(:small) %>
           <% else %>
-            <%= image_tag image_url(line_item.product.image), width:50, height:50 %>
+            <%= image_tag src='no_image.png', width:50, height:50 %>
           <% end %>
         </td>
         <td><%= line_item.product.name %></td>
