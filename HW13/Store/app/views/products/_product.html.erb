@@ -4,10 +4,10 @@
         <p class="text-primary">Category: <%= product.category.title %></p>
       </div>
 
-          <% if product.image.blank? %>
-            <%= image_tag src='no_image.png', class: 'card-img-top product_image', alt: "#{product.name}" %>
+          <% if product.image.attached? %>
+            <%= image_tag product.image.variant(:main), class: 'card-img-top', alt: "#{product.name}" %>
           <% else %>
-            <%= image_tag src="#{product.image}", class: 'card-img-top product_image', alt: "#{product.name}" %>
+            <%= image_tag src='no_image.png', class: 'card-img-top product_image', alt: "#{product.name}" %>
           <% end %>
 
         <div class="card-body px">
