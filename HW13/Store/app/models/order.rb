@@ -27,4 +27,6 @@ class Order < ApplicationRecord
   has_many :line_items, dependent: :nullify
 
   enum :status, %i[unpaid paid]
+
+
 end

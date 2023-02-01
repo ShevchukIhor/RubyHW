@@ -5,7 +5,7 @@ class OrdersController < ApplicationController
   before_action :set_order, only: %i[show update]
 
   def index
-    @orders = current_user.orders.includes([:cart]).all if current_user
+    @orders = current_user.orders.includes([:cart]).all
   end
 
   def show; end
@@ -18,6 +18,7 @@ class OrdersController < ApplicationController
 
   def update
     @order.paid!
+    NotifierMailer.order_notify(current_user, @order).deliver_now if params[:confirm] == 'confirm'
     redirect_to order_path(@order), notice: 'Order was successfully paided'
   end
 

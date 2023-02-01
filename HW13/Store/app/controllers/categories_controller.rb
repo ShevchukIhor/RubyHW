@@ -5,13 +5,13 @@ class CategoriesController < ApplicationController
 
   # GET /categories or /categories.json
   def index
-    @categories = Category.includes([:products]).all
+    @categories = Category.includes([products: :image_attachment]).all
   end
 
   # GET /categories/1 or /categories/1.json
   def show
     @title = @category.title
-    @category = @category.products
+    @category = @category.products.includes([:image_attachment])
     @product_id = @category.ids
   end
 

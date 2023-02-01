@@ -8,7 +8,7 @@
       <th>Price</th>
       <th></th>
     </tr>
-    <% current_cart.line_items.includes([:product]).each do |line_item| %>
+    <% current_cart.line_items.includes([product: :image_attachment]).each do |line_item| %>
       <tr>
         <td>
           <% if line_item.product.image.attached? %>
