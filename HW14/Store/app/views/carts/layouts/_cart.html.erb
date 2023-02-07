@@ -1,0 +1,54 @@
+
+<div class="container">
+  <table class="table text-white">
+    <tr>
+      <th>Image</th>
+      <th>Name</th>
+      <th>Quantity</th>
+      <th>Price</th>
+      <th></th>
+    </tr>
+    <% current_cart.line_items.includes([product: :image_attachment]).each do |line_item| %>
+      <tr>
+        <td>
+          <% if line_item.product.image.attached? %>
+            <%= image_tag line_item.product.image.variant(:small) %>
+          <% else %>
+            <%= image_tag src='no_image.png', width:50, height:50 %>
+          <% end %>
+        </td>
+        <td><%= line_item.product.name %></td>
+        <td>
+          <div class="d-flex justify-content-around">
+          <!-- reduce -->
+          <%= button_to line_item_path(id: line_item), method: :patch, class: "btn btn-outline-danger btn-sm" do %>
+            <span><b>-</b></span>
+          <% end %>
+          <!-- -->
+          <%= line_item.quantity %>
+          <!-- add -->
+          <%= button_to line_item_path(id: line_item, params: { add: 'increase' }), method: :patch , class: "btn btn-outline-success btn-sm" do %>
+            <span><b>+</b></span>
+          <% end %>
+          <!-- -->
+          </div>
+        </td>
+        <td><%= number_to_currency(line_item.price_multiply_quantity) %></td>
+        <td>
+          <!-- Remove -->
+          <%= button_to line_item_path(id: line_item), method: :delete, class: "btn btn-outline-danger btn-sm" do %>
+            <span><b>delete</b></span>
+          <% end %>
+          <!-- -->
+        </td>
+      </tr>
+    <% end %>
+    <tr>
+      <td></td>
+      <td></td>
+      <td>Total price:</td>
+      <td><b><%= number_to_currency(current_cart.cart_total_price) %></b></td>
+      <td></td>
+    </tr>
+  </table>
+</div>

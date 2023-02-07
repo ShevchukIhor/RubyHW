@@ -1,0 +1,10 @@
+<div class="container-fluid">
+  <h2>Dear <%= @user.email %> </h2>
+  <h3>Thanks for your order!</h3>
+    <p>Your Order # <%= @order.id %> successfully paid!</p>
+  <h5><u>Details of your order:</u></h5>
+    <div style='text-align: center;'>
+      <%= render 'orders/layouts/order' %>
+    </div>
+</div>
+
