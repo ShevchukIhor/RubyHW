@@ -3,7 +3,7 @@
   :enabled: true
   :schedule:
     monthly_lottery:
-      cron: '0 0 1 * * *'
+      cron: '0 0 1 * *'
       class: 'MonthlyLotteryJob'
       queue: 'default'
       description: 'Runs once per month for select two users who made orders last month'
