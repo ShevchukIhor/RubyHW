@@ -1,0 +1,12 @@
+
+<div id="product" class="container-fluid p-4 text-center text-bg-dark">
+  <div class="row">
+   <h3>Products</h3>
+    <div class="row justify-content-center">
+      <% @products.each do | product |%>
+        <%= render product %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
