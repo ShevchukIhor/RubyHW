@@ -5,11 +5,11 @@
 **Type in console:**
 
 ```ruby
-git clone https://github.com/ShevchukIhor/RubyHW/tree/main/HW13
+git clone https://github.com/ShevchukIhor/RubyHW/tree/main/HW14
 ```
 
 ```ruby
-cd RubyHW/HW13/Store
+cd RubyHW/HW14/Store
 ````
 
 ```ruby
