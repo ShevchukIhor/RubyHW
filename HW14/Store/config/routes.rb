@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
+require 'sidekiq-scheduler/web'
 require 'sidekiq/web'
-Rails.application.routes.draw do
-  #mount Sidekiq::Web => '/sidekiq'
 
+Rails.application.routes.draw do
   # admin section
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
